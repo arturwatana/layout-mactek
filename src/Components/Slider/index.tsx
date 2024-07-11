@@ -2,7 +2,6 @@ import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { motion} from "framer-motion"
 import { useEffect, useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
-import Nuno from "../../assets/nunofrachtwhite.svg"
 import Flat from "../../assets/logo.png"
 type SwipeProps = {
     cards: number,
