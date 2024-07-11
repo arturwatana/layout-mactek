@@ -17,10 +17,23 @@ import { FaFacebookF } from "react-icons/fa";
 import { PiInstagramLogo } from "react-icons/pi";
 import { FaTwitter } from "react-icons/fa";
 import { RxLinkedinLogo } from "react-icons/rx";
-
+import { useEffect, useState } from "react"
+import { MdKeyboardArrowDown } from "react-icons/md";
 function App() {
+  const [scrollPosition, setScrollPosition] = useState(0);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
 
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  
   return (
     <>
       <Flex w="100vw" flexDir={"column"}>
@@ -28,7 +41,7 @@ function App() {
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "90vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={MainImg} w="100vw" minH="90vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
-            <Flex zIndex={900} w="100%" h="100%" minH="90vh"  alignItems={"center"} flexDirection={"column"} >
+            <Flex zIndex={900} w="100%"  pb="50px " h="100%" minH="90vh" alignItems={"center"} flexDirection={"column"} >
               <Flex w="85%" flexDir={"column"} gap={"40px"}>
                 <Flex justifyContent={"space-between"} color={"rgba(255,255,255,0.8)"} >
                   <Flex gap={"40px"} fontSize={"12.8px"}>
@@ -36,8 +49,8 @@ function App() {
                     <Text>comercial@mactek.net</Text>
                   </Flex>
                   <Flex gap={"40px"} fontSize={"12.8px"}>
-                    <Text>Entrar / Cadastre-se</Text>
-                    <Text>Languages
+                    <Text cursor={"pointer"}>Entrar / Cadastre-se</Text>
+                    <Text cursor={"pointer"}>Languages
                     </Text>
                   </Flex>
                 </Flex>
@@ -46,7 +59,7 @@ function App() {
                     <Image w="100%" h="100%" objectFit={"contain"} src={MactekLogo} />
                   </Flex>
                   <UnorderedList listStyleType={"none"} fontSize={"14.4px"} fontWeight={500} color={"rgba(255,255,255,0.8)"} display={"flex"} gap={"30px"} justifyContent={"center"} alignItems={"center"}>
-                    <ListItem _hover={{ color: "white", cursor: "pointer" }}>Todos modulos</ListItem>
+                    <ListItem style={{ display:"flex", justifyContent:"center", alignItems:"center"}} _hover={{ color: "white", cursor: "pointer" }}><Text>Todos modulos</Text> <MdKeyboardArrowDown /></ListItem>
                     <ListItem _hover={{ color: "white", cursor: "pointer" }}>A Mactek</ListItem>
                     <ListItem _hover={{ color: "white", cursor: "pointer" }}>Suporte</ListItem>
                     <ListItem _hover={{ color: "white", cursor: "pointer" }}>Contato</ListItem>
@@ -140,28 +153,28 @@ function App() {
               <Text color={"rgba(255,255,255,0.8)"} w="70%" fontSize={"16px"}>Faça aqui o download da ferramenta para suporte em ambiente <span style={{ color: "#FBC431" }}>Windows</span> e <span style={{ color: "#FBC431" }}>Mac Os</span>. Esta ferramenta permitirá o acesso remoto dos nossos profissionais de suporte para a melhor qualidade no atendimento.</Text>
               <Flex justifyContent={"space-between"}>
                 <Flex flexDir={"column"} w="350px" color="rgba(255,255,255,0.8)" gap={"20px"}>
-                  <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+<CountUp style={{ color: "#FBC431" }} end={45} duration={3} /></Text>
+                  <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+{scrollPosition <= 700 ? "0" : <CountUp style={{ color: "#FBC431" }} end={45} duration={3} />}</Text>
                   <Flex flexDir={"column"}>
                     <Text color="#FBC431" fontWeight="bold" fontSize={"13px"}>BIG NUMBERS 1</Text>
                     <Text fontSize={"16px"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur</Text>
                   </Flex>
                 </Flex>
                 <Flex flexDir={"column"} w="350px" color="rgba(255,255,255,0.8)" gap={"20px"}>
-                  <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"} >+<CountUp style={{ color: "#FBC431" }} end={50} duration={3} /></Text>
+                  <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"} >+{scrollPosition <= 700 ? "0" :<CountUp style={{ color: "#FBC431" }} end={50} duration={3} />}</Text>
                   <Flex flexDir={"column"}>
                     <Text fontWeight="bold" fontSize={"13px"}>BIG NUMBERS 1</Text>
                     <Text fontSize={"16px"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur</Text>
                   </Flex>
                 </Flex>
                 <Flex flexDir={"column"} w="350px" color="rgba(255,255,255,0.8)" gap={"20px"}>
-                  <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+<CountUp style={{ color: "#FBC431" }} end={50} duration={3} /></Text>
+                  <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+{scrollPosition <= 700 ? "0" :<CountUp style={{ color: "#FBC431" }} end={50} duration={3} />}</Text>
                   <Flex flexDir={"column"}>
                     <Text fontWeight="bold" fontSize={"13px"}>BIG NUMBERS 1</Text>
                     <Text fontSize={"16px"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur</Text>
                   </Flex>
                 </Flex>
                 <Flex flexDir={"column"} w="350px" color="rgba(255,255,255,0.8)" gap={"20px"}>
-                  <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+<CountUp style={{ color: "#FBC431" }} end={50} duration={3} /></Text>
+                  <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+{scrollPosition <= 700 ? "0" :<CountUp style={{ color: "#FBC431" }} end={50} duration={3} />}</Text>
                   <Flex flexDir={"column"}>
                     <Text color="#FBC431" fontWeight="bold" fontSize={"13px"}>BIG NUMBERS 1</Text>
                     <Text fontSize={"16px"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur</Text>
@@ -196,49 +209,49 @@ function App() {
               </Flex>
               <Slider />
             </Flex>
+          </Flex>
+        </Flex>
+        <Flex w="100%" minH="70vh" h="100%" zIndex={900} justifyContent={"center"} position={"relative"}>
+          <div style={{ backgroundColor: "rgba(0, 0, 0, 0.6)", width: "100%", minHeight: "70vh", height: "100%", position: "absolute", zIndex: 90 }} />
+          <Image position={"absolute"} src={YoungWoman} w="100vw" height={"100%"} minH={"70vh"} backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 50%"} />
+          <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
+            <Flex zIndex={900} w="80%" alignItems={"center"} flexDir={"column"} gap="46px" p="110px 0" >
+              <Heading fontSize={"36px"} fontWeight={400} color={"rgba(255,255,255,0.8)"}>Mantenha contato com nossa equipe</Heading>
+              <motion.form style={{ display: "flex", gap: "15px", flexDirection: "column", width: "80%", alignItems: "center" }}>
+                <Input background={"rgba(255, 255, 255, 0.2)"} color={"rgba(255,255,255,0.8)"} placeholder="Your Name (required)" />
+                <Input background={"rgba(255, 255, 255, 0.2)"} color={"rgba(255,255,255,0.8)"} placeholder="Your Name (required)" />
+                <Input background={"rgba(255, 255, 255, 0.2)"} color={"rgba(255,255,255,0.8)"} height={"120px"} />
+                <Button borderRadius={"30px"} fontSize={"15px"} h="40px" w="10%" fontWeight={500} _hover={{ color: "rgba(255,255,255,0.8)", background: "#C89C27" }} p={"0 18px"} background={"#FBC431"} color={"rgba(255,255,255,0.8)"}>Submit</Button>
+              </motion.form>
             </Flex>
           </Flex>
-          <Flex w="100%" minH="70vh" h="100%" zIndex={900} justifyContent={"center"} position={"relative"}>
-            <div style={{ backgroundColor: "rgba(0, 0, 0, 0.6)", width: "100%", minHeight: "70vh", height: "100%", position: "absolute", zIndex: 90 }} />
-            <Image position={"absolute"} src={YoungWoman} w="100vw" height={"100%"} minH={"70vh"} backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 50%"} />
-            <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
-              <Flex zIndex={900} w="80%" alignItems={"center"} flexDir={"column"} gap="46px" p="110px 0" >
-                <Heading fontSize={"36px"} fontWeight={400} color={"rgba(255,255,255,0.8)"}>Mantenha contato com nossa equipe</Heading>
-                <motion.form style={{ display: "flex", gap: "15px", flexDirection: "column", width: "80%", alignItems: "center" }}>
-                  <Input background={"rgba(255, 255, 255, 0.2)"} color={"rgba(255,255,255,0.8)"} placeholder="Your Name (required)" />
-                  <Input background={"rgba(255, 255, 255, 0.2)"} color={"rgba(255,255,255,0.8)"} placeholder="Your Name (required)" />
-                  <Input background={"rgba(255, 255, 255, 0.2)"} color={"rgba(255,255,255,0.8)"} height={"120px"} />
-                  <Button borderRadius={"30px"} fontSize={"15px"} h="40px" w="10%" fontWeight={500} _hover={{ color: "rgba(255,255,255,0.8)", background: "#C89C27" }} p={"0 18px"} background={"#FBC431"} color={"rgba(255,255,255,0.8)"}>Submit</Button>
-                </motion.form>
+        </Flex>
+        <Flex pt="80px" w="100%" minH="30vh" h="100%" zIndex={900} justifyContent={"center"} position={"relative"}>
+          <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
+            <Flex borderTop={"1px solid #FBC431"} minH="30vh" gap="25px" w="100%" flexDir={"column"} alignItems={"center"}  >
+              <Flex w="220px" mt="40px" h="46px" >
+                <Image h="100%" w="100%" src={MactekLogo1} />
               </Flex>
-            </Flex>
-          </Flex>
-          <Flex pt="80px" w="100%" minH="30vh" h="100%" zIndex={900} justifyContent={"center"} position={"relative"}>
-            <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
-              <Flex borderTop={"1px solid #FBC431"} minH="30vh" gap="25px" w="100%" flexDir={"column"}  alignItems={"center"}  >
-                <Flex w="220px" mt="40px" h="46px" >
-                  <Image h="100%" w="100%" src={MactekLogo1} />
+              <Text fontSize={"12px"}>A flexibilidade que a Mactek tem em analisar e melhorar o sistema com o feedback do cliente e que faz com que sintamos seguros em continuar a parceria</Text>
+              <Flex w="100%" justifyContent={"space-between"} alignItems={"center"}>
+                <Text fontSize={"12px"} textAlign={"center"} w="15%">Todos direitos reservados Mactek © 2024</Text>
+                <Flex fontSize={"18px"} gap="8px" color="gray">
+                  <FaFacebookF cursor={"pointer"} />
+                  <PiInstagramLogo cursor={"pointer"} />
+                  <FaTwitter cursor={"pointer"} />
+                  <RxLinkedinLogo cursor={"pointer"} />
                 </Flex>
-                <Text fontSize={"12px"}>A flexibilidade que a Mactek tem em analisar e melhorar o sistema com o feedback do cliente e que faz com que sintamos seguros em continuar a parceria</Text>
-                <Flex w="100%" justifyContent={"space-between"} alignItems={"center"}>
-                  <Text fontSize={"12px"} textAlign={"center"} w="15%">Todos direitos reservados Mactek © 2024</Text>
-                  <Flex fontSize={"18px"} gap="8px" color="gray">
-                    <FaFacebookF cursor={"pointer"}/>
-                    <PiInstagramLogo cursor={"pointer"}/>
-                    <FaTwitter cursor={"pointer"}/>
-                    <RxLinkedinLogo cursor={"pointer"}/>
-                  </Flex>
-                  <Flex fontSize={"12.8px"} gap="20px">
-                    <Text cursor={"pointer"}>Termos de uso</Text>
-                    <Text cursor={"pointer"}>Politica de Privacidade</Text>
-                  </Flex>
+                <Flex fontSize={"12.8px"} gap="20px">
+                  <Text cursor={"pointer"}>Termos de uso</Text>
+                  <Text cursor={"pointer"}>Politica de Privacidade</Text>
                 </Flex>
               </Flex>
             </Flex>
           </Flex>
         </Flex>
-      </>
-      )
+      </Flex>
+    </>
+  )
 }
 
-      export default App
+export default App

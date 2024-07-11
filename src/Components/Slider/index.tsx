@@ -18,7 +18,7 @@ export default function Slider(){
 
     const variants = {
         swipe:(i: number) => ({
-            x: 0 - (180 * i),
+            x: 0 - (220 * i),
             transition: {
                 duration: 0.5,
             }
