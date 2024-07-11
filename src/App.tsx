@@ -29,6 +29,11 @@ function App() {
 
     window.addEventListener('scroll', handleScroll);
 
+    if(scrollPosition >= 700) {
+      window.removeEventListener('scroll', handleScroll);
+
+    }
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
