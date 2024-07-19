@@ -1,11 +1,11 @@
-import { Button, Flex, Heading, Input, Text, Textarea } from "@chakra-ui/react";
+import { Button, Flex, Heading, Input,  Textarea } from "@chakra-ui/react";
 import { motion } from "framer-motion"
 import { toast, ToastContainer } from "react-toastify";
 import { ContentContext } from "../../App";
 import { useContext } from "react";
 
 export default function AddMessage() {
-    const {  setMessagesDB, messagesDB} = useContext(ContentContext);
+    const {  setMessagesDB} = useContext(ContentContext);
 
     function addMessage(element: any){
         element.preventDefault()

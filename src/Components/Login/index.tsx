@@ -1,5 +1,4 @@
-import { Button, Flex, Image, chakra } from "@chakra-ui/react";
-import { useParams } from "react-router-dom";
+import { Button, Flex, chakra } from "@chakra-ui/react";
 import { useState } from "react";
 import {motion} from "framer-motion"
 type LoginProps = {
@@ -9,8 +8,6 @@ type LoginProps = {
 
 export default function Login({setIsLogged}: LoginProps) {
     const [animateMenu, setAnimateMenu] = useState<boolean>(false)
-
-    const params = useParams()
 
     const animations = {
         render: {
