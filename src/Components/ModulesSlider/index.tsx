@@ -63,49 +63,49 @@ export default function ModulesSlider() {
                     </Box>
                     <Flex maxW="600px" overflow={"hidden"}  >
                         <motion.div animate={"swipe" } style={{ display: "flex", gap: "5px" }} custom={swipe.cardInView} variants={variants} >
-                            <Flex flexDir={"column"} p="0 15px 30px" gap="20px" color="#FBC431">
+                            <Flex flexDir={"column"} p="0 15px 30px" gap="20px" color="#FBC431" as={"a"} href="/modules/aereo">
                                 <Flex w="285.2px" h="176px" >
                                     <Image w={"100%"} h="100%" fit={"contain"} src={Tela2} />
                                 </Flex>
                                 <Text fontWeight={600}  fontSize={"20px"}>Modulo Aereo</Text>
                                 <Text w="100%" color="black" fontSize={"12px"}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, </Text>
                             </Flex>
-                            <Flex flexDir={"column"} p="0 15px 30px"  gap="20px" color="#FBC431">
+                            <Flex flexDir={"column"} p="0 15px 30px"  gap="20px" color="#FBC431" as={"a"} href="/modules/maritimo">
                                 <Flex w="285.2px" h="176px" >
                                     <Image w={"100%"}  h="100%" fit={"contain"} src={Tela2} />
                                 </Flex>
                                 <Text fontWeight={600} fontSize={"20px"}>Modulo Maritimo</Text>
                                 <Text w="100%" color="black" fontSize={"12px"}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, </Text>
                             </Flex>
-                            <Flex flexDir={"column"} p="0 15px 30px" gap="20px" color="#FBC431">
+                            <Flex flexDir={"column"} p="0 15px 30px" gap="20px" color="#FBC431" as={"a"} href="/modules/rodoviario">
                                 <Flex w="285.2px" h="176px" >
                                     <Image w={"100%"} h="100%" fit={"contain"} src={Tela2} />
                                 </Flex>
                                 <Text fontWeight={600} fontSize={"20px"}>Modulo Rodoviario</Text>
                                 <Text w="100%" color="black" fontSize={"12px"}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, </Text>
                             </Flex>
-                            <Flex flexDir={"column"} p="0 15px 30px" gap="20px" color="#FBC431">
+                            <Flex flexDir={"column"} p="0 15px 30px" gap="20px" color="#FBC431" as={"a"} href="/modules/aduaneiro">
                                 <Flex w="285.2px" h="176px" >
                                     <Image w={"100%"} h="100%" fit={"contain"} src={Tela2} />
                                 </Flex>
                                 <Text fontWeight={600} fontSize={"20px"}>Modulo Aduaneiro</Text>
                                 <Text w="100%" color="black" fontSize={"12px"}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, </Text>
                             </Flex>
-                            <Flex flexDir={"column"}  p="0 15px 30px" gap="20px" color="#FBC431">
+                            <Flex flexDir={"column"}  p="0 15px 30px" gap="20px" color="#FBC431" as={"a"} href="/modules/contabilidade">
                                 <Flex w="285.2px" h="176px" >
                                     <Image w={"100%"} h="100%" fit={"contain"} src={Tela2} />
                                 </Flex>
                                 <Text fontWeight={600} fontSize={"20px"}>Modulo Contabilidade</Text>
                                 <Text w="100%" color="black" fontSize={"12px"}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, </Text>
                             </Flex>
-                            <Flex flexDir={"column"} p="0 15px 30px" gap="20px" color="#FBC431">
+                            <Flex flexDir={"column"} p="0 15px 30px" gap="20px" color="#FBC431" as={"a"} href="/modules/aereo">
                                 <Flex w="285.2px" h="176px" >
                                     <Image w={"100%"} h="100%" fit={"contain"} src={Tela2} />
                                 </Flex>
                                 <Text fontWeight={600} fontSize={"20px"}>Modulo Aereo</Text>
                                 <Text w="100%" color="black" fontSize={"12px"}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, </Text>
                             </Flex>
-                            <Flex flexDir={"column"} p="0 15px 30px" gap="20px" color="#FBC431">
+                            <Flex flexDir={"column"} p="0 15px 30px" gap="20px" color="#FBC431" as={"a"} href="/modules/aereo"  >
                                 <Flex w="285.2px" h="176px" >
                                     <Image w={"100%"} h="100%" fit={"contain"} src={Tela2} />
                                 </Flex>

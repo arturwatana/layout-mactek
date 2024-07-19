@@ -1,6 +1,5 @@
 import { Button, Flex, Heading, Image, Input, ListItem, Text, UnorderedList } from "@chakra-ui/react"
 import MainImg from "../../assets/main-demo1.jpg"
-import MactekLogo from "../../assets/logo-mactek.png"
 import Aerial from "../../assets/Iconsa.png"
 import Maritime from "../../assets/Iconsmar.png"
 import Rodov from "../../assets/Iconsrodv.png"
@@ -18,11 +17,12 @@ import { PiInstagramLogo } from "react-icons/pi";
 import { FaTwitter } from "react-icons/fa";
 import { RxLinkedinLogo } from "react-icons/rx";
 import { useContext, useEffect, useState } from "react"
-import { MdKeyboardArrowDown } from "react-icons/md";
 import ModalContact from "../MenuContact"
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from "react-toastify"
 import { ContentContext, MessageProps } from "../../App"
+import NavBar from "../NavBar"
+import FixedNavBar from "../FixedNavBar"
 
 export default function MainComponent() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -59,38 +59,14 @@ export default function MainComponent() {
     <>
     <ToastContainer />
      <ModalContact isOpen={openModal} setOpenModal={setOpenModal} />
-      <Flex w="100vw" flexDir={"column"}>
+      <Flex w="100vw" flexDir={"column"} position={"relative"}>
         <Flex w="100%" minH="80vh" h="100%" position={"relative"} justifyContent={"center"} alignItems={"center"} >
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "80vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={MainImg} w="100vw" minH="80vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Flex zIndex={900} w="100%"  pb="50px " h="100%" minH="80vh" alignItems={"center"} flexDirection={"column"} >
-              <Flex w="85%" flexDir={"column"} gap={"40px"}>
-                <Flex justifyContent={"space-between"} color={"rgba(255,255,255,0.8)"} >
-                  <Flex gap={"40px"} fontSize={"12.8px"}>
-                    <Text>+55 11 3159-3665</Text>
-                    <Text>comercial@mactek.net</Text>
-                  </Flex>
-                  <Flex gap={"40px"} fontSize={"12.8px"}>
-                    <Text cursor={"pointer"} as="a" href="/panel">Entrar / Cadastre-se</Text>
-                    <Text cursor={"pointer"}>Languages
-                    </Text>
-                  </Flex>
-                </Flex>
-                <Flex justifyContent={"space-between"} >
-                  <Flex w={"200px"} h="41px">
-                    <Image w="100%" h="100%" objectFit={"contain"} src={MactekLogo} />
-                  </Flex>
-                  <UnorderedList listStyleType={"none"} fontSize={"14.4px"} fontWeight={500} color={"rgba(255,255,255,0.8)"} display={"flex"} gap={"30px"} justifyContent={"center"} alignItems={"center"}>
-                    <ListItem style={{ display:"flex", justifyContent:"center", alignItems:"center"}} _hover={{ color: "white", cursor: "pointer" }}><Text>Todos modulos</Text> <MdKeyboardArrowDown /></ListItem>
-                    <ListItem _hover={{ color: "white", cursor: "pointer" }}>A Mactek</ListItem>
-                    <ListItem _hover={{ color: "white", cursor: "pointer" }}>Suporte</ListItem>
-                    <ListItem _hover={{ color: "white", cursor: "pointer" }}>Contato</ListItem>
-                    <Button fontSize={"13.1px"} borderRadius={"5px"} border={"2px solid #FBC431"} as="a" href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" h="32px" _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} p={"0 15px"} background={"none"} color={"#FBC431"} >Windows</Button>
-                    <Button fontSize={"13.1px"} borderRadius={"5px"} border={"2px solid #FBC431"} as="a" href="https://download.teamviewer.com/download/TeamViewer.dmg" h="32px" _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} p={"0 15px"} background={"none"} color={"#FBC431"}>Mac OS</Button>
-                  </UnorderedList>
-                </Flex>
-              </Flex>
+              <FixedNavBar dismont={scrollPosition == 0 ? true : false} render={scrollPosition >= 300 ? true : false}/>
+              <NavBar/>
               <Flex w="100%" h="100%" mt={"180px"} flexDir={"column"} alignItems={"center"} color="white" gap="50px">
                 <Flex flexDir={"column"} gap={"50px"} >
                   <Text w="62%" style={{ fontWeight: 300 }} lineHeight={"1.6"} letterSpacing={"1px"} fontSize={"28px"} >
@@ -140,7 +116,7 @@ export default function MainComponent() {
           </Flex>
 
         </Flex>
-        <Flex w="100%" minH="60vh" h="100%" zIndex={900} justifyContent={"center"} position={"relative"}>
+        <Flex w="100%" minH="60vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
           <div style={{ backgroundColor: "rgb(255, 255, 255, 0.9)", width: "100%", minHeight: "60vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={YoungWoman} w="100%" minH="60vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
@@ -167,7 +143,7 @@ export default function MainComponent() {
             </Flex>
           </Flex>
         </Flex>
-        <Flex justifyContent={"center"} position={"relative"}>
+        <Flex justifyContent={"center"} zIndex={500} position={"relative"}>
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.4)", width: "100%", minHeight: "70vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} minH="70vh" h="100%" src={Background01} w="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"40% 50%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
@@ -185,14 +161,14 @@ export default function MainComponent() {
                 <Flex flexDir={"column"} w="350px" color="rgba(255,255,255,0.8)" gap={"20px"}>
                   <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"} >+{scrollPosition <= 700 ? "0" :<CountUp style={{ color: "#FBC431" }} end={100} duration={3} />}</Text>
                   <Flex flexDir={"column"}>
-                    <Text fontWeight="bold" fontSize={"13px"}>BIG NUMBERS 1</Text>
+                    <Text color="#FBC431" fontWeight="bold" fontSize={"13px"}>BIG NUMBERS 1</Text>
                     <Text fontSize={"16px"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur</Text>
                   </Flex>
                 </Flex>
                 <Flex flexDir={"column"} w="350px" color="rgba(255,255,255,0.8)" gap={"20px"}>
                   <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+{scrollPosition <= 700 ? "0" :<CountUp style={{ color: "#FBC431" }} end={50} duration={3} />}</Text>
                   <Flex flexDir={"column"}>
-                    <Text fontWeight="bold" fontSize={"13px"}>BIG NUMBERS 1</Text>
+                    <Text color="#FBC431" fontWeight="bold" fontSize={"13px"}>BIG NUMBERS 1</Text>
                     <Text fontSize={"16px"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur</Text>
                   </Flex>
                 </Flex>
@@ -208,7 +184,7 @@ export default function MainComponent() {
             </Flex>
           </Flex>
         </Flex>
-        <Flex w="100%" minH="60vh" h="100%" zIndex={900} justifyContent={"center"} position={"relative"}>
+        <Flex w="100%" minH="60vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
           <div style={{ backgroundColor: "rgb(255, 255, 255, 0.9)", width: "100vw", minHeight: "80vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={YoungWoman} w="100vw" height={"100%"} minH={"80vh"} backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
@@ -234,7 +210,7 @@ export default function MainComponent() {
             </Flex>
           </Flex>
         </Flex>
-        <Flex w="100%" minH="70vh" h="100%" zIndex={900} justifyContent={"center"} position={"relative"}>
+        <Flex w="100%" minH="70vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.6)", width: "100%", minHeight: "70vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={YoungWoman} w="100vw" height={"100%"} minH={"70vh"} backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 50%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
@@ -249,7 +225,7 @@ export default function MainComponent() {
             </Flex>
           </Flex>
         </Flex>
-        <Flex pt="80px" w="100%" minH="30vh" h="100%" zIndex={900} justifyContent={"center"} position={"relative"}>
+        <Flex pt="80px" w="100%" minH="30vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Flex borderTop={"1px solid #FBC431"} minH="30vh" gap="25px" w="100%" flexDir={"column"} alignItems={"center"}  >
               <Flex w="220px" mt="40px" h="46px" >

@@ -25,7 +25,7 @@ export default function AddMessage() {
                                     <Input id="startDate" type="date" w="50%"/>
                                     <motion.label htmlFor="endDate">Termina em:</motion.label>
                                     <Input id="endDate" type="date" w="50%"/>
-                                    <Button type="submit">Submit</Button>
+                                    <Button type="submit"  background='#FFB800'>Submit</Button>
                                 </motion.form>
                             </Flex>    
         </>
