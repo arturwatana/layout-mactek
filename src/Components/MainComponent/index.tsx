@@ -72,7 +72,7 @@ export default function MainComponent() {
                     <Text>comercial@mactek.net</Text>
                   </Flex>
                   <Flex gap={"40px"} fontSize={"12.8px"}>
-                    <Text cursor={"pointer"}>Entrar / Cadastre-se</Text>
+                    <Text cursor={"pointer"} as="a" href="/panel">Entrar / Cadastre-se</Text>
                     <Text cursor={"pointer"}>Languages
                     </Text>
                   </Flex>
