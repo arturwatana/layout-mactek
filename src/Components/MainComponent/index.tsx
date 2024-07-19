@@ -7,7 +7,7 @@ import Clearence from "../../assets/Iconsrast.png"
 import YoungWoman from "../../assets/young-pretty-busy-woman-sitting-alone-conference-room-many-yellow-chairs-scaled.jpg"
 import Background01 from "../../assets/fundo1.jpg"
 import CountUp from "react-countup"
-import EGEO from "../../assets/Desks.png"
+import ATLANTIS from "../../assets/Desks.png"
 import Slider from "../Slider"
 import ModulesSlider from "../ModulesSlider"
 import MactekLogo1 from "../../assets/MACTEK_Logo.png"
@@ -65,12 +65,12 @@ export default function MainComponent() {
           <Image position={"absolute"} src={MainImg} w="100vw" minH="80vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Flex zIndex={900} w="100%"  pb="50px " h="100%" minH="80vh" alignItems={"center"} flexDirection={"column"} >
-            <NavBar/>
+              <NavBar/>
               <FixedNavBar dismont={scrollPosition == 0 ? true : false} render={scrollPosition >= 300 ? true : false}/>
               <Flex w="100%" h="100%" mt={"180px"} flexDir={"column"} alignItems={"center"} color="white" gap="50px">
                 <Flex flexDir={"column"} gap={"50px"} >
                   <Text w="62%" style={{ fontWeight: 300 }} lineHeight={"1.6"} letterSpacing={"1px"} fontSize={"28px"} >
-                    <span style={{ color: "#FBC431", fontWeight: "500" }} color={"#FBC431"}>EGEO</span> é o melhor software de gestão de processos para freight forwarders do mercado, e o mais eficaz em otimização de tempo. TEST</Text>
+                    <span style={{ color: "#FBC431", fontWeight: "500" }} color={"#FBC431"}>ATLANTIS</span> é o melhor software de gestão de processos para freight forwarders do mercado, e o mais eficaz em otimização de tempo. TEST</Text>
                   <Button border={"3px solid #FBC431"} onClick={() => !openModal ? setOpenModal(true) : ""}  _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} fontWeight={400} fontSize={"15.5px"} maxW={"200px"} p="0 18px" borderRadius={"10px"} background={"none"} color={"#FBC431"}>Solicite uma demo</Button>
                 </Flex>
                 <Flex w="100%" justifyContent={"space-between"}>
@@ -148,7 +148,7 @@ export default function MainComponent() {
           <Image position={"absolute"} minH="70vh" h="100%" src={Background01} w="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"40% 50%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Flex zIndex={900} w="100%" justifyContent={"center"} flexDir={"column"} p={"120px 0"} gap={"60px"}>
-              <Heading color={"rgba(255,255,255,0.8)"} w="60%" fontSize={"36px"}>Conheça as vantagens para sua empresa de usar o sistema EGEO</Heading>
+              <Heading color={"rgba(255,255,255,0.8)"} w="60%" fontSize={"36px"}>Conheça as vantagens para sua empresa de usar o sistemas <span style={{ color: "#FBC431" }}>ATLANTIS</span></Heading>
               <Text color={"rgba(255,255,255,0.8)"} w="70%" fontSize={"16px"}>Faça aqui o download da ferramenta para suporte em ambiente <span style={{ color: "#FBC431" }}>Windows</span> e <span style={{ color: "#FBC431" }}>Mac Os</span>. Esta ferramenta permitirá o acesso remoto dos nossos profissionais de suporte para a melhor qualidade no atendimento.</Text>
               <Flex justifyContent={"space-between"}>
                 <Flex flexDir={"column"} w="350px" color="rgba(255,255,255,0.8)" gap={"20px"}>
@@ -197,13 +197,13 @@ export default function MainComponent() {
                   <Flex mt="50px">
                     <Flex flexDir={"column"} gap={"30px"}>
                       <Text fontWeight={300} fontSize={"16px"} w="90%">Fundada em 2004, a <span style={{ color: "#FBC431" }}>Mactek Sistemas©</span> é hoje uma empresa 100% brasileira. A idéia do desenvolvimento de um software para atender as necessidades dos freight forwarder surgiu ainda antes, em 1997. Pela participação ativa em um escritório de agenciamento de cargas local, a <span style={{ color: "#FBC431" }}>Mactek Sistemas© </span>vislumbrou a necessidade de uma ferramenta que controle os embarques e os faturamentos dos serviços prestados.</Text>
-                      <Text fontWeight={300} fontSize={"16px"} w="90%">Essa idéia deu origem ao <span style={{ color: "#FBC431" }}>EGEO©</span>, um software totalmente destinado a atender as necessidades do freight forwarder em todos os modais. Iniciando através dos modais aéreo e marítimo, o Cheetah X© foi lapidando ao longo do tempo através das experiências de parceiros e clientes, transformando-se numa ferramenta sólida e flexível, para pequenas, médias e grandes empresas no segmento de transporte Internacional.</Text>
+                      <Text fontWeight={300} fontSize={"16px"} w="90%">Essa idéia deu origem ao <span style={{ color: "#FBC431" }}>ATLANTIS©</span>, um software totalmente destinado a atender as necessidades do freight forwarder em todos os modais. Iniciando através dos modais aéreo e marítimo, o Cheetah X© foi lapidando ao longo do tempo através das experiências de parceiros e clientes, transformando-se numa ferramenta sólida e flexível, para pequenas, médias e grandes empresas no segmento de transporte Internacional.</Text>
                       <Button borderRadius={"15px"} fontSize={"15px"} w="25%" _hover={{ color: "rgba(255,255,255,0.8)", background: "#C89C27" }} p={"0 18px"} background={"#FBC431"} fontWeight={500} color={"rgba(255,255,255,0.8)"}>Conheca mais</Button>
                     </Flex>
                   </Flex>
                 </Flex>
                 <Flex w="570px"  >
-                  <Image w="100%" h="100%" objectFit={"contain"} src={EGEO} />
+                  <Image w="100%" h="100%" objectFit={"contain"} src={ATLANTIS} />
                 </Flex>
               </Flex>
               <Slider />

@@ -20,7 +20,7 @@ export default function NavBar(){
                   </Flex>
                 </Flex>
                 <Flex justifyContent={"space-between"} >
-                  <Flex w={"200px"} h="41px">
+                  <Flex as="a" href="/" w={"200px"} h="41px">
                     <Image w="100%" h="100%" objectFit={"contain"} src={MactekLogo} />
                   </Flex>
                   <UnorderedList listStyleType={"none"} fontSize={"14.4px"} fontWeight={500} color={"rgba(255,255,255,0.8)"} display={"flex"} gap={"30px"} justifyContent={"center"} alignItems={"center"}>

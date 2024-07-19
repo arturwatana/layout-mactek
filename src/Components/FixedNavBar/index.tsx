@@ -26,7 +26,7 @@ export default function FixedNavBar({dismont, render}: FixedNavBarProps){
          <motion.div initial={{ opacity: 0, display: "none"}} animate={dismont ? "dismont" : render ? "render" : ""} variants={variants} style={{width:"100vw" , position: "fixed", background: "rgba(255,255,255,1)", boxShadow: "2px 2px 15px black", zIndex:1200, display: "flex", justifyContent: "center", minHeight: "127px"}}>
          <motion.div style={{width:"55.8%", display: "flex", justifyContent: "center",paddingTop: "25px", flexDirection:"column", gap:"40px", boxShadow: "15px", zIndex:1000}}>
                 <Flex justifyContent={"space-between"} >
-                  <Flex w={"200px"} h="41px">
+                  <Flex as="a" href="/" w={"200px"} h="41px">
                     <Image w="100%" h="100%" objectFit={"contain"} src={MactekLogo} />
                   </Flex>
                   <UnorderedList listStyleType={"none"} fontSize={"14.4px"} fontWeight={500} color={"gray"} display={"flex"} gap={"30px"} justifyContent={"center"} alignItems={"center"}>
