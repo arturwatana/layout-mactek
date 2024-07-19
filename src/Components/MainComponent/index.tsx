@@ -17,14 +17,18 @@ import { FaFacebookF } from "react-icons/fa";
 import { PiInstagramLogo } from "react-icons/pi";
 import { FaTwitter } from "react-icons/fa";
 import { RxLinkedinLogo } from "react-icons/rx";
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { MdKeyboardArrowDown } from "react-icons/md";
 import ModalContact from "../MenuContact"
+import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from "react-toastify"
+import { ContentContext, MessageProps } from "../../App"
 
 export default function MainComponent() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [openModal, setOpenModal] = useState<boolean>(false)
-  const [email, setEmail] = useState<string>("")
+  const [messagesToday, setMessagesToday] = useState<MessageProps[]>([{description: "Informamos que no dia 13/01 não teremos expediente para suporte ao Atlantis."}, {description: "Devido a uma falha nos servidores da Microsoft, o Atlantis pode ter queda de desempenho."}])
+  const {  messagesDB} = useContext(ContentContext);
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -41,10 +45,20 @@ export default function MainComponent() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  
+
+  useEffect(() => {
+      messagesToday.map(message => toast.info(`${message.description}`))
+  }, [])
+
+  useEffect(() => {
+    messagesDB.map(message => setMessagesToday((prev) => [...prev, message]))
+  }, [])
+
+
   return (
     <>
-     <ModalContact email={email} isOpen={openModal} setOpenModal={setOpenModal} />
+    <ToastContainer />
+     <ModalContact isOpen={openModal} setOpenModal={setOpenModal} />
       <Flex w="100vw" flexDir={"column"}>
         <Flex w="100%" minH="80vh" h="100%" position={"relative"} justifyContent={"center"} alignItems={"center"} >
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "80vh", height: "100%", position: "absolute", zIndex: 90 }} />
@@ -72,8 +86,8 @@ export default function MainComponent() {
                     <ListItem _hover={{ color: "white", cursor: "pointer" }}>A Mactek</ListItem>
                     <ListItem _hover={{ color: "white", cursor: "pointer" }}>Suporte</ListItem>
                     <ListItem _hover={{ color: "white", cursor: "pointer" }}>Contato</ListItem>
-                    <Button fontSize={"13.1px"} borderRadius={"5px"} border={"2px solid #FBC431"} h="32px" _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} p={"0 15px"} background={"none"} color={"#FBC431"} >Windows</Button>
-                    <Button fontSize={"13.1px"} borderRadius={"5px"} border={"2px solid #FBC431"} h="32px" _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} p={"0 15px"} background={"none"} color={"#FBC431"}>Mac OS</Button>
+                    <Button fontSize={"13.1px"} borderRadius={"5px"} border={"2px solid #FBC431"} as="a" href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" h="32px" _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} p={"0 15px"} background={"none"} color={"#FBC431"} >Windows</Button>
+                    <Button fontSize={"13.1px"} borderRadius={"5px"} border={"2px solid #FBC431"} as="a" href="https://download.teamviewer.com/download/TeamViewer.dmg" h="32px" _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} p={"0 15px"} background={"none"} color={"#FBC431"}>Mac OS</Button>
                   </UnorderedList>
                 </Flex>
               </Flex>

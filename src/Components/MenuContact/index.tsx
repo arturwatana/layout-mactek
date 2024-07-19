@@ -15,7 +15,6 @@ import {
   } from '@chakra-ui/react'
   import {  useEffect, useState } from 'react'
   import { toast } from 'react-toastify';
-import Translator from '../../Utils/Translator';
   
   type ModalProps = {
     isOpen: boolean
@@ -65,26 +64,26 @@ import Translator from '../../Utils/Translator';
         >
           <ModalOverlay />
           <ModalContent w={"90%"}>
-            <ModalHeader>{Translator("modal.tittle")}</ModalHeader>
+            <ModalHeader>{"Solicite uma demo"}</ModalHeader>
               <chakra.form onSubmit={handleSubmit}>
             <ModalCloseButton />
             <ModalBody pb={6}>
               <FormControl >
-                <FormLabel>{Translator("modal.name")}</FormLabel>
-                <Input  placeholder={Translator("modal.name")}  id="name" />
-                <FormLabel mt={3}>{Translator("modal.empresa")}</FormLabel>
-                <Input placeholder={Translator("modal.empresa")}  id="enterprise"   />
+                <FormLabel>{"Nome"}</FormLabel>
+                <Input  placeholder={"Digite seu nome"}  id="name" />
+                <FormLabel mt={3}>{"Empresa"}</FormLabel>
+                <Input placeholder={"Empresa"}  id="enterprise"   />
                 <FormLabel  mt={3}>Email</FormLabel>
                 <Input value={email ? email : ""}  placeholder='Email' id="email"  type='email' />
-                <FormLabel mt={3} >{Translator("modal.message")}</FormLabel>
-                <Textarea  placeholder={Translator("modal.message")} id="message" />
+                <FormLabel mt={3} >{"Mensagem"}</FormLabel>
+                <Textarea  placeholder={"Digite uma mensagem"} id="message" />
               </FormControl>
             </ModalBody>
             <ModalFooter>
               <Button background='#FFB800' mr={3} type='submit'>
-              {Translator("modal.text2")}
+              Submit
               </Button>
-              <Button onClick={close}>{Translator("modal.cancel")}</Button>
+              <Button onClick={close}>Cancelar</Button>
             </ModalFooter>
               </chakra.form>
           </ModalContent>

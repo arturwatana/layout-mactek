@@ -1,20 +1,42 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import MainComponent from "./Components/MainComponent";
 import IndividualModule from "./Components/IndividualModule";
-import Login from "./Components/Login";
-import Panel from "./Components/Panel";
+import SecurityPanel from "./Components/SecurityPanel";
+import { createContext, useState } from "react";
+
+export type MessageProps = {
+  description: string
+}
+
+export type myContextProps = {
+  messagesDB: MessageProps[];
+  setMessagesDB: React.Dispatch<React.SetStateAction<MessageProps[]>>;
+};
+
+export const ContentContext = createContext<myContextProps>({
+  messagesDB: [],
+  setMessagesDB: () => {},
+});
 
 function App() {
-  return (
+const [messagesDB, setMessagesDB] = useState<MessageProps[]>([])
+
+const contextValues = {
+  messagesDB,
+  setMessagesDB,
+};
+
+return (
     <>
+        <ContentContext.Provider value={contextValues}>
         <Router>
           <Routes>
             <Route path="/" element={<MainComponent />} />
-            <Route path="/modules/:id" element={<IndividualModule />} />
-            <Route path="/panel/login" element={<Login />} />
-            <Route path="/panel" element={<Panel />} />
+            <Route path="/modules/:tag" element={<IndividualModule />} />
+            <Route path="/panel" element={<SecurityPanel />} />
           </Routes>
         </Router>
+        </ContentContext.Provider>
     </>
   )
 }
