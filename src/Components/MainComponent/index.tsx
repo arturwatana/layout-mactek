@@ -65,8 +65,8 @@ export default function MainComponent() {
           <Image position={"absolute"} src={MainImg} w="100vw" minH="80vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Flex zIndex={900} w="100%"  pb="50px " h="100%" minH="80vh" alignItems={"center"} flexDirection={"column"} >
+            <NavBar/>
               <FixedNavBar dismont={scrollPosition == 0 ? true : false} render={scrollPosition >= 300 ? true : false}/>
-              <NavBar/>
               <Flex w="100%" h="100%" mt={"180px"} flexDir={"column"} alignItems={"center"} color="white" gap="50px">
                 <Flex flexDir={"column"} gap={"50px"} >
                   <Text w="62%" style={{ fontWeight: 300 }} lineHeight={"1.6"} letterSpacing={"1px"} fontSize={"28px"} >

@@ -14,15 +14,17 @@ export default function FixedNavBar({dismont, render}: FixedNavBarProps){
     const variants = {
         dismont:{
           opacity: 0,
+          display: "none"
         },
         render: {
-            opacity: 1
+            opacity: 1,
+            display: "flex"
         }
     }
     return (
         <>
-         <motion.div initial={{ opacity: 0}} animate={dismont ? "dismont" : render ? "render" : ""} variants={variants} style={{width:"100vw" , position: "fixed", background: "rgba(255,255,255,1)", boxShadow: "15px", zIndex:1200, display: "flex", justifyContent: "center", minHeight: "127px"}}>
-         <motion.div style={{width:"55.8%", display: "flex", justifyContent: "center",paddingTop: "25px", flexDirection:"column", gap:"40px", boxShadow: "15px", zIndex:1200}}>
+         <motion.div initial={{ opacity: 0, display: "none"}} animate={dismont ? "dismont" : render ? "render" : ""} variants={variants} style={{width:"100vw" , position: "fixed", background: "rgba(255,255,255,1)", boxShadow: "15px", zIndex:1200, display: "flex", justifyContent: "center", minHeight: "127px"}}>
+         <motion.div style={{width:"55.8%", display: "flex", justifyContent: "center",paddingTop: "25px", flexDirection:"column", gap:"40px", boxShadow: "15px", zIndex:1000}}>
                 <Flex justifyContent={"space-between"} >
                   <Flex w={"200px"} h="41px">
                     <Image w="100%" h="100%" objectFit={"contain"} src={MactekLogo} />
