@@ -19,7 +19,7 @@ export default function NavBar(){
                     </Text>
                   </Flex>
                 </Flex>
-                <Flex justifyContent={"space-between"} >
+                <Flex justifyContent={"space-between"} flexDir={{sm:"column", xl:"row"}} alignItems={{sm:"center", xl:"start"}} >
                   <Flex as="a" href="/" w={"200px"} h="41px">
                     <Image w="100%" h="100%" objectFit={"contain"} src={MactekLogo} />
                   </Flex>

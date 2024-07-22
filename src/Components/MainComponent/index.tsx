@@ -1,4 +1,4 @@
-import { Button, Flex, Heading, Image, Input, ListItem, Text, UnorderedList } from "@chakra-ui/react"
+import { Button, Flex, Grid, Heading, Image, Input, ListItem, Text, UnorderedList } from "@chakra-ui/react"
 import MainImg from "../../assets/main-demo1.jpg"
 import Aerial from "../../assets/Iconsa.png"
 import Maritime from "../../assets/Iconsmar.png"
@@ -23,6 +23,7 @@ import { toast, ToastContainer } from "react-toastify"
 import { ContentContext, MessageProps } from "../../App"
 import NavBar from "../NavBar"
 import FixedNavBar from "../FixedNavBar"
+import BurgerMenu from "../BurgerMenu"
 
 export default function MainComponent() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -59,6 +60,7 @@ export default function MainComponent() {
     <>
       <ToastContainer />
       <ModalContact isOpen={openModal} setOpenModal={setOpenModal} />
+      <BurgerMenu/>
       <Flex w="100vw" flexDir={"column"} position={"relative"}>
         <Flex w="100%" minH="80vh" h="100%" position={"relative"} justifyContent={"center"} alignItems={"center"} >
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "80vh", height: "100%", position: "absolute", zIndex: 90 }} />
