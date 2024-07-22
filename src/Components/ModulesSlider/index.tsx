@@ -61,52 +61,52 @@ export default function ModulesSlider() {
                     <Box color="#222"  h="100%" display={"flex"} justifyContent={"center"} alignItems={"center"}>
                         <Text fontSize={35} mt={4}  onClick={() => { prevImg(); setStopAnimation(true) }} cursor={"pointer"} color="#ff6418"><IoIosArrowBack /></Text>
                     </Box>
-                    <Flex maxW="600px" overflow={"hidden"}  >
+                    <Flex maxW={{sm: "300px", lg:"600px"}} overflow={"hidden"}  >
                         <motion.div animate={"swipe" } style={{ display: "flex", gap: "5px" }} custom={swipe.cardInView} variants={variants} >
                             <Flex flexDir={"column"} p="0 15px 30px" gap="20px" color="#FBC431" as={"a"} href="/modules/aereo">
-                                <Flex w={{sm:"350px",lg:"285.2px"}} h={{sm:"220px", lg:"176px"}} >
+                                <Flex w={{sm:"300px",lg:"285.2px"}} h={{sm:"220px", lg:"176px"}} >
                                     <Image w={"100%"} h="100%" fit={"contain"} src={Tela2} />
                                 </Flex>
                                 <Text fontWeight={600}  fontSize={"20px"}>Modulo Aereo</Text>
                                 <Text w="100%" color="black" fontSize={"12px"}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, </Text>
                             </Flex>
                             <Flex flexDir={"column"} p="0 15px 30px"  gap="20px" color="#FBC431" as={"a"} href="/modules/maritimo">
-                                <Flex w={{sm:"350px",lg:"285.2px"}} h={{sm:"220px", lg:"176px"}} >
+                                <Flex w={{sm:"300px",lg:"285.2px"}} h={{sm:"220px", lg:"176px"}} >
                                     <Image w={"100%"}  h="100%" fit={"contain"} src={Tela2} />
                                 </Flex>
                                 <Text fontWeight={600} fontSize={"20px"}>Modulo Maritimo</Text>
                                 <Text w="100%" color="black" fontSize={"12px"}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, </Text>
                             </Flex>
                             <Flex flexDir={"column"} p="0 15px 30px" gap="20px" color="#FBC431" as={"a"} href="/modules/rodoviario">
-                                <Flex w={{sm:"350px",lg:"285.2px"}} h={{sm:"220px", lg:"176px"}} >
+                                <Flex w={{sm:"300px",lg:"285.2px"}} h={{sm:"220px", lg:"176px"}} >
                                     <Image w={"100%"} h="100%" fit={"contain"} src={Tela2} />
                                 </Flex>
                                 <Text fontWeight={600} fontSize={"20px"}>Modulo Rodoviario</Text>
                                 <Text w="100%" color="black" fontSize={"12px"}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, </Text>
                             </Flex>
                             <Flex flexDir={"column"} p="0 15px 30px" gap="20px" color="#FBC431" as={"a"} href="/modules/aduaneiro">
-                                <Flex w={{sm:"350px",lg:"285.2px"}} h={{sm:"220px", lg:"176px"}} >
+                                <Flex w={{sm:"300px",lg:"285.2px"}} h={{sm:"220px", lg:"176px"}} >
                                     <Image w={"100%"} h="100%" fit={"contain"} src={Tela2} />
                                 </Flex>
                                 <Text fontWeight={600} fontSize={"20px"}>Modulo Aduaneiro</Text>
                                 <Text w="100%" color="black" fontSize={"12px"}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, </Text>
                             </Flex>
                             <Flex flexDir={"column"}  p="0 15px 30px" gap="20px" color="#FBC431" as={"a"} href="/modules/contabilidade">
-                                <Flex w={{sm:"350px",lg:"285.2px"}} h={{sm:"220px", lg:"176px"}} >
+                                <Flex w={{sm:"300px",lg:"285.2px"}} h={{sm:"220px", lg:"176px"}} >
                                     <Image w={"100%"} h="100%" fit={"contain"} src={Tela2} />
                                 </Flex>
                                 <Text fontWeight={600} fontSize={"20px"}>Modulo Contabilidade</Text>
                                 <Text w="100%" color="black" fontSize={"12px"}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, </Text>
                             </Flex>
                             <Flex flexDir={"column"} p="0 15px 30px" gap="20px" color="#FBC431" as={"a"} href="/modules/aereo">
-                                <Flex w={{sm:"350px",lg:"285.2px"}} h={{sm:"220px", lg:"176px"}} >
+                                <Flex w={{sm:"300px",lg:"285.2px"}} h={{sm:"220px", lg:"176px"}} >
                                     <Image w={"100%"} h="100%" fit={"contain"} src={Tela2} />
                                 </Flex>
                                 <Text fontWeight={600} fontSize={"20px"}>Modulo Aereo</Text>
                                 <Text w="100%" color="black" fontSize={"12px"}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, </Text>
                             </Flex>
                             <Flex flexDir={"column"} p="0 15px 30px" gap="20px" color="#FBC431" as={"a"} href="/modules/aereo"  >
-                                <Flex w={{sm:"350px",lg:"285.2px"}} h={{sm:"220px", lg:"176px"}} >
+                                <Flex w={{sm:"300px",lg:"285.2px"}} h={{sm:"220px", lg:"176px"}} >
                                     <Image w={"100%"} h="100%" fit={"contain"} src={Tela2} />
                                 </Flex>
                                 <Text fontWeight={600} fontSize={"20px"}>Modulo Aereo</Text>
@@ -124,6 +124,7 @@ export default function ModulesSlider() {
                     <Box w="12px" h="12px" cursor={"pointer"} background={swipe.cardInView == 0 ? "black" : "gray" } onClick={() => {setSwipe((prev) => ({ ...prev, cardInView: 0 })); setStopAnimation(true)}} transition={"0.3s"} borderRadius={"50px"}/>
                     <Box w="12px" h="12px" cursor={"pointer"} background={swipe.cardInView == 1 ? "black" : "gray" }  onClick={() => {setSwipe((prev) => ({ ...prev, cardInView: 1 })); setStopAnimation(true)}} transition={"0.3s"}borderRadius={"50px"}/>
                     <Box w="12px" h="12px" cursor={"pointer"} background={swipe.cardInView == 2 ? "black" : "gray" }  onClick={() => {setSwipe((prev) => ({ ...prev, cardInView: 2 })); setStopAnimation(true)}} transition={"0.3s"}borderRadius={"50px"}/>
+                    
                 </Flex>
             </Flex>
 

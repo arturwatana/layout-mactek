@@ -8,7 +8,7 @@ type NavBarProps = {
   openBurger: boolean
 }
 
-export default function NavBar({openBurger,setOpenBurger} : NavBarProps){
+export default function NavBar({setOpenBurger} : NavBarProps){
     return (
         <>
          <Flex w={{sm: "90%", lg:"85%"}} flexDir={"column"} gap={"40px"} zIndex={1000}>
