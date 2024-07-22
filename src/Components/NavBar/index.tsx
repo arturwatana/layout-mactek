@@ -23,7 +23,7 @@ export default function NavBar({setOpenBurger} : NavBarProps){
                     </Text>
                   </Flex>
                 </Flex>
-                <Flex justifyContent={"space-between"} flexDir={{sm: "row", lg:"column", xl:"row"}} alignItems={{lg:"center", xl:"start"}} >
+                <Flex justifyContent={"space-between"} gap={{sm:"0px", lg:"20px", xl:"0px"}} flexDir={{sm: "row", lg:"column", xl:"row"}} alignItems={{lg:"center", xl:"start"}} >
                 <Flex onClick={() => setOpenBurger(prev => !prev) } display={{sm: "block", lg: "none"}} color={"rgba(255,255,255,0.8)"} >
                     <RxHamburgerMenu  fontSize={"35px"}/>
                  </Flex>
