@@ -129,14 +129,14 @@ export default function MainComponent() {
           <div style={{ backgroundColor: "rgb(255, 255, 255, 0.9)", width: "100%", minHeight: "60vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={YoungWoman} w="100%" minH="60vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
-            <Flex zIndex={900} alignItems={{ sm: "center", xl: "start" }} w={{ sm: "95%", xl: "100%" }} p="100px 0" flexDir={"column"}  >
+            <Flex zIndex={900} alignItems={"start"} w={{ sm: "95%", xl: "100%" }} p="100px 0" flexDir={"column"}  >
               <Flex w={{ sm: "100", xl: "80%" }} borderBottom={"2px solid #ececec"} h="80px">
-                <Heading color={"#fbc431"} fontWeight={800} borderBottom={"2px solid rgba(0,0,0,0.1)"} h="100%" fontSize={"42.7px"}>Nossos módulos</Heading>
+                <Heading color={"#fbc431"}  fontWeight={800} borderBottom={"2px solid rgba(0,0,0,0.1)"} h="100%" fontSize={{sm:"37px", lg:"42.7px"}}>Nossos módulos</Heading>
               </Flex>
               <Flex justifyContent={"center"} alignItems={{ sm: "center", xl: "start" }} flexDir={{ sm: "column", xl: "row" }} >
                 <Flex flexDir={"column"} gap={"20px"} mt="50px" w={{ sm: "95%", xl: "70%" }}>
-                  <Text fontWeight={300} fontSize={"28px"}>Conheça nossos principais módulos</Text>
-                  <Text fontWeight={200} fontSize={"20px"} mt="10px">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, Lorem ipsum dolor sit amet, consectetuer adipiscing elit,</Text>
+                  <Text fontWeight={300} fontSize={{sm:"22px", lg:"28px"}}>Conheça nossos principais módulos</Text>
+                  <Text fontWeight={200} fontSize={{sm:"17px", lg:"20px"}} mt="10px">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, Lorem ipsum dolor sit amet, consectetuer adipiscing elit,</Text>
                   <UnorderedList fontWeight={200} fontSize={"16px"} gap="10px" display={"flex"} flexDirection={"column"}>
                     <ListItem>Custom details #1</ListItem>
                     <ListItem>Custom details #2</ListItem>
@@ -159,7 +159,7 @@ export default function MainComponent() {
           <Image position={"absolute"} minH="70vh" h="100%" src={Background01} w="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"40% 50%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Flex zIndex={900} w={{ sm: "90%", xl: "100%" }} justifyContent={"center"} flexDir={"column"} p={"120px 0"} gap={"60px"}>
-              <Heading color={"rgba(255,255,255,0.8)"} w={{ sm: "90%", lg: "60%" }} fontSize={"36px"}>Conheça as vantagens para sua empresa de usar o sistemas <span style={{ color: "#FBC431" }}>ATLANTIS</span></Heading>
+              <Heading color={"rgba(255,255,255,0.8)"} w={{ sm: "90%", lg: "60%" }} fontSize={{sm:"33px", lg:"36px"}}>Conheça as vantagens para sua empresa de usar o sistemas <span style={{ color: "#FBC431" }}>ATLANTIS</span></Heading>
               <Text color={"rgba(255,255,255,0.8)"} w="70%" fontSize={"16px"}>Faça aqui o download da ferramenta para suporte em ambiente <span style={{ color: "#FBC431" }}>Windows</span> e <span style={{ color: "#FBC431" }}>Mac Os</span>. Esta ferramenta permitirá o acesso remoto dos nossos profissionais de suporte para a melhor qualidade no atendimento.</Text>
               <Flex justifyContent={"space-between"} alignItems={{ sm: "center", lg: "start" }} flexDir={{ sm: "column", lg: "row" }}>
                 <Flex w={{ sm: "90%", lg: "49%" }}>
@@ -233,7 +233,7 @@ export default function MainComponent() {
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.6)", width: "100%", minHeight: "70vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={YoungWoman} w="100vw" height={"100%"} minH={"70vh"} backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 50%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
-            <Flex zIndex={900} w="80%" alignItems={"center"} flexDir={"column"} gap="46px" p="110px 0" >
+            <Flex zIndex={900} w={{sm:"90%", lg:"80%"}} alignItems={"center"} flexDir={"column"} gap="46px" p="110px 0" >
               <Heading fontSize={"36px"} fontWeight={400} color={"rgba(255,255,255,0.8)"}>Mantenha contato com nossa equipe</Heading>
               <motion.form style={{ display: "flex", gap: "15px", flexDirection: "column", width: "100%", alignItems: "center" }}>
                 <Input background={"rgba(255, 255, 255, 0.2)"} color={"rgba(255,255,255,0.8)"} placeholder="Your Name (required)" />
