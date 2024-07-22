@@ -30,6 +30,7 @@ export default function MainComponent() {
   const [openModal, setOpenModal] = useState<boolean>(false)
   const [messagesToday, setMessagesToday] = useState<MessageProps[]>([{ description: "Informamos que no dia 13/01 não teremos expediente para suporte ao Atlantis." }, { description: "Devido a uma falha nos servidores da Microsoft, o Atlantis pode ter queda de desempenho." }])
   const { messagesDB } = useContext(ContentContext);
+  const [openBurger,setOpenBurger] = useState<boolean>(false)
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -60,14 +61,14 @@ export default function MainComponent() {
     <>
       <ToastContainer />
       <ModalContact isOpen={openModal} setOpenModal={setOpenModal} />
-      <BurgerMenu/>
+      {openBurger ? <BurgerMenu setOpenBurger={setOpenBurger}/> :  ""}
       <Flex w="100vw" flexDir={"column"} position={"relative"}>
         <Flex w="100%" minH="80vh" h="100%" position={"relative"} justifyContent={"center"} alignItems={"center"} >
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "80vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={MainImg} w="100vw" minH="80vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Flex zIndex={900} w="100%" pb="50px " h="100%" minH="80vh" alignItems={"center"} flexDirection={"column"} >
-              <NavBar />
+              <NavBar openBurger={openBurger} setOpenBurger={setOpenBurger}/>
               <FixedNavBar dismont={scrollPosition == 0 ? true : false} render={scrollPosition >= 10 ? true : false} />
               <Flex w="100%" h="100%" mt={"180px"} flexDir={"column"} alignItems={"center"} color="white" gap="50px">
                 <Flex flexDir={"column"} w={{sm:"90%",xl:"100%"}} gap={"50px"} >
