@@ -7,7 +7,7 @@ import MactekLogo from "../../assets/logo-mactek.png"
 export default function NavBar(){
     return (
         <>
-         <Flex w="85%" flexDir={"column"} gap={"40px"} zIndex={1500}>
+         <Flex w="85%" flexDir={"column"} gap={"40px"} zIndex={1000}>
                 <Flex justifyContent={"space-between"} color={"rgba(255,255,255,0.8)"} >
                   <Flex gap={"40px"} fontSize={"12.8px"}>
                     <Text>+55 11 3159-3665</Text>
