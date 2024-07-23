@@ -10,6 +10,7 @@ type SwipeProps = {
 
 export default function ModulesSlider() {
     const [stopAnimation, setStopAnimation] = useState<boolean>(false)
+    const [isMobile, setIsMobile] = useState<boolean>(window.matchMedia("(max-width: 850px").matches)
 
     const [swipe, setSwipe] = useState<SwipeProps>({
         cards: 3,
@@ -24,6 +25,10 @@ export default function ModulesSlider() {
             }
         }),
     }
+
+    useEffect(() => {
+
+    }, [])
 
     function prevImg() {
         setSwipe((prev) => ({ ...prev, cardInView: prev.cardInView === 0 ? 2 : prev.cardInView - 1 }))
@@ -124,7 +129,10 @@ export default function ModulesSlider() {
                     <Box w="12px" h="12px" cursor={"pointer"} background={swipe.cardInView == 0 ? "black" : "gray" } onClick={() => {setSwipe((prev) => ({ ...prev, cardInView: 0 })); setStopAnimation(true)}} transition={"0.3s"} borderRadius={"50px"}/>
                     <Box w="12px" h="12px" cursor={"pointer"} background={swipe.cardInView == 1 ? "black" : "gray" }  onClick={() => {setSwipe((prev) => ({ ...prev, cardInView: 1 })); setStopAnimation(true)}} transition={"0.3s"}borderRadius={"50px"}/>
                     <Box w="12px" h="12px" cursor={"pointer"} background={swipe.cardInView == 2 ? "black" : "gray" }  onClick={() => {setSwipe((prev) => ({ ...prev, cardInView: 2 })); setStopAnimation(true)}} transition={"0.3s"}borderRadius={"50px"}/>
-                    
+                    {isMobile ? (<>  <Box w="12px" h="12px" cursor={"pointer"} background={swipe.cardInView == 2 ? "black" : "gray" }  onClick={() => {setSwipe((prev) => ({ ...prev, cardInView: 2 })); setStopAnimation(true)}} transition={"0.3s"}borderRadius={"50px"}/>
+                    <Box w="12px" h="12px" cursor={"pointer"} background={swipe.cardInView == 2 ? "black" : "gray" }  onClick={() => {setSwipe((prev) => ({ ...prev, cardInView: 2 })); setStopAnimation(true)}} transition={"0.3s"}borderRadius={"50px"}/>
+                    <Box w="12px" h="12px" cursor={"pointer"} background={swipe.cardInView == 2 ? "black" : "gray" }  onClick={() => {setSwipe((prev) => ({ ...prev, cardInView: 2 })); setStopAnimation(true)}} transition={"0.3s"}borderRadius={"50px"}/></>) : ""}
+                   
                 </Flex>
             </Flex>
 

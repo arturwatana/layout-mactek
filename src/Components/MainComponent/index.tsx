@@ -214,7 +214,7 @@ export default function MainComponent() {
           <Image position={"absolute"} src={YoungWoman} w="100vw" height={"100%"} minH={"80vh"} backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Flex zIndex={900} w={{ sm: "90%", xl: "100%" }} p="80px 0" flexDir={"column"} justifyContent={"space-between"} alignItems={"center"} gap={"80px"}>
-              <Flex flexDir={{ sm: "column", xl: "row" }} gap={{ sm: "40px", lg: "0px" }} >
+              <Flex flexDir={{ sm: "column", xl: "row" }} gap={{ sm: "40px", lg: "0px" }} > 
                 <Flex flexDir={"column"} w={{ sm: "100%", xl: "50%" }} >
                   <Flex w="90%" borderBottom={"2px solid #ececec"} h="80px">
                     <Heading color={"#fbc431"} fontWeight={800} borderBottom={"2px solid rgba(0,0,0,0.1)"} h="100%" fontSize={"42px"}>Sobre nos</Heading>
@@ -224,12 +224,12 @@ export default function MainComponent() {
                       <Text fontWeight={300} fontSize={"16px"} w="90%">Fundada em 2004, a <span style={{ color: "#FBC431" }}>Mactek Sistemas©</span> é hoje uma empresa 100% brasileira. A idéia do desenvolvimento de um software para atender as necessidades dos freight forwarder surgiu ainda antes, em 1997. Pela participação ativa em um escritório de agenciamento de cargas local, a <span style={{ color: "#FBC431" }}>Mactek Sistemas© </span>vislumbrou a necessidade de uma ferramenta que controle os embarques e os faturamentos dos serviços prestados.</Text>
                       <Text fontWeight={300} fontSize={"16px"} w="90%">Essa idéia deu origem ao <span style={{ color: "#FBC431" }}>ATLANTIS©</span>, um software totalmente destinado a atender as necessidades do freight forwarder em todos os modais. Iniciando através dos modais aéreo e marítimo, o Cheetah X© foi lapidando ao longo do tempo através das experiências de parceiros e clientes, transformando-se numa ferramenta sólida e flexível, para pequenas, médias e grandes empresas no segmento de transporte Internacional.</Text>
                       <Flex justifyContent={{ sm: "center", xl: "start" }} w="100%" >
-                        <Button fontSize={"15px"} w={{ sm: "65%", xl: "25%" }} _hover={{ color: "rgba(255,255,255,0.8)", background: "#C89C27" }} p={"0 18px"} background={"#FBC431"} fontWeight={500} color={"rgba(255,255,255,0.8)"}>Conheca mais</Button>
+                        <Button fontSize={"15px"} w={{ sm: "65%", xl: "45%" }} _hover={{ color: "rgba(255,255,255,0.8)", background: "#C89C27" }} p={"0 18px"} background={"#FBC431"} fontWeight={500} color={"rgba(255,255,255,0.8)"}>Conheca mais</Button>
                       </Flex>
                     </Flex>
                   </Flex>
                 </Flex>
-                <Flex justifyContent={{ sm: "center", xl: "start" }} w="100%">
+                <Flex justifyContent={{ sm: "center", xl: "start" }} w={{sm: "100%", lg:"50%"}}>
                   <Flex w={{ sm: "70%", xl: "570px" }} >
                     <Image w="100%" h="100%" objectFit={"contain"} src={ATLANTIS} />
                   </Flex>
