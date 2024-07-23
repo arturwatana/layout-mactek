@@ -73,7 +73,7 @@ export default function MainComponent() {
     <ModalContact isOpen={openModal} setOpenModal={setOpenModal} />
       {openBurger ? <BurgerMenu setOpenBurger={setOpenBurger} /> : null}
       <Flex w="100vw" className={openBurger ? "no-scroll" : ""} flexDir={"column"} position={"relative"} overflow={openBurger ? "none" : "auto"} >
-        <Flex w="100%" minH="80vh" h="100%" position={"relative"} justifyContent={"center"} alignItems={"center"} >
+        <Flex w="100%" scrollMarginTop={"127px"}   id="firstSection" minH="80vh" h="100%" position={"relative"} justifyContent={"center"} alignItems={"center"} >
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "80vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={MainImg} w="100vw" minH="80vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
@@ -135,7 +135,7 @@ export default function MainComponent() {
           </Flex>
 
         </Flex>
-        <Flex w="100%" minH="60vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
+        <Flex w="100%"  scrollMarginTop={"127px"} id="secondSection" minH="60vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
           <div style={{ backgroundColor: "rgb(255, 255, 255, 0.9)", width: "100%", minHeight: "60vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={YoungWoman} w="100%" minH="60vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
@@ -164,7 +164,7 @@ export default function MainComponent() {
             </Flex>
           </Flex>
         </Flex>
-        <Flex justifyContent={"center"} zIndex={500} position={"relative"}>
+        <Flex  scrollMarginTop={"127px"} id="thirdSection" justifyContent={"center"} zIndex={500} position={"relative"}>
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "70vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} minH="70vh" h="100%" src={Background01} w="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"40% 50%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
@@ -209,7 +209,7 @@ export default function MainComponent() {
             </Flex>
           </Flex>
         </Flex>
-        <Flex w="100%" minH="60vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
+        <Flex w="100%"  scrollMarginTop={"127px"} id="fourthSection" minH="60vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
           <div style={{ backgroundColor: "rgb(255, 255, 255, 0.9)", width: "100vw", minHeight: "80vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={YoungWoman} w="100vw" height={"100%"} minH={"80vh"} backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
@@ -239,7 +239,7 @@ export default function MainComponent() {
             </Flex>
           </Flex>
         </Flex>
-        <Flex w="100%" minH="70vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
+        <Flex w="100%" scrollMarginTop={"127px"} id="fifthSection" minH="70vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.6)", width: "100%", minHeight: "70vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={YoungWoman} w="100vw" height={"100%"} minH={"70vh"} backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 50%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
@@ -254,7 +254,7 @@ export default function MainComponent() {
             </Flex>
           </Flex>
         </Flex>
-        <Flex pt="80px" w="100%" minH="30vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
+        <Flex pt="80px" scrollMarginTop={"127px"} id="sixthSection" w="100%" minH="30vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Flex borderTop={"1px solid #FBC431"} pb={{ sm: "40px", lg: "0px" }} minH="30vh" gap="25px" w={{ sm: "80%", xl: "100%" }} flexDir={"column"} alignItems={"center"}  >
               <Flex w="220px" mt="40px" h="46px" >

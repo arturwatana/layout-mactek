@@ -30,12 +30,7 @@ import {
   }
   
   export default function ModalContact({ isOpen, setOpenModal, email }: ModalProps) {
-    const [contact, setContact] = useState<ContactProps>({
-      email: "",
-      enterprise: "",
-      name: "",
-      message:  ""
-    })
+    const [contact, setContact] = useState<ContactProps | null>(null)
   
     const handleSubmit = (e:any) => {
       e.preventDefault()
@@ -53,8 +48,8 @@ import {
   }
   
   useEffect(() => {
-    console.log(contact) 
-  })
+    if(!contact) return 
+  }, [])
   
     return (
       <>
