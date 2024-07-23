@@ -36,8 +36,15 @@ export default function BurgerMenu({setOpenBurger}: NavBarProps) {
                 </motion.div>
                 <motion.div style={{position: "fixed",  maxHeight:"40vh",color:"white", zIndex: 3003, justifyContent:"center", alignItems:"center", display: "flex", flexDirection:"column", gap:"15px"}}>
                 <motion.div initial={{opacity: 0, y: -20}} variants={variants} custom={0} animate={"renderLi"} >
-                    <motion.input  placeholder="Search" style={{padding: "5px", borderRadius: "20px", background: "rgb(128,128,128, 0.6)"}}/>
-                </motion.div>
+                    <motion.input list="modules" placeholder="Search" style={{padding: "5px 15px", borderRadius: "20px", background: "rgb(128,128,128, 0.6)"}}/>
+                    <datalist id="modules">
+                        <option value="Aéreo"/> 
+                        <option value="Marítimo"/> 
+                        <option value="Rodoviário"/> 
+                        <option value="Aduaneiro"/> 
+                        <option value="Financeiro"/> 
+                    </datalist>
+               </motion.div>
                     <motion.div  style={{ width: "100%",  justifyContent:"center", alignItems:"center", borderRadius: "10px", display: "flex", flexDirection: "column", gap: "20px" }}>
                         {words.map((word, index) => (<motion.a initial={{opacity: 0, y: -20}} variants={variants} custom={index + 1} animate={"renderLi"} style={{ cursor: "pointer", fontSize: 25 }}>{word}</motion.a>))}
                         <motion.button initial={{opacity: 0, y: -20}} variants={variants} custom={5} animate={"renderLi"} style={{fontSize: "13.1px", borderRadius: "5px", border:" 2px solid #FBC431", height:"32px", padding: "0 15px", background: "none", color: "#FBC431"}} whileHover={{color: "rgba(255,255,255,0.8)", background: "#FBC431"}} ><motion.a href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" >Windows</motion.a></motion.button>
