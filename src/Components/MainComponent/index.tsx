@@ -62,7 +62,7 @@ export default function MainComponent() {
       <ToastContainer />
       <ModalContact isOpen={openModal} setOpenModal={setOpenModal} />
       {openBurger ? <BurgerMenu setOpenBurger={setOpenBurger} /> : ""}
-      <Flex w="100vw" flexDir={"column"} position={openBurger ? "fixed" : "relative"} >
+      <Flex w="100vw" flexDir={"column"} position={"relative"} >
         <Flex w="100%" minH="80vh" h="100%" position={"relative"} justifyContent={"center"} alignItems={"center"} >
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "80vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={MainImg} w="100vw" minH="80vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
@@ -155,7 +155,7 @@ export default function MainComponent() {
           </Flex>
         </Flex>
         <Flex justifyContent={"center"} zIndex={500} position={"relative"}>
-          <div style={{ backgroundColor: "rgba(0, 0, 0, 0.4)", width: "100%", minHeight: "70vh", height: "100%", position: "absolute", zIndex: 90 }} />
+          <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "70vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} minH="70vh" h="100%" src={Background01} w="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"40% 50%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Flex zIndex={900} w={{ sm: "90%", xl: "100%" }} justifyContent={"center"} flexDir={"column"} p={"120px 0"} gap={"60px"}>
@@ -204,7 +204,7 @@ export default function MainComponent() {
           <Image position={"absolute"} src={YoungWoman} w="100vw" height={"100%"} minH={"80vh"} backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Flex zIndex={900} w={{ sm: "90%", xl: "100%" }} p="80px 0" flexDir={"column"} justifyContent={"space-between"} alignItems={"center"} gap={"80px"}>
-              <Flex flexDir={{ sm: "column", xl: "row" }} >
+              <Flex flexDir={{ sm: "column", xl: "row" }} gap={{sm:"40px", lg:"0px"}} >
                 <Flex flexDir={"column"} w={{ sm: "100%", xl: "50%" }} >
                   <Flex w="90%" borderBottom={"2px solid #ececec"} h="80px">
                     <Heading color={"#fbc431"} fontWeight={800} borderBottom={"2px solid rgba(0,0,0,0.1)"} h="100%" fontSize={"42px"}>Sobre nos</Heading>
@@ -220,7 +220,7 @@ export default function MainComponent() {
                   </Flex>
                 </Flex>
                 <Flex justifyContent={{ sm: "center", xl: "start" }} w="100%">
-                  <Flex w={{ sm: "50%", xl: "570px" }} >
+                  <Flex w={{ sm: "70%", xl: "570px" }} >
                     <Image w="100%" h="100%" objectFit={"contain"} src={ATLANTIS} />
                   </Flex>
                 </Flex>
@@ -250,7 +250,7 @@ export default function MainComponent() {
               <Flex w="220px" mt="40px" h="46px" >
                 <Image h="100%" w="100%" src={MactekLogo1} />
               </Flex>
-              <Text fontSize={"12px"}>A flexibilidade que a Mactek tem em analisar e melhorar o sistema com o feedback do cliente e que faz com que sintamos seguros em continuar a parceria</Text>
+              <Text fontSize={"12px"} textAlign={{sm:"center", lg:"left"}}>A flexibilidade que a Mactek tem em analisar e melhorar o sistema com o feedback do cliente e que faz com que sintamos seguros em continuar a parceria</Text>
               <Flex w="100%" justifyContent={"space-between"} gap={{ sm: "25px", lg: "0px" }} alignItems={"center"} flexDir={{ sm: "column", lg: "row" }}>
                 <Text fontSize={"12px"} textAlign={"center"} w={{ sm: "60%", lg: "15%" }}>Todos direitos reservados Mactek © 2024</Text>
                 <Flex fontSize={"18px"} gap={{ sm: "25px", lg: "8px" }} color="gray">

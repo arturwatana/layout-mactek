@@ -31,7 +31,7 @@ export default function BurgerMenu({setOpenBurger}: NavBarProps) {
     }
     return (
         <>
-            <Flex pos={"fixed"} w="100%" h="100%" overflow={"none"} justifyContent={"center"} alignItems={"center"} zIndex={3000}>
+            <Flex position={"fixed"} w="100%" h="100%" overflow={"none"} justifyContent={"center"} alignItems={"center"} zIndex={3000}>
                 <motion.div  style={{ width: "100%", height: "100%", background: "rgb(0, 0, 0, 0.8)", position: "absolute", zIndex: 3002, overflow: "hidden" }} onClick={() => setOpenBurger(false) }>
                 </motion.div>
                 <motion.div style={{ maxHeight:"40vh",color:"white", zIndex: 3003, justifyContent:"center", alignItems:"center", display: "flex", flexDirection:"column", gap:"15px"}}>
