@@ -19,7 +19,7 @@ import { RxLinkedinLogo } from "react-icons/rx";
 import { useContext, useEffect, useState } from "react"
 import ModalContact from "../MenuContact"
 import 'react-toastify/dist/ReactToastify.css';
-import { toast, ToastContainer } from "react-toastify"
+import { toast } from "react-toastify"
 import { ContentContext, MessageProps } from "../../App"
 import NavBar from "../NavBar"
 import FixedNavBar from "../FixedNavBar"
@@ -31,6 +31,16 @@ export default function MainComponent() {
   const [messagesToday, setMessagesToday] = useState<MessageProps[]>([{ description: "Informamos que no dia 13/01 não teremos expediente para suporte ao Atlantis." }, { description: "Devido a uma falha nos servidores da Microsoft, o Atlantis pode ter queda de desempenho." }])
   const { messagesDB } = useContext(ContentContext);
   const [openBurger, setOpenBurger] = useState<boolean>(false)
+
+  useEffect(() => {
+    const body = document.querySelector(".chakra-ui-light")
+      if(openBurger){
+            body?.classList.add("no-scroll")
+      } else {
+        body?.classList.remove("no-scroll")
+      }
+  }, [openBurger])
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -59,10 +69,10 @@ export default function MainComponent() {
 
   return (
     <>
-      <ToastContainer />
-      <ModalContact isOpen={openModal} setOpenModal={setOpenModal} />
+      {/* <ToastContainer /> */}
+    <ModalContact isOpen={openModal} setOpenModal={setOpenModal} />
       {openBurger ? <BurgerMenu setOpenBurger={setOpenBurger} /> : null}
-      <Flex w="100vw" flexDir={"column"} position={"relative"} >
+      <Flex w="100vw" className={openBurger ? "no-scroll" : ""} flexDir={"column"} position={"relative"} overflow={openBurger ? "none" : "auto"} >
         <Flex w="100%" minH="80vh" h="100%" position={"relative"} justifyContent={"center"} alignItems={"center"} >
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "80vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={MainImg} w="100vw" minH="80vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
@@ -268,6 +278,7 @@ export default function MainComponent() {
           </Flex>
         </Flex>
       </Flex>
+
     </>
   )
 }

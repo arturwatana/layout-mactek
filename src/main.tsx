@@ -18,7 +18,7 @@ const theme = extendTheme({ breakpoints })
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ChakraProvider theme={theme}>
+    <ChakraProvider theme={theme} >
       <App />
     </ChakraProvider>
   </React.StrictMode>,
