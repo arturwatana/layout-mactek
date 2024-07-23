@@ -73,7 +73,7 @@ export default function MainComponent() {
               <Flex w="100%" h="100%" mt={{ sm: "100px", lg: "180px" }} flexDir={"column"} alignItems={"center"} color="white" gap="50px">
                 <Flex flexDir={"column"} w={{ sm: "95%", xl: "100%" }} gap={"50px"} >
                   <Text w={{ sm: "100%", xl: "62%" }} style={{ fontWeight: 300 }} lineHeight={"1.6"} letterSpacing={"1px"} fontSize={{ sm: "22px", lg: "28px" }} >
-                    <span style={{ color: "#FBC431", fontWeight: "500" }} color={"#FBC431"}>ATLANTIS</span> é o melhor software de gestão de processos para freight forwarders do mercado, e o mais eficaz em otimização de tempo. TEST</Text>
+                    <span style={{ color: "#FBC431", fontWeight: "500" }} color={"#FBC431"}>ATLANTIS</span> é o melhor software de gestão de processos para freight forwarders do mercado, e o mais eficaz em otimização de tempo.</Text>
                   <Button border={"3px solid #FBC431"} onClick={() => !openModal ? setOpenModal(true) : ""} _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} fontWeight={400} fontSize={"15.5px"} maxW={"200px"} p="0 18px" background={"none"} color={"#FBC431"}>Solicite uma demo</Button>
                 </Flex>
                 <Flex w="100%" justifyContent={"space-between"} alignItems={"center"} flexDir={{ sm: "column", xl: "row" }} gap={{ sm: "20px", xl: "0px" }} >
