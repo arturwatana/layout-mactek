@@ -1,6 +1,5 @@
 import { Flex } from "@chakra-ui/react"
 import { motion } from "framer-motion"
-import { useState } from "react"
 
 type NavBarProps = {
     setOpenBurger: React.Dispatch<React.SetStateAction<boolean>>,
@@ -8,7 +7,6 @@ type NavBarProps = {
   }
 
 export default function BurgerMenu({setOpenBurger}: NavBarProps) {
-    const [filterWord, setFilterWord] = useState<string>("")
     const words: string[] = ["Todos Módulos", "A Mactek", "Suporte", "Contato"]
 
     const variants = {
@@ -47,8 +45,7 @@ export default function BurgerMenu({setOpenBurger}: NavBarProps) {
                     </datalist>
                    </motion.div>
                     <motion.div  style={{ width: "100%",  justifyContent:"center", alignItems:"center", borderRadius: "10px", display: "flex", flexDirection: "column", gap: "20px" }}>
-                        { filterWord.length > 1 ? words.filter(word => word.includes(filterWord)).map((word, index) => (<motion.a initial={{opacity: 0, y: -20}} variants={variants} custom={index + 1} animate={"renderLi"} style={{ cursor: "pointer", fontSize: 25 }}>{word}</motion.a>)) : 
-                        words.map((word, index) => (<motion.a initial={{opacity: 0, y: -20}} variants={variants} custom={index + 1} animate={"renderLi"} style={{ cursor: "pointer", fontSize: 25 }}>{word}</motion.a>))}
+                        { words.map((word, index) => (<motion.a initial={{opacity: 0, y: -20}} variants={variants} custom={index + 1} animate={"renderLi"} style={{ cursor: "pointer", fontSize: 25 }}>{word}</motion.a>))}
                         <motion.button initial={{opacity: 0, y: -20}} variants={variants} custom={5} animate={"renderLi"} style={{fontSize: "13.1px", borderRadius: "5px", border:" 2px solid #FBC431", height:"32px", padding: "0 15px", background: "none", color: "#FBC431"}} whileHover={{color: "rgba(255,255,255,0.8)", background: "#FBC431"}} ><motion.a href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" >Windows</motion.a></motion.button>
                         <motion.button initial={{opacity: 0, y: -20}} variants={variants} custom={6} animate={"renderLi"} style={{fontSize: "13.1px", borderRadius: "5px", border:" 2px solid #FBC431", height:"32px", padding: "0 15px", background: "none", color: "#FBC431"}} whileHover={{color: "rgba(255,255,255,0.8)", background: "#FBC431"}} ><motion.a href="https://download.teamviewer.com/download/TeamViewer.dmg" >Mac OS</motion.a></motion.button>
                          
