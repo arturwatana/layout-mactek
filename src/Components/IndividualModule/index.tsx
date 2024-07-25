@@ -6,7 +6,7 @@ import { getModule, ModuleProps } from "../../Utils/ModulesDB";
 import Footer from "../Footer";
 import NavBar from "../NavBar";
 import FixedNavBar from "../FixedNavBar";
-
+import YoungWoman from "../../assets/young-pretty-busy-woman-sitting-alone-conference-room-many-yellow-chairs-scaled.jpg"
 
 
 
@@ -60,6 +60,15 @@ export default function IndividualModule() {
                 </Flex>
                 </> :   <Flex w="40%" zIndex={900} p="120px 0 0 0" ><Text fontSize={25} color="white" textAlign={"center"}>Módulo nao encontrado, tente novamente mais tarde</Text></Flex>} 
                 </Flex>
+             </Flex>
+            </Flex>
+        <Flex w="100vw" h="100%" position={"relative"} alignItems={"center"} justifyContent={"center"} flexDir={"column"}>
+        <div style={{ backgroundColor: "rgb(255, 255, 255, 0.9)", width: "100%", minHeight: "60vh", height: "100%", position: "absolute", zIndex: 90 }} />
+        <Image position={"absolute"} src={YoungWoman} w="100%" minH="60vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
+            <Flex zIndex={900} w="100%" maxW="1280px" pb="50px " h="100%" minH="70vh" alignItems={"center"} flexDirection={"column"} >
+                  <Flex>
+                    
+                  </Flex>
              </Flex>
             </Flex>
        <Footer/>

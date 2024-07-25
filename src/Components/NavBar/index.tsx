@@ -11,7 +11,7 @@ type NavBarProps = {
 export default function NavBar({setOpenBurger} : NavBarProps){
     return (
         <>
-         <Flex w={{sm: "90%", lg:"85%"}} flexDir={"column"} gap={"40px"} zIndex={1000}>
+         <Flex w={{sm: "90%", lg:"90%"}} flexDir={"column"} gap={"40px"} zIndex={1000}>
                 <Flex justifyContent="space-between"  color={"rgba(255,255,255,0.8)"} >
                   <Flex gap={{sm: "0x", lg:"40px"}} w={{sm: "100%"}} justifyContent={{sm: "space-between", lg: "start"}}  flexDir={{sm: "row", lg: "row"}} fontSize={"12.8px"}>
                     <Text>+55 11 3159-3665</Text>
