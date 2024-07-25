@@ -11,7 +11,7 @@ type NavBarProps = {
 export default function NavBar({setOpenBurger} : NavBarProps){
     return (
         <>
-         <Flex w={{sm: "90%", lg:"90%"}} flexDir={"column"} gap={"40px"} zIndex={1000}>
+         <Flex w={{sm: "90%", lg:"90%"}} flexDir={"column"} gap={"40px"} zIndex={2000}>
                 <Flex justifyContent="space-between"  color={"rgba(255,255,255,0.8)"} >
                   <Flex gap={{sm: "0x", lg:"40px"}} w={{sm: "100%"}} justifyContent={{sm: "space-between", lg: "start"}}  flexDir={{sm: "row", lg: "row"}} fontSize={"12.8px"}>
                     <Text>+55 11 3159-3665</Text>
@@ -24,7 +24,7 @@ export default function NavBar({setOpenBurger} : NavBarProps){
                   </Flex>
                 </Flex>
                 <Flex justifyContent={"space-between"} gap={{sm:"0px", lg:"20px", xl:"0px"}} flexDir={{sm: "row", lg:"column", xl:"row"}} alignItems={{lg:"center", xl:"start"}} >
-                <Flex onClick={() => setOpenBurger(prev => !prev) } display={{sm: "block", lg: "none"}} color={"rgba(255,255,255,0.8)"} >
+                <Flex onClick={() => setOpenBurger(prev => !prev) } display={{sm: "block", lg: "none"}} color={"rgba(255,255,255,0.8)"}  >
                     <RxHamburgerMenu  fontSize={"35px"}/>
                  </Flex>
                   <Flex as="a" href="/" w={"200px"} h="41px">

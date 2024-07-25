@@ -9,6 +9,7 @@ import FixedNavBar from "../FixedNavBar";
 import YoungWoman from "../../assets/young-pretty-busy-woman-sitting-alone-conference-room-many-yellow-chairs-scaled.jpg"
 import FolderFiles from "../../assets/undraw_folder_files_re_2cbm.svg"
 import {motion} from "framer-motion"
+import BurgerMenu from "../BurgerMenu";
 
 
 
@@ -43,12 +44,11 @@ export default function IndividualModule() {
     return (
         <>
         <Flex flexDir={"column"}>
-
-
+        {openBurger ? <BurgerMenu setOpenBurger={setOpenBurger} /> : null}
         <Flex w="100vw" h="100%" position={"relative"} alignItems={"center"} justifyContent={"center"} flexDir={"column"} >
                 <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "60vh", height:"100%", position: "absolute", zIndex: 90 }} />
                 <Image position={"absolute"} src={MainImg} w="100vw" minH="60vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
-            <Flex zIndex={500} w="100%" maxW="1280px" pb="50px " h="100%" minH="60vh" alignItems={"center"} flexDirection={"column"} >
+            <Flex zIndex={900} w="100%" maxW="1280px" pb="50px " h="100%" minH="60vh" alignItems={"center"} flexDirection={"column"} >
                 <NavBar openBurger={openBurger} setOpenBurger={setOpenBurger}/>
                 <FixedNavBar setOpenBurger={setOpenBurger} dismont={scrollPosition == 0 ? true : false} render={scrollPosition >= 10 ? true : false} />
                 <Flex maxW="1260px" w="100%" position="relative" justifyContent={"center"} alignItems={{sm: "center", lg: "start"}} flexDirection={"column"}>
