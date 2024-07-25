@@ -51,7 +51,7 @@ export default function IndividualModule() {
             <Flex zIndex={900} w="100%" maxW="1280px" pb="50px " h="100%" minH="60vh" alignItems={"center"} flexDirection={"column"} >
                 <NavBar openBurger={openBurger} setOpenBurger={setOpenBurger}/>
                 <FixedNavBar setOpenBurger={setOpenBurger} dismont={scrollPosition == 0 ? true : false} render={scrollPosition >= 10 ? true : false} />
-                <Flex maxW="1260px" w="100%" position="relative" justifyContent={"center"} alignItems={{sm: "center", lg: "start"}} flexDirection={"column"}>
+                <Flex maxW="1260px" w="90%" position="relative" justifyContent={"center"} alignItems={{sm: "center", lg: "start"}} flexDirection={"column"}>
                 {module ? <>
                     <Flex textAlign={"left"} w={{sm: "90%", lg:"80%"}}   zIndex={500} p={{sm: "60px 0 0 0", lg:"120px 0 0 0"}} >
                     <Flex flexDir={"column"} gap="40px">
