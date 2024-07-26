@@ -2,6 +2,8 @@ import { Button, Flex, Image, ListItem, Text, UnorderedList } from "@chakra-ui/r
 import { MdKeyboardArrowDown } from "react-icons/md";
 import MactekLogo from "../../assets/logo-mactek.png"
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useState } from "react";
+import {motion} from "framer-motion"
 
 type NavBarProps = {
   setOpenBurger: React.Dispatch<React.SetStateAction<boolean>>,
@@ -9,6 +11,27 @@ type NavBarProps = {
 }
 
 export default function NavBar({setOpenBurger} : NavBarProps){
+    const [modulesHover, setModulesHover] = useState<boolean>(false)
+
+    const variants = {
+      translate: (i: number) => ({
+          y: 0,
+          opacity: 1,
+          transition: {
+              delay: 0.2 + (i/6),
+              duration: 1 
+          }
+      }),
+      show: {
+          opacity: 1,
+          display: "block",
+          transition:{
+              duration: 0.1
+          }
+      },
+  
+  }
+
     return (
         <>
          <Flex w={{sm: "90%", lg:"90%"}} flexDir={"column"} gap={"40px"} zIndex={2000}>
@@ -27,11 +50,33 @@ export default function NavBar({setOpenBurger} : NavBarProps){
                 <Flex onClick={() => setOpenBurger(prev => !prev) } display={{sm: "block", lg: "none"}} color={"rgba(255,255,255,0.8)"}  >
                     <RxHamburgerMenu  fontSize={"35px"}/>
                  </Flex>
-                  <Flex as="a" href="/" w={"200px"} h="41px">
+                  <Flex as="a" href="/" w={"200px"} h="41px"> 
                     <Image w="100%" h="100%" objectFit={"contain"} src={MactekLogo} />
                   </Flex>
                   <UnorderedList display={{sm: "none", lg: "flex"}} listStyleType={"none"} fontSize={"14.4px"} fontWeight={500} color={"rgba(255,255,255,0.8)"} gap={"30px"} justifyContent={"center"} alignItems={"center"}>
-                    <ListItem style={{ display:"flex", justifyContent:"center", alignItems:"center"}} _hover={{ color: "white", cursor: "pointer" }}><Text>Todos modulos</Text> <MdKeyboardArrowDown /></ListItem>
+                    <ListItem onMouseEnter={() => setModulesHover(true)} onMouseLeave={() => setModulesHover(false)} style={{ display:"flex", justifyContent:"center", alignItems:"center", position: "relative"}} _hover={{ color: "white", cursor: "pointer" }}> 
+                      <motion.div style={{background:"rgba(255,255,255,1)", color:"white",padding: "20px 0" , marginTop: "180px",  border:"1px solid gray", left:"0%", position:"absolute", width: "360px", height: "150px", borderRadius:"10px"}} variants={variants} initial={{display:"none", opacity: 0}} animate={modulesHover ? "show" : ""} >
+                              <Flex justifyContent={"space-between"}  h="100%" color={"gray"} >
+                                <Flex flexDir={"column"} w="33%" justifyContent={"space-between"}>
+                                  <Text as={"a"} href="/modules/aduaneiro" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                </Flex>
+                                <Flex flexDir={"column"} w="33%" borderX={"1px solid gray"}  justifyContent={"space-between"}>
+                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                </Flex>
+                                <Flex flexDir={"column"}  w="33%"  justifyContent={"space-between"}> 
+                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                </Flex>
+                              </Flex>
+                        </motion.div>
+                        <Text>Todos modulos</Text>
+                       <MdKeyboardArrowDown />
+                    </ListItem>
                     <ListItem _hover={{ color: "white", cursor: "pointer" }}>A Mactek</ListItem>
                     <ListItem _hover={{ color: "white", cursor: "pointer" }}>Suporte</ListItem>
                     <ListItem _hover={{ color: "white", cursor: "pointer" }}>Contato</ListItem>

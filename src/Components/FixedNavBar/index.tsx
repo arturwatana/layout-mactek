@@ -3,6 +3,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import MactekLogo from "../../assets/MACTEK_Logo.png"
 import { motion } from "framer-motion"
 import { RxHamburgerMenu } from "react-icons/rx";
+import { useState } from "react";
 
 type FixedNavBarProps = {
   dismont: boolean
@@ -11,8 +12,7 @@ type FixedNavBarProps = {
 }
 
 export default function FixedNavBar({ dismont, render, setOpenBurger }: FixedNavBarProps) {
-
-
+  const [modulesHover, setModulesHover] = useState<boolean>(false)
   const variants = {
     dismont: {
       opacity: 0,
@@ -21,7 +21,22 @@ export default function FixedNavBar({ dismont, render, setOpenBurger }: FixedNav
     render: {
       opacity: 1,
       display: "flex"
-    }
+    },
+    translate: (i: number) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+          delay: 0.2 + (i/6),
+          duration: 1 
+      }
+  }),
+  show: {
+      opacity: 1,
+      display: "block",
+      transition:{
+          duration: 0.1
+      }
+  },
   }
   return (
     <>
@@ -36,8 +51,29 @@ export default function FixedNavBar({ dismont, render, setOpenBurger }: FixedNav
                 <Image w="100%" h="100%" objectFit={"contain"} src={MactekLogo} />
               </Flex>
               <UnorderedList listStyleType={"none"} display={{ sm: "none", lg: "flex" }} fontSize={"14.4px"} fontWeight={500} color={"gray"} gap={"30px"} justifyContent={"center"} alignItems={"center"}>
-                <ListItem style={{ display: "flex", justifyContent: "center", alignItems: "center" }} _hover={{ color: "black", cursor: "pointer" }}><Text>Todos modulos</Text> <MdKeyboardArrowDown /></ListItem>
-                <ListItem _hover={{ color: "black", cursor: "pointer" }}>A Mactek</ListItem>
+              <ListItem onMouseEnter={() => setModulesHover(true)} onMouseLeave={() => setModulesHover(false)} style={{ display:"flex", justifyContent:"center", alignItems:"center", position: "relative"}} _hover={{ color: "black", cursor: "pointer" }}> 
+                      <motion.div style={{background:"rgba(255,255,255,1)", color:"white",padding: "20px 0" , marginTop: "180px",  border:"1px solid gray", left:"0%", position:"absolute", width: "360px", height: "150px", borderRadius:"10px"}} variants={variants} initial={{display:"none", opacity: 0}} animate={modulesHover ? "show" : ""} >
+                              <Flex justifyContent={"space-between"}  h="100%" color={"gray"} >
+                                <Flex flexDir={"column"} w="33%" justifyContent={"space-between"}>
+                                  <Text as={"a"} href="/modules/aduaneiro" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                </Flex>
+                                <Flex flexDir={"column"} w="33%" borderX={"1px solid gray"}  justifyContent={"space-between"}>
+                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                </Flex>
+                                <Flex flexDir={"column"}  w="33%"  justifyContent={"space-between"}> 
+                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                </Flex>
+                              </Flex>
+                        </motion.div>
+                        <Text>Todos modulos</Text>
+                       <MdKeyboardArrowDown />
+                    </ListItem>
                 <ListItem _hover={{ color: "black", cursor: "pointer" }}>Suporte</ListItem>
                 <ListItem _hover={{ color: "black", cursor: "pointer" }}>Contato</ListItem>
                 <Button fontSize={"13.1px"} borderRadius={"5px"} border={"2px solid #FBC431"} as="a" href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" h="32px" _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} p={"0 15px"} background={"none"} color={"#FBC431"} >Windows</Button>
