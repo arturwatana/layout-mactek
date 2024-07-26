@@ -55,22 +55,22 @@ export default function NavBar({setOpenBurger} : NavBarProps){
                   </Flex>
                   <UnorderedList display={{sm: "none", lg: "flex"}} listStyleType={"none"} fontSize={"14.4px"} fontWeight={500} color={"rgba(255,255,255,0.8)"} gap={"30px"} justifyContent={"center"} alignItems={"center"}>
                     <ListItem onMouseEnter={() => setModulesHover(true)} onMouseLeave={() => setModulesHover(false)} style={{ display:"flex", justifyContent:"center", alignItems:"center", position: "relative"}} _hover={{ color: "white", cursor: "pointer" }}> 
-                      <motion.div style={{background:"rgba(255,255,255,1)", color:"white",padding: "20px 0" , marginTop: "180px",  border:"1px solid gray", left:"0%", position:"absolute", width: "360px", height: "150px", borderRadius:"10px"}} variants={variants} initial={{display:"none", opacity: 0}} animate={modulesHover ? "show" : ""} >
-                              <Flex justifyContent={"space-between"}  h="100%" color={"gray"} >
-                                <Flex flexDir={"column"} w="33%" justifyContent={"space-between"}>
-                                  <Text as={"a"} href="/modules/aduaneiro" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
-                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
-                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                      <motion.div style={{background:"rgba(255,255,255,1)", color:"white",padding: "20px 0" , marginTop: "190px",  border:"1px solid gray", left:"0%", position:"absolute", width: "460px", height: "150px", borderRadius:"10px"}} variants={variants} initial={{display:"none", opacity: 0}} animate={modulesHover ? "show" : ""} >
+                              <Flex justifyContent={"space-between"}  h="100%" color={"gray"} fontWeight={300}>
+                              <Flex flexDir={"column"} w="33%" justifyContent={"space-between"}>
+                                  <Text as={"a"} href="/modules/aereo" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aéreo</Text>
+                                  <Text as={"a"} href="/modules/rodoviario" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Rodoviário</Text>
+                                  <Text as={"a"} href="/modules/maritimo" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Marítimo</Text>
                                 </Flex>
                                 <Flex flexDir={"column"} w="33%" borderX={"1px solid gray"}  justifyContent={"space-between"}>
-                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
-                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
-                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                  <Text as={"a"} href="/modules/aduaneiro" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiros</Text>
+                                  <Text as={"a"} href="/modules/internacional" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Internacionais</Text>
+                                  <Text as={"a"} href="/modules/contabilidade" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Contabilidade</Text>
                                 </Flex>
                                 <Flex flexDir={"column"}  w="33%"  justifyContent={"space-between"}> 
-                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
-                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
-                                  <Text _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiro</Text>
+                                  <Text as={"a"} href="/modules/pagamento"_hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Pagamentos</Text>
+                                  <Text  as={"a"} href="/modules/cobranca" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Cobranças</Text>
+                                  <Text  as={"a"} href="/modules/tarefa" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Tarefas</Text>
                                 </Flex>
                               </Flex>
                         </motion.div>
