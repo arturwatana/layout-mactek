@@ -10,7 +10,7 @@ import CountUp from "react-countup"
 import ATLANTIS from "../../assets/Desks.png"
 import Slider from "../Slider"
 import ModulesSlider from "../ModulesSlider"
-import { motion } from "framer-motion"
+import {  motion } from "framer-motion"
 
 import { useContext, useEffect, useState } from "react"
 import ModalContact from "../MenuContact"
@@ -28,14 +28,40 @@ export default function MainComponent() {
   const [messagesToday, setMessagesToday] = useState<MessageProps[]>([{ description: "Informamos que no dia 13/01 não teremos expediente para suporte ao Atlantis." }, { description: "Devido a uma falha nos servidores da Microsoft, o Atlantis pode ter queda de desempenho." }])
   const { messagesDB } = useContext(ContentContext);
   const [openBurger, setOpenBurger] = useState<boolean>(false)
-
+  // const variants = {
+  //   showMsg: {
+  //     opacity: 1,
+  //     display: "flex",
+  //     minHeight: "30px",
+  //     transition: {
+  //       duration: 0.5,
+  //       delay: 1
+  //     }
+  //   },
+  //   showText: {
+  //     opacity: 1,
+  //     display: "block",
+  //     transition: {
+  //       delay: 1.25
+  //     }
+  //   }
+  //   ,
+  //   showDiv: {
+  //     height: "30px",
+  //     opacity: 1,
+  //     transition: {
+  //       delay: 1.25,
+  //       duration: 0.5
+  //     }
+  //   }
+  // }
   useEffect(() => {
     const body = document.querySelector(".chakra-ui-light")
-      if(openBurger){
-            body?.classList.add("no-scroll")
-      } else {
-        body?.classList.remove("no-scroll")
-      }
+    if (openBurger) {
+      body?.classList.add("no-scroll")
+    } else {
+      body?.classList.remove("no-scroll")
+    }
   }, [openBurger])
 
   useEffect(() => {
@@ -67,12 +93,15 @@ export default function MainComponent() {
   return (
     <>
       {/* <ToastContainer /> */}
-    <ModalContact isOpen={openModal} setOpenModal={setOpenModal} />
+      <ModalContact isOpen={openModal} setOpenModal={setOpenModal} />
       {openBurger ? <BurgerMenu setOpenBurger={setOpenBurger} /> : null}
       <Flex w="100vw" className={openBurger ? "no-scroll" : ""} flexDir={"column"} position={"relative"} overflow={openBurger ? "none" : "auto"} >
-        <Flex w="100%" scrollMarginTop={"127px"}   id="firstSection" minH="80vh" h="100%" position={"relative"} justifyContent={"center"} alignItems={"center"} >
+        <Flex w="100%" scrollMarginTop={"127px"} flexDir={'column'} id="firstSection" minH="80vh" h="100%" position={"relative"} justifyContent={"center"} alignItems={"center"} >
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "80vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={MainImg} w="100vw" minH="80vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
+          {/* <motion.div style={{width:"100vw"}} initial={{height:"0px", opacity: 0}}  variants={variants} animate={"showDiv"}>
+            <motion.div style={{ width: "100vw", background: "red", justifyContent: "center", zIndex: 3000, top: 0 }} initial={{ display: "none", height: "0px" }} variants={variants} animate={"showMsg"}><motion.p style={{ fontWeight: 500, fontSize: "20px", color: "white" }} initial={{ display: "none", height: "0px" }} variants={variants} animate={"showText"}  >Ola, no feriado do dia 18/08 nao teremos expediente. Agradecemos a compreensao</motion.p></motion.div >
+          </motion.div> */}
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Flex zIndex={900} w="100%" pb="50px " h="100%" minH="80vh" alignItems={"center"} flexDirection={"column"} >
               <NavBar openBurger={openBurger} setOpenBurger={setOpenBurger} />
@@ -132,7 +161,7 @@ export default function MainComponent() {
           </Flex>
 
         </Flex>
-        <Flex w="100%"  scrollMarginTop={"127px"} id="secondSection" minH="60vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
+        <Flex w="100%" scrollMarginTop={"127px"} id="secondSection" minH="60vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
           <div style={{ backgroundColor: "rgb(255, 255, 255, 0.9)", width: "100%", minHeight: "60vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={YoungWoman} w="100%" minH="60vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
@@ -161,7 +190,7 @@ export default function MainComponent() {
             </Flex>
           </Flex>
         </Flex>
-        <Flex  scrollMarginTop={"127px"} id="thirdSection" justifyContent={"center"} zIndex={500} position={"relative"}>
+        <Flex scrollMarginTop={"127px"} id="thirdSection" justifyContent={"center"} zIndex={500} position={"relative"}>
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "70vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} minH="70vh" h="100%" src={Background01} w="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"40% 50%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
@@ -206,12 +235,12 @@ export default function MainComponent() {
             </Flex>
           </Flex>
         </Flex>
-        <Flex w="100%"  scrollMarginTop={"127px"} id="fourthSection" minH="60vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
+        <Flex w="100%" scrollMarginTop={"127px"} id="fourthSection" minH="60vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
           <div style={{ backgroundColor: "rgb(255, 255, 255, 0.9)", width: "100vw", minHeight: "80vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={YoungWoman} w="100vw" height={"100%"} minH={"80vh"} backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Flex zIndex={900} w={{ sm: "90%", xl: "100%" }} p="80px 0" flexDir={"column"} justifyContent={"space-between"} alignItems={"center"} gap={"80px"}>
-              <Flex flexDir={{ sm: "column", xl: "row" }} gap={{ sm: "40px", lg: "0px" }} > 
+              <Flex flexDir={{ sm: "column", xl: "row" }} gap={{ sm: "40px", lg: "0px" }} >
                 <Flex flexDir={"column"} w={{ sm: "100%", xl: "50%" }} >
                   <Flex w="90%" borderBottom={"2px solid #ececec"} h="80px">
                     <Heading color={"#fbc431"} fontWeight={800} borderBottom={"2px solid rgba(0,0,0,0.1)"} h="100%" fontSize={"42px"}>Sobre nos</Heading>
@@ -226,7 +255,7 @@ export default function MainComponent() {
                     </Flex>
                   </Flex>
                 </Flex>
-                <Flex justifyContent={{ sm: "center", xl: "start" }} w={{sm: "100%", lg:"50%"}}>
+                <Flex justifyContent={{ sm: "center", xl: "start" }} w={{ sm: "100%", lg: "50%" }}>
                   <Flex w={{ sm: "70%", xl: "570px" }} >
                     <Image w="100%" h="100%" objectFit={"contain"} src={ATLANTIS} />
                   </Flex>
@@ -251,7 +280,7 @@ export default function MainComponent() {
             </Flex>
           </Flex>
         </Flex>
-        <Footer/>
+        <Footer />
       </Flex>
 
     </>

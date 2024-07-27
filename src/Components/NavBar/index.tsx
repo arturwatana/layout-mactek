@@ -3,94 +3,97 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import MactekLogo from "../../assets/logo-mactek.png"
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useState } from "react";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion"
 
 type NavBarProps = {
   setOpenBurger: React.Dispatch<React.SetStateAction<boolean>>,
   openBurger: boolean
 }
 
-export default function NavBar({setOpenBurger} : NavBarProps){
-    const [modulesHover, setModulesHover] = useState<boolean>(false)
-    const words = [{name:"A Mactek", class: "fourthSection"}, {name:"Suporte", class: "fifthSection"}, {name:"Contato", class: "sixthSection"}]
-    const variants = {
-      translate: (i: number) => ({
-          y: 0,
-          opacity: 1,
-          transition: {
-              delay: 0.2 + (i/6),
-              duration: 1 
-          }
-      }),
-      show: {
-          opacity: 1,
-          display: "block",
-          transition:{
-              duration: 0.1
-          }
-      },
+export default function NavBar({ setOpenBurger }: NavBarProps) {
+  const [modulesHover, setModulesHover] = useState<boolean>(false)
+  const words = [{ name: "A Mactek", class: "fourthSection" }, { name: "Suporte", class: "fifthSection" }, { name: "Contato", class: "sixthSection" }]
+  const variants = {
+    translate: (i: number) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.2 + (i / 6),
+        duration: 1
+      }
+    }),
+    show: {
+      opacity: 1,
+      display: "block",
+      transition: {
+        duration: 0.1
+      }
+    },
+
   }
+
+
 
   function scrollToTarget(e: any) {
     const id = e.target.className.split(" ")[0]
     const element = document.getElementById(id)
     element?.scrollIntoView({ behavior: 'smooth' });
-}
+  }
 
-    return (
-        <>
-         <Flex w={{sm: "90%", lg:"90%"}} flexDir={"column"} gap={"40px"} zIndex={2000}>
-                <Flex justifyContent="space-between"  color={"rgba(255,255,255,0.8)"} >
-                  <Flex gap={{sm: "0x", lg:"40px"}} w={{sm: "100%"}} justifyContent={{sm: "space-between", lg: "start"}}  flexDir={{sm: "row", lg: "row"}} fontSize={"12.8px"}>
-                    <Text>+55 11 3159-3665</Text>
-                    <Text>comercial@mactek.net</Text>
+  return (
+    <>
+      <Flex w={{ sm: "90%", lg: "90%" }} flexDir={"column"} gap={"40px"} zIndex={2000}>
+        <Flex justifyContent="space-between" color={"rgba(255,255,255,0.8)"} >
+          <Flex gap={{ sm: "0x", lg: "40px" }} w={{ sm: "100%" }} justifyContent={{ sm: "space-between", lg: "start" }} flexDir={{ sm: "row", lg: "row" }} fontSize={"12.8px"}>
+            <Text>+55 11 3159-3665</Text>
+            <Text>comercial@mactek.net</Text>
+          </Flex>
+          <Flex gap={{ sm: "0x", lg: "40px" }} w="30%" display={{ sm: "none", lg: "flex" }} flexDir={{ sm: "column", lg: "row" }} fontSize={"12.8px"}>
+            <Text cursor={"pointer"} as="a" href="/panel">Entrar / Cadastre-se</Text>
+            <Text cursor={"pointer"}>Languages
+            </Text>
+          </Flex>
+        </Flex>
+        <Flex justifyContent={"space-between"} gap={{ sm: "0px", lg: "20px", xl: "0px" }} flexDir={{ sm: "row", lg: "column", xl: "row" }} alignItems={{ lg: "center", xl: "start" }} >
+          <Flex onClick={() => setOpenBurger(prev => !prev)} display={{ sm: "block", lg: "none" }} color={"rgba(255,255,255,0.8)"}  >
+            <RxHamburgerMenu fontSize={"35px"} />
+          </Flex>
+          <Flex as="a" href="/" w={"200px"} h="41px">
+            <Image w="100%" h="100%" objectFit={"contain"} src={MactekLogo} />
+          </Flex>
+          <UnorderedList display={{ sm: "none", lg: "flex" }} listStyleType={"none"} fontSize={"14.4px"} fontWeight={500} color={"rgba(255,255,255,0.8)"} gap={"30px"} justifyContent={"center"} alignItems={"center"}>
+            <ListItem onMouseEnter={() => setModulesHover(true)} onMouseLeave={() => setModulesHover(false)} style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }} _hover={{ color: "white", cursor: "pointer" }}>
+              <motion.div style={{ background: "rgba(255,255,255,1)", color: "white", padding: "20px 0", marginTop: "190px", border: "1px solid gray", left: "0%", position: "absolute", width: "460px", height: "150px", borderRadius: "10px", cursor: "default" }} variants={variants} initial={{ display: "none", opacity: 0 }} animate={modulesHover ? "show" : ""} >
+                <Flex justifyContent={"space-between"} h="100%" color={"gray"} fontWeight={300}>
+                  <Flex flexDir={"column"} w="33%" justifyContent={"space-between"}>
+                    <Text as={"a"} href="/modules/aereo" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Aéreo</Text>
+                    <Text as={"a"} href="/modules/rodoviario" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Rodoviário</Text>
+                    <Text as={"a"} href="/modules/maritimo" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Marítimo</Text>
                   </Flex>
-                  <Flex gap={{sm: "0x", lg:"40px"}} w="30%" display={{sm: "none", lg: "flex"}} flexDir={{sm: "column", lg: "row"}} fontSize={"12.8px"}>
-                    <Text cursor={"pointer"} as="a" href="/panel">Entrar / Cadastre-se</Text>
-                    <Text cursor={"pointer"}>Languages
-                    </Text>
+                  <Flex flexDir={"column"} w="33%" borderX={"1px solid gray"} justifyContent={"space-between"}>
+                    <Text as={"a"} href="/modules/aduaneiro" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Aduaneiros</Text>
+                    <Text as={"a"} href="/modules/internacional" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Internacionais</Text>
+                    <Text as={"a"} href="/modules/contabilidade" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Contabilidade</Text>
+                  </Flex>
+                  <Flex flexDir={"column"} w="33%" justifyContent={"space-between"}>
+                    <Text as={"a"} href="/modules/pagamento" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Pagamentos</Text>
+                    <Text as={"a"} href="/modules/cobranca" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Cobranças</Text>
+                    <Text as={"a"} href="/modules/tarefa" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Tarefas</Text>
                   </Flex>
                 </Flex>
-                <Flex justifyContent={"space-between"} gap={{sm:"0px", lg:"20px", xl:"0px"}} flexDir={{sm: "row", lg:"column", xl:"row"}} alignItems={{lg:"center", xl:"start"}} >
-                <Flex onClick={() => setOpenBurger(prev => !prev) } display={{sm: "block", lg: "none"}} color={"rgba(255,255,255,0.8)"}  >
-                    <RxHamburgerMenu  fontSize={"35px"}/>
-                 </Flex>
-                  <Flex as="a" href="/" w={"200px"} h="41px"> 
-                    <Image w="100%" h="100%" objectFit={"contain"} src={MactekLogo} />
-                  </Flex>
-                  <UnorderedList display={{sm: "none", lg: "flex"}} listStyleType={"none"} fontSize={"14.4px"} fontWeight={500} color={"rgba(255,255,255,0.8)"} gap={"30px"} justifyContent={"center"} alignItems={"center"}>
-                    <ListItem onMouseEnter={() => setModulesHover(true)} onMouseLeave={() => setModulesHover(false)} style={{ display:"flex", justifyContent:"center", alignItems:"center", position: "relative"}} _hover={{ color: "white", cursor: "pointer" }}> 
-                      <motion.div style={{background:"rgba(255,255,255,1)", color:"white",padding: "20px 0" , marginTop: "190px",  border:"1px solid gray", left:"0%", position:"absolute", width: "460px", height: "150px", borderRadius:"10px", cursor: "default"}} variants={variants} initial={{display:"none", opacity: 0}} animate={modulesHover ? "show" : ""} >
-                              <Flex justifyContent={"space-between"}  h="100%" color={"gray"} fontWeight={300}>
-                              <Flex flexDir={"column"} w="33%" justifyContent={"space-between"}>
-                                  <Text as={"a"} href="/modules/aereo" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aéreo</Text>
-                                  <Text as={"a"} href="/modules/rodoviario" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Rodoviário</Text>
-                                  <Text as={"a"} href="/modules/maritimo" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Marítimo</Text>
-                                </Flex>
-                                <Flex flexDir={"column"} w="33%" borderX={"1px solid gray"}  justifyContent={"space-between"}>
-                                  <Text as={"a"} href="/modules/aduaneiro" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Aduaneiros</Text>
-                                  <Text as={"a"} href="/modules/internacional" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Internacionais</Text>
-                                  <Text as={"a"} href="/modules/contabilidade" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Contabilidade</Text>
-                                </Flex>
-                                <Flex flexDir={"column"}  w="33%"  justifyContent={"space-between"}> 
-                                  <Text as={"a"} href="/modules/pagamento"_hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Pagamentos</Text>
-                                  <Text  as={"a"} href="/modules/cobranca" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Cobranças</Text>
-                                  <Text  as={"a"} href="/modules/tarefa" _hover={{background: "	rgb(160,160,160, 0.5)"}} pl="10px">Tarefas</Text>
-                                </Flex>
-                              </Flex>
-                        </motion.div>
-                        <Text>Todos modulos</Text>
-                       <MdKeyboardArrowDown />
-                    </ListItem>
-                    {words.map((word, index) => <ListItem key={index} className={word.class} onClick={((e) => scrollToTarget(e))} _hover={{ color: "white", cursor: "pointer" }}>{word.name}</ListItem> )}
-                    <Button fontSize={"13.1px"} borderRadius={"5px"} border={"2px solid #FBC431"} as="a" href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" h="32px" _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} p={"0 15px"} background={"none"} color={"#FBC431"} >Windows</Button>
-                    <Button fontSize={"13.1px"} borderRadius={"5px"} border={"2px solid #FBC431"} as="a" href="https://download.teamviewer.com/download/TeamViewer.dmg" h="32px" _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} p={"0 15px"} background={"none"} color={"#FBC431"}>Mac OS</Button>
-                  </UnorderedList>
-                <Flex display={{sm: "flex", lg: "none"}}>
+              </motion.div>
+              <Text>Todos modulos</Text>
+              <MdKeyboardArrowDown />
+            </ListItem>
+            {words.map((word, index) => <ListItem key={index} className={word.class} onClick={((e) => scrollToTarget(e))} _hover={{ color: "white", cursor: "pointer" }}>{word.name}</ListItem>)}
+            <Button fontSize={"13.1px"} borderRadius={"5px"} border={"2px solid #FBC431"} as="a" href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" h="32px" _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} p={"0 15px"} background={"none"} color={"#FBC431"} >Windows</Button>
+            <Button fontSize={"13.1px"} borderRadius={"5px"} border={"2px solid #FBC431"} as="a" href="https://download.teamviewer.com/download/TeamViewer.dmg" h="32px" _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} p={"0 15px"} background={"none"} color={"#FBC431"}>Mac OS</Button>
+          </UnorderedList>
+          <Flex display={{ sm: "flex", lg: "none" }}>
 
-                </Flex>
-                </Flex>
-              </Flex>
-        </>
-    )
+          </Flex>
+        </Flex>
+      </Flex>
+    </>
+  )
 }
