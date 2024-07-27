@@ -77,7 +77,7 @@ export default function MainComponent() {
             <Flex zIndex={900} w="100%" pb="50px " h="100%" minH="80vh" alignItems={"center"} flexDirection={"column"} >
               <NavBar openBurger={openBurger} setOpenBurger={setOpenBurger} />
               <FixedNavBar setOpenBurger={setOpenBurger} dismont={scrollPosition == 0 ? true : false} render={scrollPosition >= 10 ? true : false} />
-              <Flex w="100%" h="100%" mt={{ sm: "100px", lg: "180px" }} flexDir={"column"} alignItems={"center"} color="white" gap="50px">
+              <Flex w="100%" h="100%" mt={{ sm: "100px", lg: "150px" }} flexDir={"column"} alignItems={"center"} color="white" gap="50px">
                 <Flex flexDir={"column"} w={{ sm: "95%", xl: "100%" }} gap={"50px"} >
                   <Text w={{ sm: "100%", xl: "62%" }} style={{ fontWeight: 300 }} lineHeight={"1.6"} letterSpacing={"1px"} fontSize={{ sm: "22px", lg: "28px" }} >
                     <span style={{ color: "#FBC431", fontWeight: "500" }} color={"#FBC431"}>ATLANTIS</span> é o melhor software de gestão de processos para freight forwarders do mercado, e o mais eficaz em otimização de tempo.</Text>
@@ -171,14 +171,14 @@ export default function MainComponent() {
               <Flex justifyContent={"space-between"} alignItems={{ sm: "center", lg: "start" }} flexDir={{ sm: "column", lg: "row" }}>
                 <Flex w={{ sm: "90%", lg: "49%" }}>
                   <Flex flexDir={"column"} w="350px" color="rgba(255,255,255,0.8)" gap={"20px"}>
-                    <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+{scrollPosition <= 700 ? "0" : <CountUp style={{ color: "#FBC431" }} end={45} duration={3} />}</Text>
+                    <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+{scrollPosition <= 800 ? "0" : <CountUp style={{ color: "#FBC431" }} end={45} duration={3} />}</Text>
                     <Flex flexDir={"column"}>
                       <Text color="#FBC431" fontWeight="bold" fontSize={"13px"}>BIG NUMBERS 1</Text>
                       <Text fontSize={"16px"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur</Text>
                     </Flex>
                   </Flex>
                   <Flex flexDir={"column"} w="350px" color="rgba(255,255,255,0.8)" gap={"20px"}>
-                    <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"} >+{scrollPosition <= 700 ? "0" : <CountUp style={{ color: "#FBC431" }} end={100} duration={3} />}</Text>
+                    <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"} >+{scrollPosition <= 800 ? "0" : <CountUp style={{ color: "#FBC431" }} end={100} duration={3} />}</Text>
                     <Flex flexDir={"column"}>
                       <Text color="#FBC431" fontWeight="bold" fontSize={"13px"}>BIG NUMBERS 1</Text>
                       <Text fontSize={"16px"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur</Text>
@@ -187,14 +187,14 @@ export default function MainComponent() {
                 </Flex>
                 <Flex w={{ sm: "90%", lg: "49%" }}>
                   <Flex flexDir={"column"} w="350px" color="rgba(255,255,255,0.8)" gap={"20px"}>
-                    <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+{scrollPosition <= 700 ? "0" : <CountUp style={{ color: "#FBC431" }} end={50} duration={3} />}</Text>
+                    <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+{scrollPosition <= 800 ? "0" : <CountUp style={{ color: "#FBC431" }} end={50} duration={3} />}</Text>
                     <Flex flexDir={"column"}>
                       <Text color="#FBC431" fontWeight="bold" fontSize={"13px"}>BIG NUMBERS 1</Text>
                       <Text fontSize={"16px"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur</Text>
                     </Flex>
                   </Flex>
                   <Flex flexDir={"column"} w="350px" color="rgba(255,255,255,0.8)" gap={"20px"}>
-                    <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+{scrollPosition <= 700 ? "0" : <CountUp style={{ color: "#FBC431" }} end={50} duration={3} />}</Text>
+                    <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+{scrollPosition <= 800 ? "0" : <CountUp style={{ color: "#FBC431" }} end={50} duration={3} />}</Text>
                     <Flex flexDir={"column"}>
                       <Text color="#FBC431" fontWeight="bold" fontSize={"13px"}>BIG NUMBERS 1</Text>
                       <Text fontSize={"16px"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur</Text>

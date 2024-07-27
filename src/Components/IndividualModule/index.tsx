@@ -8,6 +8,8 @@ import NavBar from "../NavBar";
 import FixedNavBar from "../FixedNavBar";
 import YoungWoman from "../../assets/young-pretty-busy-woman-sitting-alone-conference-room-many-yellow-chairs-scaled.jpg"
 import FolderFiles from "../../assets/undraw_folder_files_re_2cbm.svg"
+import Ship from "../../assets/undraw_container_ship_re_alm4.svg"
+import World from "../../assets/undraw_connected_world_wuay.svg"
 import { motion } from "framer-motion"
 import BurgerMenu from "../BurgerMenu";
 
@@ -53,7 +55,7 @@ export default function IndividualModule() {
             <FixedNavBar setOpenBurger={setOpenBurger} dismont={scrollPosition == 0 ? true : false} render={scrollPosition >= 10 ? true : false} />
             <Flex maxW="1260px" w="90%" position="relative" justifyContent={"center"} alignItems={{ sm: "center", lg: "start" }} flexDirection={"column"}>
               {module ? <>
-                <Flex textAlign={"left"} w={{ sm: "90%", lg: "80%" }} zIndex={500} p={{ sm: "60px 0 0 0", lg: "120px 0 0 0" }} >
+                <Flex textAlign={"left"} w={{ sm: "90%", lg: "80%" }} zIndex={500} p={{ sm: "60px 0 0 0", lg: "80px 0 0 0" }} >
                   <Flex flexDir={"column"} gap="40px">
                     <Heading color={"#fbc431"} w="100%" textAlign={{ sm: "center", lg: "start" }} fontWeight={400} fontSize={{ sm: "42px", lg: "46px" }} >{module.name}</Heading>
                     <Text color={"rgba(255,255,255,0.8)"} fontSize={'18px'}>{module.description}</Text>
@@ -71,17 +73,17 @@ export default function IndividualModule() {
               <Heading fontSize={"42px"} textAlign={"center"} fontWeight={400} color="#FFB800">Vantagens</Heading>
               <Flex w="100%" mt="64px" alignItems={{ sm: "center", lg: "start" }} gap={{ sm: "15px", lg: "0px" }} justifyContent={"space-around"} flexDir={{ sm: "column", lg: "row" }}>
                 <Flex w={{ sm: "90%", lg: "290px" }} background="rgb(255, 255, 255, 0.9)" h={{ sm: "100%", lg: "350px" }} gap="20px" flexDir={"column"} alignItems={"center"} p="25px 20px 10px 20px" borderRadius={"5px"} boxShadow={"0 4px 6px rgba(0, 0, 0, 0.2)"}>
-                  <Image src={FolderFiles} w={{ sm: "30%", lg: "60%" }} />
+                  <Image src={World} h="30%" w={{ sm: "30%", lg: "60%" }} />
+                  <Text fontSize={"26px"} fontWeight={300}>Sub-Title</Text>
+                  <Text fontSize={"16px"} fontWeight={200} textAlign={"center"}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stan</Text>
+                </Flex>
+                <Flex w={{ sm: "90%", lg: "290px" }}  background="rgb(255, 255, 255, 0.9)" h={{ sm: "100%", lg: "350px" }} gap="20px" flexDir={"column"} alignItems={"center"} p="25px 20px 10px 20px" borderRadius={"5px"} boxShadow={"0 4px 6px rgba(0, 0, 0, 0.2)"}>
+                  <Image src={Ship}  h="30%" w={{ sm: "30%", lg: "60%" }} />
                   <Text fontSize={"26px"} fontWeight={300}>Sub-Title</Text>
                   <Text fontSize={"16px"} fontWeight={200} textAlign={"center"}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stan</Text>
                 </Flex>
                 <Flex w={{ sm: "90%", lg: "290px" }} background="rgb(255, 255, 255, 0.9)" h={{ sm: "100%", lg: "350px" }} gap="20px" flexDir={"column"} alignItems={"center"} p="25px 20px 10px 20px" borderRadius={"5px"} boxShadow={"0 4px 6px rgba(0, 0, 0, 0.2)"}>
-                  <Image src={FolderFiles} w={{ sm: "30%", lg: "60%" }} />
-                  <Text fontSize={"26px"} fontWeight={300}>Sub-Title</Text>
-                  <Text fontSize={"16px"} fontWeight={200} textAlign={"center"}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stan</Text>
-                </Flex>
-                <Flex w={{ sm: "90%", lg: "290px" }} background="rgb(255, 255, 255, 0.9)" h={{ sm: "100%", lg: "350px" }} gap="20px" flexDir={"column"} alignItems={"center"} p="25px 20px 10px 20px" borderRadius={"5px"} boxShadow={"0 4px 6px rgba(0, 0, 0, 0.2)"}>
-                  <Image src={FolderFiles} w={{ sm: "30%", lg: "60%" }} />
+                  <Image src={FolderFiles}  h="30%" w={{ sm: "30%", lg: "60%" }} />
                   <Text fontSize={"26px"} fontWeight={300}>Sub-Title</Text>
                   <Text fontSize={"16px"} fontWeight={200} textAlign={"center"}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stan</Text>
                 </Flex>
