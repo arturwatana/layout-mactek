@@ -48,7 +48,7 @@ export default function FixedNavBar({ dismont, render, setOpenBurger }: FixedNav
 
   return (
     <>
-      <motion.div initial={{ opacity: 0, display: "none" }} animate={dismont ? "dismont" : render ? "render" : ""} variants={variants} style={{ width: "100vw", position: "fixed", background: "rgba(255,255,255,1)", boxShadow: "2px 2px 15px black", zIndex: 2200, display: "flex", justifyContent: "center", minHeight: "127px" }}>
+      <motion.div initial={{ opacity: 0, display: "none" }} animate={dismont ? "dismont" : render ? "render" : ""} variants={variants} style={{ width: "100vw", position: "fixed", background: "rgba(255,255,255,1)", boxShadow: "2px 2px 15px black", zIndex: 3200, display: "flex", justifyContent: "center", minHeight: "127px" }}>
         <Flex maxW={"1260px"} w="100%" justifyContent={"center"}>
           <Flex style={{ width: "90%", display: "flex", justifyContent: "center", paddingTop: "25px", flexDirection: "column", gap: "40px", boxShadow: "15px", zIndex: 2500 }}>
             <Flex justifyContent={"space-between"} flexDir={{ sm: "row", lg: "column", xl: "row" }} gap={{ lg: "20px", xl: "0px" }} pb={{ lg: "20px", xl: "0px" }} pt={{ lg: "20px", xl: "0px" }} alignItems={{ sm: "center", xl: "start" }}>

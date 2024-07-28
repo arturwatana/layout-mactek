@@ -10,50 +10,44 @@ import CountUp from "react-countup"
 import ATLANTIS from "../../assets/Desks.png"
 import Slider from "../Slider"
 import ModulesSlider from "../ModulesSlider"
-import {  motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { useContext, useEffect, useState } from "react"
 import ModalContact from "../MenuContact"
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify"
-import { ContentContext, MessageProps } from "../../App"
+// import { ContentContext, MessageProps } from "../../App"
 import NavBar from "../NavBar"
 import FixedNavBar from "../FixedNavBar"
 import BurgerMenu from "../BurgerMenu"
 import Footer from "../Footer"
+import { MessageProps } from "../AddMessage"
+import { messagesDBMemory } from "../../Utils/MessagesDB"
 
 export default function MainComponent() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [openModal, setOpenModal] = useState<boolean>(false)
-  const [messagesToday, setMessagesToday] = useState<MessageProps[]>([{ description: "Informamos que no dia 13/01 não teremos expediente para suporte ao Atlantis." }, { description: "Devido a uma falha nos servidores da Microsoft, o Atlantis pode ter queda de desempenho." }])
-  const { messagesDB } = useContext(ContentContext);
+  const [messagesToday, setMessagesToday] = useState<MessageProps>()
+  // const { messagesDB } = useContext(ContentContext);
   const [openBurger, setOpenBurger] = useState<boolean>(false)
-  // const variants = {
-  //   showMsg: {
-  //     opacity: 1,
-  //     display: "flex",
-  //     minHeight: "30px",
-  //     transition: {
-  //       duration: 0.5,
-  //       delay: 1
-  //     }
-  //   },
-  //   showText: {
-  //     opacity: 1,
-  //     display: "block",
-  //     transition: {
-  //       delay: 1.25
-  //     }
-  //   }
-  //   ,
-  //   showDiv: {
-  //     height: "30px",
-  //     opacity: 1,
-  //     transition: {
-  //       delay: 1.25,
-  //       duration: 0.5
-  //     }
-  //   }
-  // }
+  const variants = {
+    showMsg: {
+      opacity: 1,
+      display: "flex",
+      minHeight: "30px",
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delay: 0.5
+      }
+    },
+    showText: {
+      opacity: 1,
+      display: "block",
+      transition: {
+        delay: 1.25
+      }
+    }
+  }
   useEffect(() => {
     const body = document.querySelector(".chakra-ui-light")
     if (openBurger) {
@@ -80,12 +74,13 @@ export default function MainComponent() {
     };
   }, []);
 
-  useEffect(() => {
-    messagesToday.map(message => toast.info(`${message.description}`))
-  }, [])
+  async function getMessages() {
+    const messages = await messagesDBMemory.getMessages()
+    setMessagesToday({title:"oi", endDate: "123213", message: "Informamos que no dia 18/08 nao teremos expediente devdo ao feriado nacional", startDate:"123124"})
+  }
 
   useEffect(() => {
-    messagesDB.map(message => setMessagesToday((prev) => [...prev, message]))
+    getMessages()
   }, [])
 
 
@@ -98,13 +93,17 @@ export default function MainComponent() {
         <Flex w="100%" scrollMarginTop={"127px"} flexDir={'column'} id="firstSection" minH="80vh" h="100%" position={"relative"} justifyContent={"center"} alignItems={"center"} >
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "80vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={MainImg} w="100vw" minH="80vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
-          {/* <motion.div style={{width:"100vw"}} initial={{height:"0px", opacity: 0}}  variants={variants} animate={"showDiv"}>
-            <motion.div style={{ width: "100vw", background: "red", justifyContent: "center", zIndex: 3000, top: 0 }} initial={{ display: "none", height: "0px" }} variants={variants} animate={"showMsg"}><motion.p style={{ fontWeight: 500, fontSize: "20px", color: "white" }} initial={{ display: "none", height: "0px" }} variants={variants} animate={"showText"}  >Ola, no feriado do dia 18/08 nao teremos expediente. Agradecemos a compreensao</motion.p></motion.div >
-          </motion.div> */}
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Flex zIndex={900} w="100%" pb="50px " h="100%" minH="80vh" alignItems={"center"} flexDirection={"column"} >
+              {messagesToday ? (
+                <motion.div id="msg" style={{ width: "100vw", background: "linear-gradient(90deg, #FFD700, #FFA500)", justifyContent: "center", zIndex: 3000, top: 0 }} initial={{ display: "none", y: -120 }} variants={variants} animate={"showMsg"}>
+                  <motion.p style={{ fontWeight: 400, fontSize: "18px", color: "white" }} initial={{ height: "0px" }} variants={variants} animate={"showText"}  >
+                    {messagesToday.message}
+                  </motion.p>
+                </motion.div>
+              ) : null}
               <NavBar openBurger={openBurger} setOpenBurger={setOpenBurger} />
-              <FixedNavBar setOpenBurger={setOpenBurger} dismont={scrollPosition == 0 ? true : false} render={scrollPosition >= 10 ? true : false} />
+              <FixedNavBar setOpenBurger={setOpenBurger} dismont={messagesToday ? scrollPosition == 30 ? true : false : scrollPosition == 0 ? true : false} render={messagesToday ? scrollPosition >= 40 ? true : false : scrollPosition >= 10 ? true : false} />
               <Flex w="100%" h="100%" mt={{ sm: "100px", lg: "150px" }} flexDir={"column"} alignItems={"center"} color="white" gap="50px">
                 <Flex flexDir={"column"} w={{ sm: "95%", xl: "100%" }} gap={"50px"} >
                   <Text w={{ sm: "100%", xl: "62%" }} style={{ fontWeight: 300 }} lineHeight={"1.6"} letterSpacing={"1px"} fontSize={{ sm: "22px", lg: "28px" }} >
