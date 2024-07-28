@@ -1,16 +1,18 @@
-import { Flex, Table, Tbody, Td, Th, Tr } from "@chakra-ui/react";
+import { Flex, Image, Table, Tbody, Td, Text, Th, Thead, Tr } from "@chakra-ui/react";
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react";
+import AddMessage, { MessageProps } from "../AddMessage";
+import MainImg from "../../assets/main-demo1.jpg"
+import MactekLogo from "../../assets/logo-mactek.png"
+import { messagesDBMemory } from "../../Utils/MessagesDB";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 
-type MessageProps = {
-  title: string
-  message: string
-  startDate: string
-  endDate: string
-}
 
 export default function Panel() {
   const [messages, setMessages] = useState<MessageProps[]>([])
+  const [addMessage, setAddMessage] = useState<boolean>(false)
+  const [messageToEdit, setMessageToEdit] = useState<MessageProps | null>()
   const animations = {
     render: {
       y: 0,
@@ -22,63 +24,103 @@ export default function Panel() {
     },
   }
 
+  function setDatePattern(message: MessageProps) {
+    setMessageToEdit({
+      title: message.title,
+      endDate: message.endDate.split("/").reverse().join("-"),
+      message: message.message,
+      startDate: message.startDate.split("/").reverse().join("-"),
+    })
+  }
+
+  async function getMessages() {
+    const messagesDb = await messagesDBMemory.getMessages()
+    setMessages(messagesDb)
+  }
+
   useEffect(() => {
-    setMessages([{ title: "Feriado Nacional", message: "Ola, no feriado do dia 18/08 nao teremos expediente. Agradecemos a compreensao", startDate: "17/06/2042", endDate: "17/06/2042" },{ title: "Feriado Nacional", message: "Ola, no feriado do dia 18/08 nao teremos expediente. Agradecemos a compreensao", startDate: "17/06/2042", endDate: "17/06/2042" },{ title: "Feriado Nacional", message: "Ola, no feriado do dia 18/08 nao teremos expediente. Agradecemos a compreensao", startDate: "17/06/2042", endDate: "17/06/2042" },{ title: "Feriado Nacional", message: "Ola, no feriado do dia 18/08 nao teremos expediente. Agradecemos a compreensao", startDate: "17/06/2042", endDate: "17/06/2042" }])
+    getMessages()
   }, [])
+
+  useEffect(() => {
+    if (!addMessage) {
+      setMessageToEdit(null)
+    }
+  }, [addMessage])
 
 
   return (
     <>
-      <motion.div animate={"render"} variants={animations} style={{ width: "100%", minHeight: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}  >
-        <Flex border={"1px solid white"} flexDir={"column"} background="rgb(192,192,192, 1)" w={"100%"} h="80%" minH={"60vh"} borderRadius={"10px"}>
-          {/* <Flex w="20%" border="1px solid white" borderRadius={"20px 0 0 20px"} p="30px 0 0 0">
+      <ToastContainer />
+      <Flex w="100%" h="100%" justifyContent={"center"} >
+        {addMessage ? <AddMessage setAddMessage={setAddMessage} messageToEdit={messageToEdit} /> : null}
+        <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "100vh", height: "100%", position: "absolute", zIndex: 90 }} />
+        <Image position={"absolute"} src={MainImg} w="100vw" minH="100vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
+        <Flex justifyContent={"center"} position={"relative"} w={"100%"} maxW="1680px" alignItems={"center"} flexDir={"column"}>
+          <Flex zIndex={900} w="80%" justifyContent={"center"} position={"relative"} alignItems={"start"} flexDir={"column"}>
+            <Flex as={"a"} href="/" w={"200px"} h="41px" position={"absolute"} top="30" zIndex={900}>
+              <Image w="100%" h="100%" objectFit={"contain"} src={MactekLogo} />
+            </Flex>
+            <motion.div animate={"render"} variants={animations} style={{ width: "100%", minHeight: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}  >
+              <Flex border={"1px solid white"} flexDir={"column"} background="rgb(192,192,192, 1)" w={"100%"} h="80%" minH={"60vh"} borderRadius={"10px"}>
+                {/* <Flex w="20%" border="1px solid white" borderRadius={"20px 0 0 20px"} p="30px 0 0 0">
             <motion.ul style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center", listStyle: "none", gap: "20px", fontSize: "18px" }} >
               <motion.li onClick={() => setMenu("add")} whileHover={{ color: "rgba(255,255,255,0.8)" }} style={{ cursor: "pointer" }}> Adicionar Mensagem</motion.li>
               <motion.li onClick={() => setMenu("manage")} whileHover={{ color: "rgba(255,255,255,0.8)" }} style={{ cursor: "pointer" }} >Gerenciar Mensagens</motion.li>
             </motion.ul>
           </Flex> */}
-          <Flex w="100%" p="15px" flexDir={"column"} gap="10px">
-            <Flex>
-              <Table>
-                <Tr>
-                  <Th>
-                    Titulo
-                  </Th>
-                  <Th>
-                    Mensagem
-                  </Th>
-                  <Th>
-                    Data Inicio
-                  </Th>
-                  <Th>
-                    Data Termino
-                  </Th>
-                </Tr>
-                <Tbody>
-                  {messages.map(message => (
-                    <Tr _hover={{ background: "rgb(182,192,192, 0.8)" }} cursor={"pointer"}>
-                      <Td borderRight={"1px solid gray"}>
-                        {message.title}
-                      </Td>
-                      <Td borderRight={"1px solid gray"}>
-                      {message.message}
-                      </Td>
-                      <Td borderRight={"1px solid gray"}>
-                      {message.startDate}
-                      </Td>
-                      <Td>
-                      {message.endDate}
-                      </Td>
-                    </Tr>
-                  ))}
-                </Tbody>
-              </Table>
-            </Flex>
-            {/* {menu == "add" ? <AddMessage/> : <ManageMessages/>} */}
+                <Flex w="100%" p="15px" flexDir={"column"} gap="10px">
+                  <Flex justifyContent={"end"} w="100%">
+                    <Flex onClick={() => setAddMessage(true)} background={"rgb(251, 196, 49, 1)"} _hover={{ background: "rgb(251, 196, 49,0.7)" }} cursor={"pointer"} fontWeight={"500"} fontSize={"26px"} borderRadius={"5px"} w={"40px"} alignItems={"center"} justifyContent={"center"}>
+                      <Text>+</Text>
+                    </Flex>
+                  </Flex>
+                  <Flex>
+                    <Table>
+                      <Thead>
+                        <Tr>
+                          <Th>
+                            Titulo
+                          </Th>
+                          <Th>
+                            Mensagem
+                          </Th>
+                          <Th>
+                            Data Inicio
+                          </Th>
+                          <Th>
+                            Data Termino
+                          </Th>
+                        </Tr>
+                      </Thead>
+                      <Tbody>
+                        {messages.map(message => (
+                          <Tr _hover={{ background: "rgb(182,192,192, 1)" }} cursor={"pointer"} onClick={() => { setDatePattern(message); setAddMessage(true); }}>
+                            <Td borderRight={"1px solid gray"}>
+                              {message.title}
+                            </Td>
+                            <Td borderRight={"1px solid gray"}>
+                              {message.message}
+                            </Td>
+                            <Td borderRight={"1px solid gray"}>
+                              {message.startDate}
+                            </Td>
+                            <Td>
+                              {message.endDate}
+                            </Td>
+                          </Tr>
+                        ))}
+                      </Tbody>
+                    </Table>
+                  </Flex>
+                  {/* {menu == "add" ? <AddMessage/> : <ManageMessages/>} */}
+                </Flex>
+              </Flex>
+            </motion.div>
           </Flex>
-
         </Flex>
-      </motion.div>
+      </Flex>
+
     </>
   )
 }

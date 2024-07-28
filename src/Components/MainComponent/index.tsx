@@ -11,7 +11,6 @@ import ATLANTIS from "../../assets/Desks.png"
 import Slider from "../Slider"
 import ModulesSlider from "../ModulesSlider"
 import {  motion } from "framer-motion"
-
 import { useContext, useEffect, useState } from "react"
 import ModalContact from "../MenuContact"
 import 'react-toastify/dist/ReactToastify.css';
@@ -124,7 +123,6 @@ export default function MainComponent() {
                       </Flex>
                     </Flex>
                     <Flex flexDirection={"column"} gap="20px">
-
                       <Flex w="60px" h="63px">
                         <Image w="100%" h="100%" objectFit={"contain"} src={Maritime} />
                       </Flex>
@@ -154,12 +152,10 @@ export default function MainComponent() {
                       </Flex>
                     </Flex>
                   </Flex>
-
                 </Flex>
               </Flex>
             </Flex>
           </Flex>
-
         </Flex>
         <Flex w="100%" scrollMarginTop={"127px"} id="secondSection" minH="60vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
           <div style={{ backgroundColor: "rgb(255, 255, 255, 0.9)", width: "100%", minHeight: "60vh", height: "100%", position: "absolute", zIndex: 90 }} />
