@@ -11,17 +11,17 @@ import ATLANTIS from "../../assets/Desks.png"
 import Slider from "../Slider"
 import ModulesSlider from "../ModulesSlider"
 import { motion } from "framer-motion"
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import ModalContact from "../MenuContact"
 import 'react-toastify/dist/ReactToastify.css';
-import { toast } from "react-toastify"
+// import { toast } from "react-toastify"
 // import { ContentContext, MessageProps } from "../../App"
 import NavBar from "../NavBar"
 import FixedNavBar from "../FixedNavBar"
 import BurgerMenu from "../BurgerMenu"
 import Footer from "../Footer"
 import { MessageProps } from "../AddMessage"
-import { messagesDBMemory } from "../../Utils/MessagesDB"
+// import { messagesDBMemory } from "../../Utils/MessagesDB"
 
 export default function MainComponent() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -75,7 +75,6 @@ export default function MainComponent() {
   }, []);
 
   async function getMessages() {
-    const messages = await messagesDBMemory.getMessages()
     setMessagesToday({title:"oi", endDate: "123213", message: "Informamos que no dia 18/08 nao teremos expediente devdo ao feriado nacional", startDate:"123124"})
   }
 
