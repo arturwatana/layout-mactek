@@ -64,8 +64,9 @@ export default function AddMessage({ setAddMessage, messageToEdit }: AddMessageP
         e.preventDefault()
         try {
             validateMessageProps(message)
-          await messagesDBMemory.add(message)
+            await messagesDBMemory.add(message)
             toast.success("Mensagem adicionada com sucesso")
+            setAddMessage(false) 
         } catch (err: any) {
             toast.error(err.message)
         }
@@ -134,7 +135,7 @@ export default function AddMessage({ setAddMessage, messageToEdit }: AddMessageP
                                     endDate: prev?.endDate ?? "",
                                 }))}
                             />
-                            <Button background="rgb(251, 196, 49)" type="button" _hover={{ background: "rgba(251, 196, 49, 0.7)" }} onClick={(e) => { handleSubmit(e); setAddMessage(false) }}>{messageToEdit ? "Editar" : "Adicionar"}</Button>
+                            <Button background="rgb(251, 196, 49)" type="button" _hover={{ background: "rgba(251, 196, 49, 0.7)" }} onClick={(e) => { handleSubmit(e)}}>{messageToEdit ? "Editar" : "Adicionar"}</Button>
                         </motion.form>
                     </Flex>
                 </motion.div>

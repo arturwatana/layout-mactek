@@ -103,10 +103,10 @@ export default function Panel() {
                               {message.message}
                             </Td>
                             <Td borderRight={"1px solid gray"}>
-                              {message.startDate}
+                              {message.startDate.split("-").reverse().join("/")}
                             </Td>
                             <Td>
-                              {message.endDate}
+                              {message.endDate.split("-").reverse().join("/")}
                             </Td>
                           </Tr>
                         ))}

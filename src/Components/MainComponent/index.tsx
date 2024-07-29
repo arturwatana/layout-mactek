@@ -34,6 +34,7 @@ export default function MainComponent() {
       opacity: 1,
       display: "flex",
       minHeight: "30px",
+      height: "100%",
       y: 0,
       transition: {
         duration: 0.5,
@@ -43,6 +44,7 @@ export default function MainComponent() {
     showText: {
       opacity: 1,
       display: "block",
+      height:"100%",
       transition: {
         delay: 1.25
       }
@@ -75,7 +77,7 @@ export default function MainComponent() {
   }, []);
 
   async function getMessages() {
-    setMessagesToday({title:"oi", endDate: "123213", message: "Informamos que no dia 18/08 nao teremos expediente devdo ao feriado nacional", startDate:"123124"})
+    setMessagesToday({title:"oi", endDate: "123213", message: "Informamos que no dia 18/08 nao teremos expediente devido ao feriado nacional", startDate:"123124"})
   }
 
   useEffect(() => {
@@ -96,7 +98,7 @@ export default function MainComponent() {
             <Flex zIndex={900} w="100%" pb="50px " h="100%" minH="80vh" alignItems={"center"} flexDirection={"column"} >
               {messagesToday ? (
                 <motion.div id="msg" style={{ width: "100vw", background: "linear-gradient(90deg, #FFD700, #FFA500)", justifyContent: "center", zIndex: 3000, top: 0 }} initial={{ display: "none", y: -120 }} variants={variants} animate={"showMsg"}>
-                  <motion.p style={{ fontWeight: 400, fontSize: "18px", color: "white" }} initial={{ height: "0px" }} variants={variants} animate={"showText"}  >
+                  <motion.p style={{ fontWeight: 400, fontSize: "18px", color: "white", textAlign:"center" }} initial={{ height: "0px" }} variants={variants} animate={"showText"}  >
                     {messagesToday.message}
                   </motion.p>
                 </motion.div>

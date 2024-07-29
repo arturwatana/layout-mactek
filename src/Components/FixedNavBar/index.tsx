@@ -12,7 +12,7 @@ type FixedNavBarProps = {
 }
 
 export default function FixedNavBar({ dismont, render, setOpenBurger }: FixedNavBarProps) {
-  const words = [{name:"A Mactek", class: "fourthSection"}, {name:"Suporte", class: "fifthSection"}, {name:"Contato", class: "sixthSection"}]
+  const words = [{name:"Atlantis", class: "thirdSection"}, {name:"A Mactek", class: "fourthSection"}, {name:"Contato", class: "sixthSection"}]
   const [modulesHover, setModulesHover] = useState<boolean>(false)
   const variants = {
     dismont: {
