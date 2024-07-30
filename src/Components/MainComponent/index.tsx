@@ -26,7 +26,7 @@ import { MessageProps } from "../AddMessage"
 export default function MainComponent() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [openModal, setOpenModal] = useState<boolean>(false)
-  const [messagesToday, setMessagesToday] = useState<MessageProps>()
+  const [messagesToday, setMessagesToday] = useState<MessageProps | null>()
   // const { messagesDB } = useContext(ContentContext);
   const [openBurger, setOpenBurger] = useState<boolean>(false)
   const variants = {
@@ -77,7 +77,9 @@ export default function MainComponent() {
   }, []);
 
   async function getMessages() {
-    setMessagesToday({title:"oi", endDate: "123213", message: "Informamos que no dia 18/08 nao teremos expediente devido ao feriado nacional", startDate:"123124"})
+    // setMessagesToday({title:"oi", endDate: "123213", message: "Informamos que no dia 18/08 nao teremos expediente devido ao feriado nacional", startDate:"123124"})
+    setMessagesToday(null)
+    return
   }
 
   useEffect(() => {
