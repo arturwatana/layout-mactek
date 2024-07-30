@@ -7,7 +7,7 @@ import Clearence from "../../assets/Iconsrast.png"
 import YoungWoman from "../../assets/young-pretty-busy-woman-sitting-alone-conference-room-many-yellow-chairs-scaled.jpg"
 import Background01 from "../../assets/fundo1.jpg"
 import CountUp from "react-countup"
-import ATLANTIS from "../../assets/Desks.png"
+import ATLANTIS from "../../assets/DesksWEGEO.png"
 import Slider from "../Slider"
 import ModulesSlider from "../ModulesSlider"
 import { motion } from "framer-motion"
@@ -254,7 +254,7 @@ export default function MainComponent() {
                   </Flex>
                 </Flex>
                 <Flex justifyContent={{ sm: "center", xl: "start" }} w={{ sm: "100%", lg: "50%" }}>
-                  <Flex w={{ sm: "70%", xl: "570px" }} >
+                  <Flex w={{ lg: "70%", xl: "570px" }} >
                     <Image w="100%" h="100%" objectFit={"contain"} src={ATLANTIS} />
                   </Flex>
                 </Flex>
