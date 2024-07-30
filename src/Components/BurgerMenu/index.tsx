@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react"
 import { motion } from "framer-motion"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
 
 type NavBarProps = {
@@ -23,7 +23,7 @@ type ModuleProps = {
 export default function BurgerMenu({setOpenBurger}: NavBarProps) {
     const words: WordProps[] = [{name:"Todos Módulos", class: "secondSection", href: "/modules", page: "/"}, {name:"Atlantis", class: "thirdSection", href: "/", page: "/"}, {name:"A Mactek", class: "fourthSection", page: "/"}, {name:"Suporte", class: "fifthSection", page: "/"}]
     const [search, setSearch] = useState<string>("")
-    const [modules, setModules] = useState<ModuleProps[]>([{title: "Aéreo", href:"/modules/aereo"}, {title:'Marítimo', href: "/modules/maritimo"}, {title:'Rodoviário', href: "/modules/Rodoviário"}, {title:'Aduaneiro', href: "/modules/Aduaneiro"}, {title:'Financeiro', href: "/modules/Financeiro"}])
+    const [modules, setModules] = useState<ModuleProps[]>()
     let location = useLocation();
 
     const variants = {
@@ -52,7 +52,9 @@ export default function BurgerMenu({setOpenBurger}: NavBarProps) {
         element?.scrollIntoView({ behavior: 'smooth' });
     }
 
-
+useEffect(() => {
+setModules([{title: "Aéreo", href:"/modules/aereo"}, {title:'Marítimo', href: "/modules/maritimo"}, {title:'Rodoviário', href: "/modules/Rodoviário"}, {title:'Aduaneiro', href: "/modules/Aduaneiro"}, {title:'Financeiro', href: "/modules/Financeiro"}])
+}, [])
 
     return (
         <>
@@ -70,7 +72,7 @@ export default function BurgerMenu({setOpenBurger}: NavBarProps) {
                     </motion.div>) : (
                         <motion.ul style={{flexDirection: "column", gap:"15px", display: "flex", marginTop: "10px"}}>
                             <motion.a  style={{ cursor: "pointer", fontSize: 28 }}>Módulos filtrados</motion.a>
-                                                            {modules.map((module , index)=> (
+                                                            {modules?.map((module , index)=> (
                                 module.title.toLowerCase().includes(search.toLowerCase()) ? (<motion.li onClick={(e) => {setOpenBurger(false); location.pathname == "/" ? scrollToTarget(e) : null}} initial={{opacity: 0, y: -20}} variants={variants} custom={index + 1} animate={"renderLi"} style={{ cursor: "pointer", fontSize: 25 }}>{module.title}</motion.li>) : null
                             ))}
 
