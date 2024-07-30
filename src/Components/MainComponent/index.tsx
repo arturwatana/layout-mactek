@@ -247,9 +247,9 @@ export default function MainComponent() {
                     <Flex flexDir={"column"} gap={"30px"}>
                       <Text fontWeight={300} fontSize={"16px"} w="90%">Fundada em 2004, a <span style={{ color: "#FBC431" }}>Mactek Sistemas©</span> é hoje uma empresa 100% brasileira. A idéia do desenvolvimento de um software para atender as necessidades dos freight forwarder surgiu ainda antes, em 1997. Pela participação ativa em um escritório de agenciamento de cargas local, a <span style={{ color: "#FBC431" }}>Mactek Sistemas© </span>vislumbrou a necessidade de uma ferramenta que controle os embarques e os faturamentos dos serviços prestados.</Text>
                       <Text fontWeight={300} fontSize={"16px"} w="90%">Essa idéia deu origem ao <span style={{ color: "#FBC431" }}>ATLANTIS©</span>, um software totalmente destinado a atender as necessidades do freight forwarder em todos os modais. Iniciando através dos modais aéreo e marítimo, o Cheetah X© foi lapidando ao longo do tempo através das experiências de parceiros e clientes, transformando-se numa ferramenta sólida e flexível, para pequenas, médias e grandes empresas no segmento de transporte Internacional.</Text>
-                      <Flex justifyContent={{ sm: "center", xl: "start" }} w="100%" >
+                      {/* <Flex justifyContent={{ sm: "center", xl: "start" }} w="100%" >
                         <Button fontSize={"15px"} w={{ sm: "65%", xl: "45%" }} _hover={{ color: "rgba(255,255,255,0.8)", background: "#C89C27" }} p={"0 18px"} background={"#FBC431"} fontWeight={500} color={"rgba(255,255,255,0.8)"}>Conheca mais</Button>
-                      </Flex>
+                      </Flex> */}
                     </Flex>
                   </Flex>
                 </Flex>
