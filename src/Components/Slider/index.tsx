@@ -3,6 +3,7 @@ import { motion} from "framer-motion"
 import { useEffect, useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import Flat from "../../assets/logo.png"
+import Nuno from "../../assets/nunofracht.svg"
 type SwipeProps = {
     cards: number,
     cardInView: number
@@ -62,17 +63,17 @@ export default function Slider(){
                 <Flex maxW="1200px" overflow={"hidden"}  >
                     <motion.div animate={"swipe"}  style={{display:"flex", gap: "20px"}} custom={swipe.cardInView} variants={variants} >
                         <Image w="200px" fit={"contain"}  src={Flat}/>
+                        <Image w="200px" fit={"contain"}  src={Nuno}/>
                         <Image w="200px" fit={"contain"} src={Flat}/>
+                        <Image w="200px" fit={"contain"} src={Nuno}/>
                         <Image w="200px" fit={"contain"} src={Flat}/>
+                        <Image w="200px" fit={"contain"} src={Nuno}/>
                         <Image w="200px" fit={"contain"} src={Flat}/>
+                        <Image w="200px" fit={"contain"} src={Nuno}/>
                         <Image w="200px" fit={"contain"} src={Flat}/>
+                        <Image w="200px" fit={"contain"} src={Nuno}/>
                         <Image w="200px" fit={"contain"} src={Flat}/>
-                        <Image w="200px" fit={"contain"} src={Flat}/>
-                        <Image w="200px" fit={"contain"} src={Flat}/>
-                        <Image w="200px" fit={"contain"} src={Flat}/>
-                        <Image w="200px" fit={"contain"} src={Flat}/>
-                        <Image w="200px" fit={"contain"} src={Flat}/>
-                        <Image w="200px" fit={"contain"} src={Flat}/>
+                        <Image w="200px" fit={"contain"} src={Nuno}/>
                     </motion.div>
                 </Flex>
                 <Box color="#222"  onClick={() => {nextImg(); setStopAnimation(true)}}>
