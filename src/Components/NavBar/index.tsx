@@ -42,13 +42,13 @@ export default function NavBar({ setOpenBurger }: NavBarProps) {
 
   return (
     <>
-      <Flex w={{ sm: "90%", lg: "90%" }} flexDir={"column"} gap={"40px"} zIndex={2000}>
+      <Flex w={{ sm: "90%", lg: "90%" }} flexDir={"column"} gap={"40px"} zIndex={2000} >
         <Flex justifyContent="space-between" color={"rgba(255,255,255,0.8)"} >
           <Flex gap={{ sm: "0x", lg: "40px" }} w={{ sm: "100%" }} justifyContent={{ sm: "space-between", lg: "start" }} flexDir={{ sm: "row", lg: "row" }} fontSize={"12.8px"}>
             <Text>+55 11 3159-3665</Text>
             <Text>comercial@mactek.net</Text>
           </Flex>
-          <Flex gap={{ sm: "0x", lg: "40px" }} w="30%" display={{ sm: "none", lg: "flex" }} flexDir={{ sm: "column", lg: "row" }} fontSize={"12.8px"}>
+          <Flex gap={{ sm: "0x", lg: "30px" }} w="30%" display={{ sm: "none", lg: "flex" }}  justifyContent={"space-between"} flexDir={{ sm: "column", lg: "row" }} fontSize={"12.8px"}>
             <Text cursor={"pointer"} as="a" href="/panel">Entrar / Cadastre-se</Text>
             <Text cursor={"pointer"}>Languages
             </Text>
@@ -63,7 +63,7 @@ export default function NavBar({ setOpenBurger }: NavBarProps) {
           </Flex>
           <UnorderedList display={{ sm: "none", lg: "flex" }} listStyleType={"none"} fontSize={"14.4px"} fontWeight={500} color={"rgba(255,255,255,0.8)"} gap={"30px"} justifyContent={"center"} alignItems={"center"}>
             <ListItem onMouseEnter={() => setModulesHover(true)} onMouseLeave={() => setModulesHover(false)} style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }} _hover={{ color: "white", cursor: "pointer" }}>
-              <motion.div style={{ background: "rgba(255,255,255,1)", color: "white", padding: "20px 0", marginTop: "190px", border: "1px solid gray", left: "0%", position: "absolute", width: "460px", height: "150px", borderRadius: "10px", cursor: "default" }} variants={variants} initial={{ display: "none", opacity: 0 }} animate={modulesHover ? "show" : ""} >
+              <motion.div  style={{ background: "rgba(255,255,255,1)", color: "white", padding: "20px 0", marginTop: "190px", border: "1px solid gray", left: "0%", position: "absolute", width: "460px", height: "150px", borderRadius: "10px", cursor: "default" }} variants={variants} initial={{ display: "none", opacity: 0 }} animate={modulesHover ? "show" : ""} >
                 <Flex justifyContent={"space-between"} h="100%" color={"gray"} fontWeight={300}>
                   <Flex flexDir={"column"} w="33%" justifyContent={"space-between"}>
                     <Text as={"a"} href="/modules/aereo" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Aéreo</Text>
