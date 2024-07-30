@@ -43,7 +43,7 @@ export default function Modules() {
         <>
             <Flex flexDir={"column"}>
                 {openBurger ? <BurgerMenu setOpenBurger={setOpenBurger} /> : null}
-                <Flex w="100vw" h="100%" position={"relative"} alignItems={"center"} justifyContent={"center"} flexDir={"column"} >
+                <Flex w="100vw" h="100%" scrollMarginTop={"127px"}  id="firstSection" position={"relative"} alignItems={"center"} justifyContent={"center"} flexDir={"column"} >
                     <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "60vh", height: "100%", position: "absolute", zIndex: 90 }} />
                     <Image position={"absolute"} src={MainImg} w="100vw" minH="60vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
                     <Flex zIndex={900} w="100%" maxW="1280px" pb="50px " h="100%" minH="60vh" alignItems={"center"} flexDirection={"column"} >
@@ -53,7 +53,7 @@ export default function Modules() {
                             <Flex textAlign={"left"} w={{ sm: "90%", lg: "80%" }} zIndex={500} p={{ sm: "60px 0 0 0", lg: "80px 0 0 0" }} >
                                 <Flex flexDir={"column"} gap="40px">
                                     <Heading color={"#fbc431"} w="100%" textAlign={{ sm: "center", lg: "start" }} fontWeight={400} fontSize={{ sm: "42px", lg: "46px" }} >Módulos</Heading>
-                                    <Text color={"rgba(255,255,255,0.8)"} fontWeight={300} fontSize={'22px'}>A página de módulos do ATLANTIS foi projetada para fornecer uma visão abrangente das funcionalidades essenciais para a gestão eficiente de operações de logística e transporte. Cada módulo foi desenvolvido para atender às necessidades específicas dos freight forwarders, garantindo uma operação integrada e eficiente.</Text>
+                                    <Text color={"rgba(255,255,255,0.8)"} fontWeight={300} fontSize={'22px'}>A página de módulos do  <span style={{ color: "#FBC431" }}>ATLANTIS</span> foi projetada para fornecer uma visão abrangente das funcionalidades essenciais para a gestão eficiente de operações de logística e transporte. Cada módulo foi desenvolvido para atender às necessidades específicas dos freight forwarders, garantindo uma operação integrada e eficiente.</Text>
                                 </Flex>
                             </Flex>
                         </Flex>

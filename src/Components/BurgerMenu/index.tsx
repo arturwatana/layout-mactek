@@ -1,5 +1,7 @@
 import { Flex } from "@chakra-ui/react"
 import { motion } from "framer-motion"
+import { useState } from "react"
+import { useLocation } from "react-router-dom"
 
 type NavBarProps = {
     setOpenBurger: React.Dispatch<React.SetStateAction<boolean>>,
@@ -10,10 +12,19 @@ type NavBarProps = {
     name: string
     class: string
     href?: string
+    page: string
   }
 
+type ModuleProps = {
+    title: string
+    href: string
+}
+
 export default function BurgerMenu({setOpenBurger}: NavBarProps) {
-    const words: WordProps[] = [{name:"Todos Módulos", class: "secondSection", href: "/modules"}, {name:"Atlantis", class: "thirdSection"}, {name:"A Mactek", class: "fourthSection"}, {name:"Suporte", class: "fifthSection"}]
+    const words: WordProps[] = [{name:"Todos Módulos", class: "secondSection", href: "/modules", page: "/"}, {name:"Atlantis", class: "thirdSection", href: "/", page: "/"}, {name:"A Mactek", class: "fourthSection", page: "/"}, {name:"Suporte", class: "fifthSection", page: "/"}]
+    const [search, setSearch] = useState<string>("")
+    const [modules, setModules] = useState<ModuleProps[]>([{title: "Aéreo", href:"/modules/aereo"}, {title:'Marítimo', href: "/modules/maritimo"}, {title:'Rodoviário', href: "/modules/Rodoviário"}, {title:'Aduaneiro', href: "/modules/Aduaneiro"}, {title:'Financeiro', href: "/modules/Financeiro"}])
+    let location = useLocation();
 
     const variants = {
         render: {
@@ -42,6 +53,7 @@ export default function BurgerMenu({setOpenBurger}: NavBarProps) {
     }
 
 
+
     return (
         <>
             <Flex position={"fixed"} w="100%" h="100%" overflow={"none"} justifyContent={"center"} alignItems={"center"} zIndex={3000}>
@@ -49,24 +61,25 @@ export default function BurgerMenu({setOpenBurger}: NavBarProps) {
                 </motion.div>
                 <motion.div style={{position: "fixed", maxHeight:"40vh",color:"white", zIndex: 3003, justifyContent:"center", alignItems:"center", display: "flex", flexDirection:"column", gap:"15px"}}>
                 <motion.div initial={{opacity: 0, y: -20}}  variants={variants} custom={0} animate={"renderLi"} >
-                    <motion.input list="modules" placeholder="Search" style={{padding: "5px 15px", borderRadius: "20px", background: "rgb(128,128,128, 0.6)"}}/>
-                    <datalist id="modules">
-                        <option value="Aéreo"/> 
-                        <option value="Marítimo"/> 
-                        <option value="Rodoviário"/> 
-                        <option value="Aduaneiro"/> 
-                        <option value="Financeiro"/> 
-                    </datalist>
+                    <motion.input  placeholder="Search" onChange={(e) => setSearch(e.target.value)} style={{padding: "5px 15px", borderRadius: "20px", background: "rgb(128,128,128, 0.6)"}}/>
                    </motion.div>
-                    <motion.div  style={{ width: "100%",  justifyContent:"center", alignItems:"center", borderRadius: "10px", display: "flex", flexDirection: "column", gap: "20px" }}>
-                        { words.map((word, index) => (<motion.a className={word.class} key={index} href={word.href} onClick={(e) => {setOpenBurger(false);scrollToTarget(e)}} initial={{opacity: 0, y: -20}} variants={variants} custom={index + 1} animate={"renderLi"} style={{ cursor: "pointer", fontSize: 25 }}>{word.name}</motion.a>))}
+                   {search.length <= 2 ? ( <motion.div  style={{ width: "100%",  justifyContent:"center", alignItems:"center", borderRadius: "10px", display: "flex", flexDirection: "column", gap: "20px" }}>
+                        { words.map((word, index) => (<motion.a className={word.class} key={index} href={location.pathname != word.page ? word.href : undefined} onClick={(e) => {setOpenBurger(false); location.pathname == "/" ? scrollToTarget(e) : null}} initial={{opacity: 0, y: -20}} variants={variants} custom={index + 1} animate={"renderLi"} style={{ cursor: "pointer", fontSize: 25 }}>{word.name}</motion.a>))}
                         <motion.button initial={{opacity: 0, y: -20}} variants={variants} custom={5} animate={"renderLi"} style={{fontSize: "13.1px", borderRadius: "5px", border:" 2px solid #FBC431", height:"32px", padding: "0 15px", background: "none", color: "#FBC431"}} whileHover={{color: "rgba(255,255,255,0.8)", background: "#FBC431"}} ><motion.a href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" >Windows</motion.a></motion.button>
                         <motion.button initial={{opacity: 0, y: -20}} variants={variants} custom={6} animate={"renderLi"} style={{fontSize: "13.1px", borderRadius: "5px", border:" 2px solid #FBC431", height:"32px", padding: "0 15px", background: "none", color: "#FBC431"}} whileHover={{color: "rgba(255,255,255,0.8)", background: "#FBC431"}} ><motion.a href="https://download.teamviewer.com/download/TeamViewer.dmg" >Mac OS</motion.a></motion.button>
-                         
-                    </motion.div>
+                    </motion.div>) : (
+                        <motion.ul style={{flexDirection: "column", gap:"15px", display: "flex", marginTop: "10px"}}>
+                            <motion.a  style={{ cursor: "pointer", fontSize: 28 }}>Módulos filtrados</motion.a>
+                                                            {modules.map((module , index)=> (
+                                module.title.toLowerCase().includes(search.toLowerCase()) ? (<motion.li onClick={(e) => {setOpenBurger(false); location.pathname == "/" ? scrollToTarget(e) : null}} initial={{opacity: 0, y: -20}} variants={variants} custom={index + 1} animate={"renderLi"} style={{ cursor: "pointer", fontSize: 25 }}>{module.title}</motion.li>) : null
+                            ))}
+
+
+                        </motion.ul>
+                    )}
+
                 </motion.div>
             </Flex>
-
         </>
     )
 }
