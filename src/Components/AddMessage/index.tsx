@@ -3,20 +3,23 @@ import { motion } from "framer-motion"
 import { useEffect, useState } from "react";
 import { messagesDBMemory } from "../../Utils/MessagesDB";
 import { toast } from "react-toastify";
+import lodash from "lodash"
 
 type AddMessageProps = {
     setAddMessage: React.Dispatch<React.SetStateAction<boolean>>,
+    setUpdateScreen: React.Dispatch<React.SetStateAction<boolean>>,
     messageToEdit?: MessageProps | null
 }
 
 export type MessageProps = {
+    id?: string
     title: string
     message: string
     startDate: string
     endDate: string
 }
 
-export default function AddMessage({ setAddMessage, messageToEdit }: AddMessageProps) {
+export default function AddMessage({ setAddMessage, messageToEdit, setUpdateScreen }: AddMessageProps) {
     const [visualization, setVisualization] = useState<boolean>(false)
     const [message, setMessage] = useState<MessageProps>({
         title: "",
@@ -62,13 +65,31 @@ export default function AddMessage({ setAddMessage, messageToEdit }: AddMessageP
 
     async function handleSubmit(e: any) {
         e.preventDefault()
-        try {
-            validateMessageProps(message)
-            await messagesDBMemory.add(message)
-            toast.success("Mensagem adicionada com sucesso")
-            setAddMessage(false) 
-        } catch (err: any) {
-            toast.error(err.message)
+        if(messageToEdit){
+            if(lodash.isEqual(messageToEdit, message)){
+                toast.error("Ops, alguma alteração deve ser feita")
+                return
+            }
+            try {
+                validateMessageProps(message)
+                await messagesDBMemory.editMessage(message.id || "", message)
+                toast.success("Mensagem editada com sucesso")
+                setAddMessage(false) 
+                setUpdateScreen(true)
+            } catch (err: any) {
+                toast.error(err.message)
+            }
+        } else {
+            try {
+                validateMessageProps(message)
+                await messagesDBMemory.add(message)
+                toast.success("Mensagem adicionada com sucesso")
+                setAddMessage(false) 
+                setUpdateScreen(true)
+            } catch (err: any) {
+                toast.error(err.message)
+            }
+
         }
     }
 

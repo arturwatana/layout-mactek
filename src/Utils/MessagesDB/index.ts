@@ -1,5 +1,5 @@
-import { MessagesMemoryDB } from "./implementations/messages.db.memory"
+import { MessagesAPIDB } from "./implementations/messages.db.api"
 
 
 
-export const messagesDBMemory = new MessagesMemoryDB()
+export const messagesDBMemory = new MessagesAPIDB()

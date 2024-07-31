@@ -13,6 +13,7 @@ export default function Panel() {
   const [messages, setMessages] = useState<MessageProps[]>([])
   const [addMessage, setAddMessage] = useState<boolean>(false)
   const [messageToEdit, setMessageToEdit] = useState<MessageProps | null>()
+  const [updateScreen, setUpdateScreen] = useState<boolean>(false)
   const animations = {
     render: {
       y: 0,
@@ -25,11 +26,12 @@ export default function Panel() {
   }
 
   function setDatePattern(message: MessageProps) {
-    setMessageToEdit({
+      setMessageToEdit({
+      id: message.id,
       title: message.title,
-      endDate: message.endDate.split("/").reverse().join("-"),
+      endDate: message.endDate.split("T")[0],
       message: message.message,
-      startDate: message.startDate.split("/").reverse().join("-"),
+      startDate: message.startDate.split("T")[0],
     })
   }
 
@@ -37,6 +39,13 @@ export default function Panel() {
     const messagesDb = await messagesDBMemory.getMessages()
     setMessages(messagesDb)
   }
+
+  useEffect(() => {
+      if(updateScreen){
+        getMessages()
+        setUpdateScreen(false)
+      }
+  }, [updateScreen])
 
   useEffect(() => {
     getMessages()
@@ -53,7 +62,7 @@ export default function Panel() {
     <>
       <ToastContainer />
       <Flex w="100%" h="100%" justifyContent={"center"} >
-        {addMessage ? <AddMessage setAddMessage={setAddMessage} messageToEdit={messageToEdit} /> : null}
+        {addMessage ? <AddMessage setUpdateScreen={setUpdateScreen} setAddMessage={setAddMessage} messageToEdit={messageToEdit} /> : null}
         <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "100vh", height: "100%", position: "absolute", zIndex: 90 }} />
         <Image position={"absolute"} src={MainImg} w="100vw" minH="100vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
         <Flex justifyContent={"center"} position={"relative"} w={"100%"} maxW="1680px" alignItems={"center"} flexDir={"column"}>
@@ -63,12 +72,6 @@ export default function Panel() {
             </Flex>
             <motion.div animate={"render"} variants={animations} style={{ width: "100%", minHeight: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}  >
               <Flex border={"1px solid white"} flexDir={"column"} background="rgb(192,192,192, 1)" w={"100%"} h="80%" minH={"60vh"} borderRadius={"10px"}>
-                {/* <Flex w="20%" border="1px solid white" borderRadius={"20px 0 0 20px"} p="30px 0 0 0">
-            <motion.ul style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center", listStyle: "none", gap: "20px", fontSize: "18px" }} >
-              <motion.li onClick={() => setMenu("add")} whileHover={{ color: "rgba(255,255,255,0.8)" }} style={{ cursor: "pointer" }}> Adicionar Mensagem</motion.li>
-              <motion.li onClick={() => setMenu("manage")} whileHover={{ color: "rgba(255,255,255,0.8)" }} style={{ cursor: "pointer" }} >Gerenciar Mensagens</motion.li>
-            </motion.ul>
-          </Flex> */}
                 <Flex w="100%" p="15px" flexDir={"column"} gap="10px">
                   <Flex justifyContent={"end"} w="100%">
                     <Flex onClick={() => setAddMessage(true)} background={"rgb(251, 196, 49, 1)"} _hover={{ background: "rgb(251, 196, 49,0.7)" }} cursor={"pointer"} fontWeight={"500"} fontSize={"26px"} borderRadius={"5px"} w={"40px"} alignItems={"center"} justifyContent={"center"}>
@@ -103,10 +106,10 @@ export default function Panel() {
                               {message.message}
                             </Td>
                             <Td borderRight={"1px solid gray"}>
-                              {message.startDate.split("-").reverse().join("/")}
+                              {message.startDate.split("T")[0].split("-").reverse().join("/")}
                             </Td>
                             <Td>
-                              {message.endDate.split("-").reverse().join("/")}
+                              {message.endDate.split("T")[0].split("-").reverse().join("/")}
                             </Td>
                           </Tr>
                         ))}
