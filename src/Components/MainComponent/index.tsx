@@ -177,7 +177,7 @@ export default function MainComponent() {
                     <ListItem>Custom details #3</ListItem>
                   </UnorderedList>
                   <Flex justifyContent={{ sm: "center", xl: "start" }} mt={{ sm: "15px", lg: "0px" }} >
-                    <Button as="a" href="/modules" fontSize={"15px"} h="40px" w={{ sm: "55%", xl: "35%" }} fontWeight={500} _hover={{ color: "rgba(255,255,255,0.8)", background: "#C89C27" }} p={"0 18px"} background={"#FBC431"} color={"rgba(255,255,255,0.8)"}>Veja todos os modulos</Button>
+                    <Button as="a" href="/modulos" fontSize={"15px"} h="40px" w={{ sm: "55%", xl: "35%" }} fontWeight={500} _hover={{ color: "rgba(255,255,255,0.8)", background: "#C89C27" }} p={"0 18px"} background={"#FBC431"} color={"rgba(255,255,255,0.8)"}>Veja todos os modulos</Button>
                   </Flex>
                 </Flex>
                 <Flex h="100%" maxW="650px" >

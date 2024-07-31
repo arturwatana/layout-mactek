@@ -11,8 +11,8 @@ return (
         <Router>
           <Routes>
             <Route path="/" element={<MainComponent />} />
-            <Route path="/modules/:tag" element={<IndividualModule />} />
-            <Route path="/modules" element={<Modules />} />
+            <Route path="/modulos/:tag" element={<IndividualModule />} />
+            <Route path="/modulos" element={<Modules />} />
             <Route path="/panel" element={<SecurityPanel />} />
           </Routes>
         </Router>
