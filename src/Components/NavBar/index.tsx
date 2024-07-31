@@ -12,7 +12,7 @@ type NavBarProps = {
 
 export default function NavBar({ setOpenBurger }: NavBarProps) {
   const [modulesHover, setModulesHover] = useState<boolean>(false)
-  const words = [{ name: "Atlantis", class: "thirdSection" }, { name: "A Mactek", class: "fourthSection" }, { name: "Contato", class: "sixthSection" }]
+  const words = [{ name: "Atlantis", class: "thirdSection" }, { name: "A Mactek", class: "fourthSection" }, { name: "Contato", class: "fifthSection" }]
   const variants = {
     translate: (i: number) => ({
       y: 0,
