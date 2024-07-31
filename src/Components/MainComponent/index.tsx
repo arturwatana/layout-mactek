@@ -253,8 +253,8 @@ export default function MainComponent() {
                     </Flex>
                   </Flex>
                 </Flex>
-                <Flex justifyContent={{ sm: "center", xl: "start" }} w={{ sm: "100%", lg: "50%" }}>
-                  <Flex w={{ lg: "70%", xl: "570px" }} >
+                <Flex justifyContent={{ sm: "center", xl: "start" }} border={"1px solid red"} w={{ sm: "100%", xl: "50%" }}>
+                  <Flex w={{sm: "70%", lg: "40%", xl: "570px" }} >
                     <Image w="100%" h="100%" objectFit={"contain"} src={ATLANTIS} />
                   </Flex>
                 </Flex>
