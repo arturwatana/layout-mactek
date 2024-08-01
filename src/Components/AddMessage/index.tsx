@@ -18,6 +18,7 @@ export type MessageProps = {
     message: string
     startDate: string
     endDate: string
+    isActive?: boolean
 }
 
 export default function AddMessage({ setAddMessage, messageToEdit, setUpdateScreen }: AddMessageProps) {
@@ -26,7 +27,7 @@ export default function AddMessage({ setAddMessage, messageToEdit, setUpdateScre
         title: "",
         message: "",
         startDate: "",
-        endDate: ""
+        endDate: "",
     });
     const animations = {
         render: {
@@ -47,7 +48,7 @@ export default function AddMessage({ setAddMessage, messageToEdit, setUpdateScre
                 title: "",
                 message: "",
                 startDate: "",
-                endDate: ""
+                endDate: "",
             })
         }
     }, [])
@@ -70,12 +71,14 @@ export default function AddMessage({ setAddMessage, messageToEdit, setUpdateScre
     async function handleSubmit(e: any) {
         e.preventDefault()
         if(messageToEdit){
+            console.log(messageToEdit)
             if(lodash.isEqual(messageToEdit, message)){
                 toast.error("Ops, alguma alteração deve ser feita")
                 return
             }
             try {
                 validateMessageProps(message)
+                console.log(message)
                 await messagesDBMemory.editMessage(message.id || "", message)
                 toast.success("Mensagem editada com sucesso")
                 setAddMessage(false) 
@@ -160,7 +163,25 @@ export default function AddMessage({ setAddMessage, messageToEdit, setUpdateScre
                                     endDate: prev?.endDate ?? "",
                                 }))}
                             />
-                            <Button background="rgb(251, 196, 49)" type="button" _hover={{ background: "rgba(251, 196, 49, 0.7)" }} onClick={(e) => { handleSubmit(e)}}>{messageToEdit ? "Editar" : "Adicionar"}</Button>
+                            <Flex gap="20px" >
+                            <motion.label htmlFor="isActive" style={{fontWeight: 500}}>Ativa:</motion.label>
+                            <motion.input
+                                id="isActive"
+                                disabled={visualization}
+                                type="checkbox"
+                                onChange={(e) => setMessage((prev) => ({
+                                    ...prev,
+                                    title: prev?.title || "",
+                                    message: prev?.message ?? "",
+                                    startDate: prev?.startDate ?? "",
+                                    endDate: prev?.endDate ?? "",
+                                    isActive: e.target.checked
+                                }))}
+                                checked={message.isActive}
+                            />
+
+                            </Flex>
+                            <Button isDisabled={visualization} background="rgb(251, 196, 49)" type="button" _hover={{ background: "rgba(251, 196, 49, 0.7)" }} onClick={(e) => { handleSubmit(e)}}>{messageToEdit ? "Editar" : "Adicionar"}</Button>
                         </motion.form>
                     </Flex>
                 </motion.div>

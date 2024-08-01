@@ -14,6 +14,7 @@ export default function Panel() {
   const [addMessage, setAddMessage] = useState<boolean>(false)
   const [messageToEdit, setMessageToEdit] = useState<MessageProps | null>()
   const [updateScreen, setUpdateScreen] = useState<boolean>(false)
+  
   const animations = {
     render: {
       y: 0,
@@ -32,6 +33,7 @@ export default function Panel() {
       endDate: message.endDate.split("T")[0],
       message: message.message,
       startDate: message.startDate.split("T")[0],
+      isActive: message.isActive
     })
   }
 
