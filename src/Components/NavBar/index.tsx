@@ -48,7 +48,7 @@ export default function NavBar({ setOpenBurger }: NavBarProps) {
             <Text>+55 11 3159-3665</Text>
             <Text>comercial@mactek.net</Text>
           </Flex>
-          <Flex gap={{ sm: "0x", lg: "30px" }} w="30%" display={{ sm: "none", lg: "flex" }}  justifyContent={"space-between"} flexDir={{ sm: "column", lg: "row" }} fontSize={"12.8px"}>
+          <Flex gap={{ sm: "0x", lg: "30px" }} w={{lg: "45%", xl:"30%"}} display={{ sm: "none", lg: "flex" }}  justifyContent={"space-between"} flexDir={{ sm: "column", lg: "row" }} fontSize={"12.8px"}>
             <Text cursor={"pointer"} as="a" href="/panel">Entrar / Cadastre-se</Text>
             <Text cursor={"pointer"}>Languages
             </Text>
