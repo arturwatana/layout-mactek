@@ -43,14 +43,23 @@ export default function IndividualModule() {
     };
   }, []);
 
+  useEffect(() => {
+    const body = document.querySelector(".chakra-ui-light")
+    if (openBurger) {
+      body?.classList.add("no-scroll")
+    } else {
+      body?.classList.remove("no-scroll")
+    }
+  }, [openBurger])
+  
   return (
     <>
       <Flex flexDir={"column"}>
         {openBurger ? <BurgerMenu setOpenBurger={setOpenBurger} /> : null}
-        <Flex w="100vw"  h="100%" position={"relative"} alignItems={"center"} justifyContent={"center"} flexDir={"column"} >
+        <Flex w="100vw" h="100%" position={"relative"} alignItems={"center"} justifyContent={"center"} flexDir={"column"} >
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "60vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={MainImg} w="100vw" minH="60vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
-          <Flex zIndex={900}w={{ sm: "95%", xl: "100%" }} maxW="1280px" pb="50px " h="100%" minH="60vh" alignItems={"center"} flexDirection={"column"} >
+          <Flex zIndex={900} w={{ sm: "95%", xl: "100%" }} maxW="1280px" pb="50px " h="100%" minH="60vh" alignItems={"center"} flexDirection={"column"} >
             <NavBar openBurger={openBurger} setOpenBurger={setOpenBurger} />
             <FixedNavBar setOpenBurger={setOpenBurger} dismont={scrollPosition == 0 ? true : false} render={scrollPosition >= 10 ? true : false} />
             <Flex maxW="1260px" w="100%" position="relative" justifyContent={"center"} alignItems={{ sm: "center", lg: "start" }} flexDirection={"column"}>
@@ -77,20 +86,20 @@ export default function IndividualModule() {
                   <Text fontSize={"26px"} fontWeight={300}>Sub-Title</Text>
                   <Text fontSize={"16px"} fontWeight={200} textAlign={"center"}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stan</Text>
                 </Flex>
-                <Flex w={{ sm: "90%", lg: "290px" }}  background="rgb(255, 255, 255, 0.9)" h={{ sm: "100%", lg: "350px" }} gap="20px" flexDir={"column"} alignItems={"center"} p="25px 20px 10px 20px" borderRadius={"5px"} boxShadow={"0 4px 6px rgba(0, 0, 0, 0.2)"}>
-                  <Image src={Ship}  h="30%" w={{ sm: "30%", lg: "60%" }} />
+                <Flex w={{ sm: "90%", lg: "290px" }} background="rgb(255, 255, 255, 0.9)" h={{ sm: "100%", lg: "350px" }} gap="20px" flexDir={"column"} alignItems={"center"} p="25px 20px 10px 20px" borderRadius={"5px"} boxShadow={"0 4px 6px rgba(0, 0, 0, 0.2)"}>
+                  <Image src={Ship} h="30%" w={{ sm: "30%", lg: "60%" }} />
                   <Text fontSize={"26px"} fontWeight={300}>Sub-Title</Text>
                   <Text fontSize={"16px"} fontWeight={200} textAlign={"center"}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stan</Text>
                 </Flex>
                 <Flex w={{ sm: "90%", lg: "290px" }} background="rgb(255, 255, 255, 0.9)" h={{ sm: "100%", lg: "350px" }} gap="20px" flexDir={"column"} alignItems={"center"} p="25px 20px 10px 20px" borderRadius={"5px"} boxShadow={"0 4px 6px rgba(0, 0, 0, 0.2)"}>
-                  <Image src={FolderFiles}  h="30%" w={{ sm: "30%", lg: "60%" }} />
+                  <Image src={FolderFiles} h="30%" w={{ sm: "30%", lg: "60%" }} />
                   <Text fontSize={"26px"} fontWeight={300}>Sub-Title</Text>
                   <Text fontSize={"16px"} fontWeight={200} textAlign={"center"}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stan</Text>
                 </Flex>
 
               </Flex>
-              <Flex w="100%" justifyContent={"center"}  mt="45px">
-                <Text fontSize={"18px"} fontWeight={200} w={{ sm:"80%", lg: "70% " }} textAlign={"center"}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's . Lorem Ipsum has been the industry's stan</Text>
+              <Flex w="100%" justifyContent={"center"} mt="45px">
+                <Text fontSize={"18px"} fontWeight={200} w={{ sm: "80%", lg: "70% " }} textAlign={"center"}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's . Lorem Ipsum has been the industry's stan</Text>
               </Flex>
             </Flex>
           </Flex>
