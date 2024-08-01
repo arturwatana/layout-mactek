@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { messagesDBMemory } from "../../Utils/MessagesDB";
 import { toast } from "react-toastify";
 import lodash from "lodash"
+import dayjs from "dayjs";
 
 type AddMessageProps = {
     setAddMessage: React.Dispatch<React.SetStateAction<boolean>>,
@@ -60,6 +61,9 @@ export default function AddMessage({ setAddMessage, messageToEdit, setUpdateScre
     function validateMessageProps(message: MessageProps) {
         if (!message.title || !message.message || !message.startDate || !message.endDate) {
             throw new Error("Faltaram informacoes")
+        }
+        if(dayjs(message.startDate).isAfter(message.endDate)){
+            throw new Error("A data de termino não pode ser menor que a de inicio")
         }
     }
 

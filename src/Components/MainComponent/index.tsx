@@ -94,6 +94,7 @@ export default function MainComponent() {
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "80vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={MainImg} w="100vw" minH="80vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
+            <Flex zIndex={900} w="100%" pb="50px " h="100%" minH="80vh" alignItems={"center"} flexDirection={"column"} >
               {messagesToday ? (
                 <motion.div id="msg" style={{ width: "100vw", background: "linear-gradient(90deg, #FFD700, #FFA500)", justifyContent: "center", zIndex: 3000, top: 0 }} initial={{ display: "none", y: -120 }} variants={variants} animate={"showMsg"}>
                   <motion.p style={{ fontWeight: 400, fontSize: "18px", color: "white", textAlign:"center" }} initial={{ height: "0px" }} variants={variants} animate={"showText"}  >
@@ -101,7 +102,6 @@ export default function MainComponent() {
                   </motion.p>
                 </motion.div>
               ) : null}
-            <Flex zIndex={900} w="100%" pb="50px " h="100%" minH="80vh" alignItems={"center"} flexDirection={"column"} >
               <NavBar openBurger={openBurger} setOpenBurger={setOpenBurger} />
               <FixedNavBar setOpenBurger={setOpenBurger} dismont={messagesToday ? scrollPosition == 40 ? true : false : scrollPosition == 0 ? true : false} render={messagesToday ? scrollPosition >= 40 ? true : false : scrollPosition >= 10 ? true : false} />
               <Flex w="100%" h="100%" mt={{ sm: "100px", lg: "150px" }} flexDir={"column"} alignItems={"center"} color="white" gap="50px">
