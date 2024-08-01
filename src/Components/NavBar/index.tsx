@@ -12,7 +12,8 @@ type NavBarProps = {
 
 export default function NavBar({ setOpenBurger }: NavBarProps) {
   const [modulesHover, setModulesHover] = useState<boolean>(false)
-  const words = [{ name: "Atlantis", class: "thirdSection" }, { name: "A Mactek", class: "fourthSection" }, { name: "Contato", class: "fifthSection" }]
+  const words = [{ name: "Atlantis", class: "thirdSection", page: "" }, { name: "A Mactek", class: "fourthSection" , page: "" }, { name: "Contato", class: "fifthSection", page: "" }, { name: "Principais Modulos", class: "secondSection", page: "modulos" }, { name: "Contato", class: "fifthSection", page: "modulos" }, { name: "Vantagens", class: "secondSection", page: "/modulos/individual" }, { name: "Contato", class: "fifthSection", page: "/modulos/individual" } ]
+  const url = window.location.href
   const variants = {
     translate: (i: number) => ({
       y: 0,
@@ -31,8 +32,6 @@ export default function NavBar({ setOpenBurger }: NavBarProps) {
     },
 
   }
-
-
 
   function scrollToTarget(e: any) {
     const id = e.target.className.split(" ")[0]
@@ -66,26 +65,35 @@ export default function NavBar({ setOpenBurger }: NavBarProps) {
               <motion.div  style={{ background: "rgba(255,255,255,1)", color: "white", padding: "20px 0", marginTop: "190px", border: "1px solid gray", left: "0%", position: "absolute", width: "460px", height: "150px", borderRadius: "10px", cursor: "default" }} variants={variants} initial={{ display: "none", opacity: 0 }} animate={modulesHover ? "show" : ""} >
                 <Flex justifyContent={"space-between"} h="100%" color={"gray"} fontWeight={300}>
                   <Flex flexDir={"column"} w="33%" justifyContent={"space-between"}>
-                    <Text as={"a"} href="/modules/aereo" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Aéreo</Text>
-                    <Text as={"a"} href="/modules/rodoviario" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Rodoviário</Text>
-                    <Text as={"a"} href="/modules/maritimo" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Marítimo</Text>
+                    <Text as={"a"} href="/modulos/aereo" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Aéreo</Text>
+                    <Text as={"a"} href="/modulos/rodoviario" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Rodoviário</Text>
+                    <Text as={"a"} href="/modulos/maritimo" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Marítimo</Text>
                   </Flex>
                   <Flex flexDir={"column"} w="33%" borderX={"1px solid gray"} justifyContent={"space-between"}>
-                    <Text as={"a"} href="/modules/aduaneiro" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Aduaneiros</Text>
-                    <Text as={"a"} href="/modules/internacional" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Internacionais</Text>
-                    <Text as={"a"} href="/modules/contabilidade" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Contabilidade</Text>
+                    <Text as={"a"} href="/modulos/aduaneiro" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Aduaneiros</Text>
+                    <Text as={"a"} href="/modulos/internacional" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Internacionais</Text>
+                    <Text as={"a"} href="/modulos/contabilidade" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Contabilidade</Text>
                   </Flex>
                   <Flex flexDir={"column"} w="33%" justifyContent={"space-between"}>
-                    <Text as={"a"} href="/modules/pagamento" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Pagamentos</Text>
-                    <Text as={"a"} href="/modules/cobranca" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Cobranças</Text>
-                    <Text as={"a"} href="/modules/tarefa" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Tarefas</Text>
+                    <Text as={"a"} href="/modulos/pagamento" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Pagamentos</Text>
+                    <Text as={"a"} href="/modulos/cobranca" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Cobranças</Text>
+                    <Text as={"a"} href="/modulos/tarefa" _hover={{ background: "	rgb(160,160,160, 0.5)" }} pl="10px">Tarefas</Text>
                   </Flex>
                 </Flex>
               </motion.div>
               <Text>Todos modulos</Text>
               <MdKeyboardArrowDown />
             </ListItem>
-            {words.map((word, index) => <ListItem key={index} className={word.class} onClick={((e) => scrollToTarget(e))} _hover={{ color: "white", cursor: "pointer" }}>{word.name}</ListItem>)}
+            {words.map((word, index) => {
+              if(url.split("/").length > 4){
+                if(word.page == '/modulos/individual'){
+                  return <ListItem key={index} className={word.class} onClick={((e) => scrollToTarget(e))} _hover={{ color: "white", cursor: "pointer" }}>{word.name}</ListItem>
+                } 
+              }
+              if(url.split("/").length <= 4 && url.split("/")[3]  === word.page){
+                return <ListItem key={index} className={word.class} onClick={((e) => scrollToTarget(e))} _hover={{ color: "white", cursor: "pointer" }}>{word.name}</ListItem>
+              } 
+            })}
             <Button fontSize={"13.1px"} borderRadius={"5px"} border={"2px solid #FBC431"} as="a" href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" h="32px" _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} p={"0 15px"} background={"none"} color={"#FBC431"} >Windows</Button>
             <Button fontSize={"13.1px"} borderRadius={"5px"} border={"2px solid #FBC431"} as="a" href="https://download.teamviewer.com/download/TeamViewer.dmg" h="32px" _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} p={"0 15px"} background={"none"} color={"#FBC431"}>Mac OS</Button>
           </UnorderedList>
