@@ -21,7 +21,7 @@ export default function Slider(){
         swipe:(i: number) => ({
             x: 0 - (220 * i),
             transition: {
-                duration: 0.5,
+                duration: 0.3,
             }
         }),
     }
