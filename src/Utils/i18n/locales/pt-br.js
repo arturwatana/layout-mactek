@@ -22,8 +22,21 @@ export default {
             firstItem: "Custom details #1",
             secondItem: "Custom details #2",
             thirdItem: "Custom details #3",
-            btn: "Veja todos os módulos"
-
+            btn: "Veja todos os módulos",
+            ship_title: "Módulo Marítimo",
+            ship_desc: "Animi reiciendis amet magni placeat.",
+            rodo_title: "Módulo Rodoviário",
+            rodo_desc: "Animi reiciendis amet magni placeat.",
+            customclearance_title: "Módulo Aduaneiro",
+            customclearance_desc: "Animi reiciendis amet magni placeat.",
+            aerial_title: "Módulo Aéreo",
+            aerial_desc: "Animi reiciendis amet magni placeat.",
+        },
+        third: {
+            title: "Conheça as vantagens para sua empresa de usar o sistemas ATLANTIS",
+            description: "Faça aqui o download da ferramenta para suporte em ambiente Windows e Mac Os. Esta ferramenta permitirá o acesso remoto dos nossos profissionais de suporte para a melhor qualidade no atendimento.",
+            numbers_title: "BIG NUMBERS 1",
+            numbers_description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur"
         }
     }
 }
