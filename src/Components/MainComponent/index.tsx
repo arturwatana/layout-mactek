@@ -233,7 +233,7 @@ export default function MainComponent() {
           </Flex>
         </Flex>
         <Flex w="100%" scrollMarginTop={"127px"} id="fourthSection" minH="60vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
-          <div style={{ backgroundColor: "rgb(255, 255, 255, 0.9)", width: "100vw", minHeight: "80vh", height: "100%", position: "absolute", zIndex: 90 }} />
+          <div style={{ backgroundColor: "rgb(255, 255, 255, 0.8)", width: "100vw", minHeight: "80vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={YoungWoman} w="100vw" height={"100%"} minH={"80vh"} backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Flex zIndex={900} w={{ sm: "90%", xl: "100%" }} p="80px 0" flexDir={"column"} justifyContent={"space-between"} alignItems={"center"} gap={"80px"}>

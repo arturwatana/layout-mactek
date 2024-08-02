@@ -67,10 +67,10 @@ export default function IndividualModule() {
             <FixedNavBar setOpenBurger={setOpenBurger} dismont={scrollPosition == 0 ? true : false} render={scrollPosition >= 10 ? true : false} />
             <Flex maxW="1260px" w="100%" position="relative" justifyContent={"center"} alignItems={{ sm: "center", lg: "start" }} flexDirection={"column"}>
               {module ? <>
-                <Flex textAlign={"left"} w={{ sm: "90%", lg: "80%" }} zIndex={500} p={{ sm: "60px 0 0 0", lg: "80px 0 0 0" }} >
+                <Flex textAlign={"left"} w={{ sm: "95%", lg: "80%" }} zIndex={500} p={{ sm: "60px 0 0 0", lg: "80px 0 0 0" }} >
                   <Flex flexDir={"column"} gap="40px">
                     <Heading color={"#fbc431"} w="100%" textAlign={{ sm: "center", lg: "start" }} fontWeight={400} fontSize={{ sm: "42px", lg: "46px" }} >{module.name}</Heading>
-                    <Text color={"rgba(255,255,255,0.8)"} fontWeight={300} fontSize={'18px'}>{module.description}</Text>
+                    <Text color={"rgba(255,255,255,0.8)"} fontWeight={400} fontSize={{sm: '20px',lg:'22px'}}>{module.description}</Text>
                   </Flex>
                 </Flex>
               </> : <Flex w="40%" zIndex={500} p="120px 0 0 0" ><Text fontSize={22} color="white" textAlign={"center"}>Módulo nao encontrado, tente novamente mais tarde</Text></Flex>}
