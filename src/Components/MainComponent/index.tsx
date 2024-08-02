@@ -195,14 +195,14 @@ export default function MainComponent() {
               <Flex justifyContent={"space-between"} alignItems={{ sm: "center", lg: "start" }} flexDir={{ sm: "column", lg: "row" }}>
                 <Flex w={{ sm: "90%", lg: "49%" }}>
                   <Flex flexDir={"column"} w="350px" color="rgba(255,255,255,0.8)" gap={"20px"}>
-                    <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+{scrollPosition <= 800 ? "0" : <CountUp style={{ color: "#FBC431" }} end={45} duration={3} />}</Text>
+                    <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+{scrollPosition <= 850 ? "0" : <CountUp style={{ color: "#FBC431" }} end={45} duration={3} />}</Text>
                     <Flex flexDir={"column"}>
                       <Text color="#FBC431" fontWeight="bold" fontSize={"13px"}>BIG NUMBERS 1</Text>
                       <Text fontSize={"16px"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur</Text>
                     </Flex>
                   </Flex>
                   <Flex flexDir={"column"} w="350px" color="rgba(255,255,255,0.8)" gap={"20px"}>
-                    <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"} >+{scrollPosition <= 800 ? "0" : <CountUp style={{ color: "#FBC431" }} end={100} duration={3} />}</Text>
+                    <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"} >+{scrollPosition <= 850 ? "0" : <CountUp style={{ color: "#FBC431" }} end={100} duration={3} />}</Text>
                     <Flex flexDir={"column"}>
                       <Text color="#FBC431" fontWeight="bold" fontSize={"13px"}>BIG NUMBERS 1</Text>
                       <Text fontSize={"16px"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur</Text>
@@ -211,14 +211,14 @@ export default function MainComponent() {
                 </Flex>
                 <Flex w={{ sm: "90%", lg: "49%" }}>
                   <Flex flexDir={"column"} w="350px" color="rgba(255,255,255,0.8)" gap={"20px"}>
-                    <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+{scrollPosition <= 800 ? "0" : <CountUp style={{ color: "#FBC431" }} end={50} duration={3} />}</Text>
+                    <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+{scrollPosition <= 850 ? "0" : <CountUp style={{ color: "#FBC431" }} end={50} duration={3} />}</Text>
                     <Flex flexDir={"column"}>
                       <Text color="#FBC431" fontWeight="bold" fontSize={"13px"}>BIG NUMBERS 1</Text>
                       <Text fontSize={"16px"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur</Text>
                     </Flex>
                   </Flex>
                   <Flex flexDir={"column"} w="350px" color="rgba(255,255,255,0.8)" gap={"20px"}>
-                    <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+{scrollPosition <= 800 ? "0" : <CountUp style={{ color: "#FBC431" }} end={50} duration={3} />}</Text>
+                    <Text fontSize={"48px"} color={"rgba(255,255,255,0.8)"}>+{scrollPosition <= 850 ? "0" : <CountUp style={{ color: "#FBC431" }} end={50} duration={3} />}</Text>
                     <Flex flexDir={"column"}>
                       <Text color="#FBC431" fontWeight="bold" fontSize={"13px"}>BIG NUMBERS 1</Text>
                       <Text fontSize={"16px"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur</Text>

@@ -132,9 +132,9 @@ export default function ModulesSlider() {
                 </Flex>
                 <Flex gap={"10px"}>
                     {isMedium ? Array(6).fill("a").map((_, index) => (
-                        <Box w="12px" h="12px" cursor={"pointer"} background={swipe.cardInView == index ? "black" : "gray"} onClick={() => { setSwipe((prev) => ({ ...prev, cardInView: index })); setStopAnimation(true) }} transition={"0.3s"} borderRadius={"50px"} />
+                        <Box w="12px" h="12px" cursor={"pointer"} key={index} background={swipe.cardInView == index ? "black" : "gray"} onClick={() => { setSwipe((prev) => ({ ...prev, cardInView: index })); setStopAnimation(true) }} transition={"0.3s"} borderRadius={"50px"} />
                     )) : Array(3).fill("a").map((_, index) => (
-                        <Box w="12px" h="12px" cursor={"pointer"} background={swipe.cardInView == index ? "black" : "gray"} onClick={() => { setSwipe((prev) => ({ ...prev, cardInView: index })); setStopAnimation(true) }} transition={"0.3s"} borderRadius={"50px"} />
+                        <Box w="12px" h="12px" cursor={"pointer"} key={index + 1} background={swipe.cardInView == index ? "black" : "gray"} onClick={() => { setSwipe((prev) => ({ ...prev, cardInView: index })); setStopAnimation(true) }} transition={"0.3s"} borderRadius={"50px"} />
                     ))}
                 </Flex>
             </Flex>

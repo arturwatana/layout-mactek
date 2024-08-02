@@ -6,7 +6,6 @@ import Footer from "../Footer";
 import NavBar from "../NavBar";
 import FixedNavBar from "../FixedNavBar";
 import YoungWoman from "../../assets/young-pretty-busy-woman-sitting-alone-conference-room-many-yellow-chairs-scaled.jpg"
-import World from "../../assets/undraw_connected_world_wuay.svg"
 import { motion } from "framer-motion"
 import BurgerMenu from "../BurgerMenu";
 
@@ -77,7 +76,7 @@ export default function Modules() {
                             <Flex w={{ lg: "90%", xl: "100%" }} mt="64px" flexWrap={"wrap"} alignItems={{ sm: "center", lg: "start" }} gap={{ sm: "15px", lg: "25px" }} justifyContent={"center"} flexDir={{ sm: "column", lg: "row" }}>
                                 {modules?.map(module => (
                                     <Flex as="a" href={module.href} w={{ sm: "90%", lg: "450px", xl: "400px" }} background="rgb(255, 255, 255, 0.9)" h={{ sm: "100%", lg: "350px" }} gap="20px" flexDir={"column"} alignItems={"center"} p="25px 20px 10px 20px" borderRadius={"5px"} boxShadow={"0 4px 6px rgba(0, 0, 0, 0.2)"}>
-                                        <Image src={World} h="30%" w={{ sm: "30%", lg: "60%" }} />
+                                        <Image src={module.images[0]} h="30%" w={{ sm: "30%", lg: "60%" }} />
                                         <Text fontSize={"26px"} fontWeight={300} textAlign={"center"}>{module.name}</Text>
                                         <Text fontSize={"16px"} fontWeight={200} textAlign={"center"}>{module.shortDescription}</Text>
                                     </Flex>
