@@ -70,16 +70,16 @@ export default function NavBar({ setOpenBurger }: NavBarProps) {
             <Text cursor={"pointer"} as="a" href="/panel">Entrar / Cadastre-se</Text>
             <Flex onMouseEnter={() => setLanguages(true)} onMouseLeave={() => setLanguages(false)}>
             <Text cursor={"pointer"} position={"relative"}>Languages
-            <motion.div style={{background:"rgba(255,255,255,1)", color:"white",padding: "20px 0" , border:"1px solid gray", right:"0%", position:"absolute", width: "80px", height: "210px", borderRadius:"10px", cursor: "default", zIndex: 3000}} variants={variants} initial={{display:"none", opacity: 0}} animate={languages ? "show" : ""} >
+            <motion.div style={{background:"rgba(255,255,255,1)", color:"white",padding: "20px 0" , border:"1px solid gray", right:"0%", position:"absolute", width: "70px", height: "210px", borderRadius:"10px", cursor: "default", zIndex: 3000}} variants={variants} initial={{display:"none", opacity: 0}} animate={languages ? "show" : ""} >
                               <Flex gap="10px" flexDir={"column"} justifyContent={"space-between"}  h="100%" color={"gray"} fontWeight={300}>
                               <Flex cursor={"pointer"} p="5px" justifyContent={"space-around"} alignItems={"center"} _hover={{ background: "rgb(182,192,192, 1)" }}>
-                                <Image w="60px" src={BrazilFlag}/>
+                                <Image w="50px" src={BrazilFlag}/>
                               </Flex>
                               <Flex cursor={"pointer"} p="5px" justifyContent={"space-around"} alignItems={"center"} _hover={{ background: "rgb(182,192,192, 1)" }}>
-                                <Image w="60px" src={USFlag}/>
+                                <Image w="50px" src={USFlag}/>
                               </Flex>
                               <Flex cursor={"pointer"} p="5px" justifyContent={"space-around"} alignItems={"center"} _hover={{ background: "rgb(182,192,192, 1)" }}>
-                                <Image w="60px" src={SpainFlag}/>
+                                <Image w="50px" src={SpainFlag}/>
                               </Flex>
                               </Flex>
                         </motion.div>
