@@ -40,9 +40,7 @@ export default function IndividualModule() {
 
     }
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+
   }, []);
 
   useEffect(() => {
@@ -60,7 +58,6 @@ export default function IndividualModule() {
       <Flex flexDir={"column"}>
         {openBurger ? <BurgerMenu setOpenBurger={setOpenBurger} /> : null}
       <ScrollToTopBtn dismont={scrollPosition == 40 ? true : false } render={ scrollPosition >= 40 ? true : false } />
-
         <Flex w="100vw" h="100%" position={"relative"} alignItems={"center"} justifyContent={"center"} flexDir={"column"} >
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "60vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={MainImg} w="100vw" minH="60vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />

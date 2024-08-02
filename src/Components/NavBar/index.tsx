@@ -4,6 +4,10 @@ import MactekLogo from "../../assets/logo-mactek.png"
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useState } from "react";
 import { motion } from "framer-motion"
+import BrazilFlag from "../../assets/brazil-flag-icon.svg"
+import USFlag from "../../assets/united-states-flag-icon.svg"
+import SpainFlag from "../../assets/spain-country-flag-icon.svg"
+
 
 type NavBarProps = {
   setOpenBurger: React.Dispatch<React.SetStateAction<boolean>>,
@@ -12,6 +16,8 @@ type NavBarProps = {
 
 export default function NavBar({ setOpenBurger }: NavBarProps) {
   const [modulesHover, setModulesHover] = useState<boolean>(false)
+  const [languages, setLanguages] = useState<boolean>(true)
+
   const words = [{ name: "Atlantis", class: "thirdSection", page: "initial" }, { name: "A Mactek", class: "fourthSection" , page: "initial" }, { name: "Contato", class: "fifthSection", page: "initial" }, { name: "Principais Modulos", class: "secondSection", page: "modulos" }, { name: "Contato", class: "fifthSection", page: "modulos" }, { name: "Vantagens", class: "secondSection", page: "/modulos/individual" }, { name: "Contato", class: "fifthSection", page: "/modulos/individual" } ]
   const url = window.location.pathname
   const variants = {
@@ -62,8 +68,24 @@ export default function NavBar({ setOpenBurger }: NavBarProps) {
           </Flex>
           <Flex gap={{ sm: "0x", lg: "30px" }} w={{lg: "45%", xl:"30%"}} display={{ sm: "none", lg: "flex" }}  justifyContent={"space-between"} flexDir={{ sm: "column", lg: "row" }} fontSize={"12.8px"}>
             <Text cursor={"pointer"} as="a" href="/panel">Entrar / Cadastre-se</Text>
-            <Text cursor={"pointer"}>Languages
+            <Flex onMouseEnter={() => setLanguages(true)} onMouseLeave={() => setLanguages(false)}>
+            <Text cursor={"pointer"} position={"relative"}>Languages
+            <motion.div style={{background:"rgba(255,255,255,1)", color:"white",padding: "20px 0" , border:"1px solid gray", right:"0%", position:"absolute", width: "80px", height: "210px", borderRadius:"10px", cursor: "default", zIndex: 3000}} variants={variants} initial={{display:"none", opacity: 0}} animate={languages ? "show" : ""} >
+                              <Flex gap="10px" flexDir={"column"} justifyContent={"space-between"}  h="100%" color={"gray"} fontWeight={300}>
+                              <Flex cursor={"pointer"} p="5px" justifyContent={"space-around"} alignItems={"center"} _hover={{ background: "rgb(182,192,192, 1)" }}>
+                                <Image w="60px" src={BrazilFlag}/>
+                              </Flex>
+                              <Flex cursor={"pointer"} p="5px" justifyContent={"space-around"} alignItems={"center"} _hover={{ background: "rgb(182,192,192, 1)" }}>
+                                <Image w="60px" src={USFlag}/>
+                              </Flex>
+                              <Flex cursor={"pointer"} p="5px" justifyContent={"space-around"} alignItems={"center"} _hover={{ background: "rgb(182,192,192, 1)" }}>
+                                <Image w="60px" src={SpainFlag}/>
+                              </Flex>
+                              </Flex>
+                        </motion.div>
             </Text>
+
+            </Flex>
           </Flex>
         </Flex>
         <Flex justifyContent={"space-between"} gap={{ sm: "0px", lg: "20px", xl: "0px" }} flexDir={{ sm: "row", lg: "column", xl: "row" }} alignItems={{ lg: "center", xl: "start" }} >
