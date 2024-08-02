@@ -1,4 +1,4 @@
-import { Button, Flex, Heading, Image, Input, ListItem, Text, UnorderedList } from "@chakra-ui/react"
+import { Button, Flex, Heading, Image, ListItem, Text, UnorderedList } from "@chakra-ui/react"
 import MainImg from "../../assets/main-demo1.jpg"
 import Aerial from "../../assets/Iconsa.png"
 import Maritime from "../../assets/Iconsmar.png"
@@ -21,6 +21,8 @@ import Footer from "../Footer"
 import { MessageProps } from "../AddMessage"
 import { messagesDBMemory } from "../../Utils/MessagesDB"
 import ScrollToTopBtn from "../ScrollToTopBtn"
+import Form from "../Form"
+import { ToastContainer } from "react-toastify"
 
 export default function MainComponent() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -87,7 +89,7 @@ export default function MainComponent() {
 
   return (
     <>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
       <ScrollToTopBtn dismont={messagesToday ? scrollPosition == 40 ? true : false : scrollPosition == 0 ? true : false} render={messagesToday ? scrollPosition >= 40 ? true : false : scrollPosition >= 10 ? true : false} />
       <ModalContact isOpen={openModal} setOpenModal={setOpenModal} />
       {openBurger ? <BurgerMenu setOpenBurger={setOpenBurger} /> : null}
@@ -262,21 +264,7 @@ export default function MainComponent() {
             </Flex>
           </Flex>
         </Flex>
-        <Flex w="100%" scrollMarginTop={"127px"} id="fifthSection" minH="70vh" h="100%" zIndex={500} justifyContent={"center"} position={"relative"}>
-          <div style={{ backgroundColor: "rgba(0, 0, 0, 0.6)", width: "100%", minHeight: "70vh", height: "100%", position: "absolute", zIndex: 90 }} />
-          <Image position={"absolute"} src={YoungWoman} w="100vw" height={"100%"} minH={"70vh"} backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 50%"} />
-          <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
-            <Flex zIndex={900} w={{ sm: "90%", lg: "80%" }} alignItems={"center"} flexDir={"column"} gap="46px" p="110px 0" >
-              <Heading fontSize={"36px"} fontWeight={400} color={"rgba(255,255,255,0.8)"}>Mantenha contato com nossa equipe</Heading>
-              <motion.form style={{ display: "flex", gap: "15px", flexDirection: "column", width: "100%", alignItems: "center" }}>
-                <Input background={"rgba(255, 255, 255, 0.2)"} color={"rgba(255,255,255,0.8)"} placeholder="Your Name (required)" />
-                <Input background={"rgba(255, 255, 255, 0.2)"} color={"rgba(255,255,255,0.8)"} placeholder="Your Name (required)" />
-                <Input background={"rgba(255, 255, 255, 0.2)"} color={"rgba(255,255,255,0.8)"} height={"120px"} />
-                <Button fontSize={"15px"} h="40px" w={{ sm: "55%", lg: "15%" }} fontWeight={500} _hover={{ color: "rgba(255,255,255,0.8)", background: "#C89C27" }} p={"0 18px"} background={"#FBC431"} color={"rgba(255,255,255,0.8)"}>Submit</Button>
-              </motion.form>
-            </Flex>
-          </Flex>
-        </Flex>
+        <Form/>
         <Footer />
       </Flex>
 

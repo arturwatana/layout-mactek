@@ -15,6 +15,7 @@ import {
   } from '@chakra-ui/react'
   import {  useEffect, useState } from 'react'
   import { toast } from 'react-toastify';
+import { contactsRepository } from '../../Utils/ContactsDB';
   
   type ModalProps = {
     isOpen: boolean
@@ -22,17 +23,17 @@ import {
     email?: string
   }
   
-  type ContactProps = {
+  export type ContactProps = {
     name: string
-    enterprise: string
+    enterprise?: string
     email: string
-    message?: string
+    message: string
   }
   
-  export default function ModalContact({ isOpen, setOpenModal, email }: ModalProps) {
+  export default function ModalContact({ isOpen, setOpenModal }: ModalProps) {
     const [contact, setContact] = useState<ContactProps | null>(null)
   
-    const handleSubmit = (e:any) => {
+    const handleSubmit = async (e:any) => {
       e.preventDefault()
       setContact({
         email: e.target.email.value,
@@ -40,7 +41,12 @@ import {
         name: e.target.name.value,
         message: e.target.message.value
       })
+      if(!contact){
+        return
+      }
+      await contactsRepository.add(contact)
       toast.success(`Obrigado ${e.target.name.value.split(" ")[0]}! Nosso time entrara em contato`)
+      close()
   }
   
   function close(){
@@ -69,7 +75,7 @@ import {
                 <FormLabel mt={3}>{"Empresa"}</FormLabel>
                 <Input placeholder={"Empresa"}  id="enterprise"   />
                 <FormLabel  mt={3}>Email</FormLabel>
-                <Input value={email ? email : ""}  placeholder='Email' id="email"  type='email' />
+                <Input   placeholder='Email' id="email"  type='email' />
                 <FormLabel mt={3} >{"Mensagem"}</FormLabel>
                 <Textarea  placeholder={"Digite uma mensagem"} id="message" />
               </FormControl>
