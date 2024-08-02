@@ -71,14 +71,12 @@ export default function AddMessage({ setAddMessage, messageToEdit, setUpdateScre
     async function handleSubmit(e: any) {
         e.preventDefault()
         if(messageToEdit){
-            console.log(messageToEdit)
             if(lodash.isEqual(messageToEdit, message)){
                 toast.error("Ops, alguma alteração deve ser feita")
                 return
             }
             try {
                 validateMessageProps(message)
-                console.log(message)
                 await messagesDBMemory.editMessage(message.id || "", message)
                 toast.success("Mensagem editada com sucesso")
                 setAddMessage(false) 

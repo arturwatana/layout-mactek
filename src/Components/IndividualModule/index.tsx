@@ -23,8 +23,6 @@ export default function IndividualModule() {
 
   useEffect(() => {
     const moduleInDB = getModule(params.tag ? params.tag : "")[0]
-    console.log(moduleInDB)
-    console.log(params)
     setModule(moduleInDB)
   }, [])
 

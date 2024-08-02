@@ -17,10 +17,10 @@ type WordProps = {
 
 
 export default function BurgerMenu({ setOpenBurger }: NavBarProps) {
-    const words: WordProps[] = [{ name: "Atlantis", class: "thirdSection", page: "" }, { name: "A Mactek", class: "fourthSection" , page: "" }, { name: "Contato", class: "fifthSection", page: "" }, { name: "Principais Modulos", class: "secondSection", page: "modulos" }, { name: "Contato", class: "fifthSection", page: "modulos" }, { name: "Vantagens", class: "secondSection", page: "/modulos/individual" }, { name: "Contato", class: "fifthSection", page: "/modulos/individual" } ]
+    const words: WordProps[] = [{ name: "Atlantis", class: "thirdSection", page: "initial" }, { name: "A Mactek", class: "fourthSection" , page: "initial" }, { name: "Contato", class: "fifthSection", page: "initial" }, { name: "Principais Modulos", class: "secondSection", page: "modulos" }, { name: "Contato", class: "fifthSection", page: "modulos" }, { name: "Vantagens", class: "secondSection", page: "/modulos/individual" }, { name: "Contato", class: "fifthSection", page: "/modulos/individual" } ]
     const [search, setSearch] = useState<string>("")
     const [modules, setModules] = useState<ModuleProps[]>()
-    const url = window.location.href
+    const url = window.location.pathname
 
     const variants = {
         render: {
@@ -41,7 +41,6 @@ export default function BurgerMenu({ setOpenBurger }: NavBarProps) {
             }
         })
     }
-
     function scrollToTarget(e: any) {
         const id = e.target.className
         const element = document.getElementById(id)
@@ -53,6 +52,19 @@ export default function BurgerMenu({ setOpenBurger }: NavBarProps) {
         setModules(modules)
     }, [])
 
+    function page(){
+        const arrayUrl = url.split("/")
+        if(arrayUrl.length < 3 && arrayUrl[arrayUrl.length -1] == ''){
+            return "initial"
+        } 
+        if((arrayUrl.length < 3 && arrayUrl[arrayUrl.length -1] == 'modulos')){
+            return "modulos"
+        } 
+        if(arrayUrl.length >=3 && arrayUrl[arrayUrl.length -1] != ''){
+            return "/modulos/individual"
+        }
+    }
+
     return (
         <>
             <Flex position={"fixed"} w="100%" h="100%" overflow={"none"} justifyContent={"center"} alignItems={"center"} zIndex={3000}>
@@ -63,18 +75,15 @@ export default function BurgerMenu({ setOpenBurger }: NavBarProps) {
                         <motion.input placeholder="Search" onChange={(e) => setSearch(e.target.value)} style={{ padding: "5px 15px", borderRadius: "20px", background: "rgb(128,128,128, 0.6)" }} />
                     </motion.div>
                     {search.length <= 2 ? (<motion.div style={{ width: "100%", justifyContent: "center", alignItems: "center", borderRadius: "10px", display: "flex", flexDirection: "column", gap: "20px" }}>
+                        <motion.a href="/"key={99} onClick={(e) => { setOpenBurger(false);scrollToTarget(e)}} initial={{ opacity: 0, y: -20 }} variants={variants} custom={0} animate={"renderLi"} style={{ cursor: "pointer", fontSize: 25 }}>Inicio</motion.a>
                         {words.map((word, index) => {
-                        if(url.split("/").length > 4){
-                            if(word.page == '/modulos/individual'){
-                            return <motion.a className={word.class} key={index} onClick={(e) => { setOpenBurger(false);scrollToTarget(e)}} initial={{ opacity: 0, y: -20 }} variants={variants} custom={index -1 } animate={"renderLi"} style={{ cursor: "pointer", fontSize: 25 }}>{word.name}</motion.a>
-                            } 
+                        if(page() == word.page){
+                            return <motion.a className={word.class} key={index} onClick={(e) => { setOpenBurger(false);scrollToTarget(e)}} initial={{ opacity: 0, y: -20 }} variants={variants} custom={page() == 'initial' ? index + 1 : page() =='modulos' ? index -2 : index -4} animate={"renderLi"} style={{ cursor: "pointer", fontSize: 25 }}>{word.name}</motion.a>
                         }
-                        if(url.split("/").length <= 4 && url.split("/")[3]  === word.page){
-                            return <motion.a className={word.class} key={index} onClick={(e) => { setOpenBurger(false);scrollToTarget(e)}} initial={{ opacity: 0, y: -20 }} variants={variants} custom={index -1 } animate={"renderLi"} style={{ cursor: "pointer", fontSize: 25 }}>{word.name}</motion.a>
-                        } 
+
                         })}
-                        <motion.button initial={{ opacity: 0, y: -20 }} variants={variants} custom={url.split("/").length <= 4 ? 2: 7} animate={"renderLi"} style={{ fontSize: "13.1px", borderRadius: "5px", border: " 2px solid #FBC431", height: "32px", padding: "0 15px", background: "none", color: "#FBC431" }} whileHover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} ><motion.a href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" >Windows</motion.a></motion.button>
-                        <motion.button initial={{ opacity: 0, y: -20 }} variants={variants} custom={url.split("/").length <= 4 ? 3: 8} animate={"renderLi"} style={{ fontSize: "13.1px", borderRadius: "5px", border: " 2px solid #FBC431", height: "32px", padding: "0 15px", background: "none", color: "#FBC431" }} whileHover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} ><motion.a href="https://download.teamviewer.com/download/TeamViewer.dmg" >Mac OS</motion.a></motion.button>
+                        <motion.button initial={{ opacity: 0, y: -20 }} variants={variants} custom={page() == 'initial' ? 4: page() =='modulos' ? 3 : 3} animate={"renderLi"} style={{ fontSize: "13.1px", borderRadius: "5px", border: " 2px solid #FBC431", height: "32px", padding: "0 15px", background: "none", color: "#FBC431" }} whileHover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} ><motion.a href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" >Windows</motion.a></motion.button>
+                        <motion.button initial={{ opacity: 0, y: -20 }} variants={variants} custom={page() == 'initial' ? 4: page() =='modulos' ? 3 : 3} animate={"renderLi"} style={{ fontSize: "13.1px", borderRadius: "5px", border: " 2px solid #FBC431", height: "32px", padding: "0 15px", background: "none", color: "#FBC431" }} whileHover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} ><motion.a href="https://download.teamviewer.com/download/TeamViewer.dmg" >Mac OS</motion.a></motion.button>
                     </motion.div>) : (
                         <motion.ul style={{ flexDirection: "column", gap: "15px", display: "flex", marginTop: "10px" }}>
                             <motion.a style={{ cursor: "pointer", fontSize: 28 }}>Módulos filtrados</motion.a>

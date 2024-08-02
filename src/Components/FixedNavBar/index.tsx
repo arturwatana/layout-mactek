@@ -12,8 +12,8 @@ type FixedNavBarProps = {
 }
 
 export default function FixedNavBar({ dismont, render, setOpenBurger }: FixedNavBarProps) {
-  const words = [{ name: "Atlantis", class: "thirdSection", page: "" }, { name: "A Mactek", class: "fourthSection" , page: "" }, { name: "Contato", class: "fifthSection", page: "" }, { name: "Principais Modulos", class: "secondSection", page: "modulos" }, { name: "Contato", class: "fifthSection", page: "modulos" }, { name: "Vantagens", class: "secondSection", page: "/modulos/individual" }, { name: "Contato", class: "fifthSection", page: "/modulos/individual" } ]
-  const url = window.location.href
+  const words = [{ name: "Atlantis", class: "thirdSection", page: "initial" }, { name: "A Mactek", class: "fourthSection" , page: "initial" }, { name: "Contato", class: "fifthSection", page: "initial" }, { name: "Principais Modulos", class: "secondSection", page: "modulos" }, { name: "Contato", class: "fifthSection", page: "modulos" }, { name: "Vantagens", class: "secondSection", page: "/modulos/individual" }, { name: "Contato", class: "fifthSection", page: "/modulos/individual" } ]
+  const url = window.location.pathname
   const [modulesHover, setModulesHover] = useState<boolean>(false)
   const variants = {
     dismont: {
@@ -46,7 +46,18 @@ export default function FixedNavBar({ dismont, render, setOpenBurger }: FixedNav
     const element = document.getElementById(id)
     element?.scrollIntoView({ behavior: 'smooth' });
 }
-
+function page(){
+  const arrayUrl = url.split("/")
+  if(arrayUrl.length < 3 && arrayUrl[arrayUrl.length -1] == ''){
+      return "initial"
+  } 
+  if((arrayUrl.length < 3 && arrayUrl[arrayUrl.length -1] == 'modulos')){
+      return "modulos"
+  } 
+  if(arrayUrl.length >=3 && arrayUrl[arrayUrl.length -1] != ''){
+      return "/modulos/individual"
+  }
+}
   return (
     <>
       <motion.div initial={{ opacity: 0, display: "none" }} animate={dismont ? "dismont" : render ? "render" : ""} variants={variants} style={{ width: "100vw", position: "fixed", background: "rgba(255,255,255,1)", boxShadow: "2px 2px 15px black", zIndex: 3200, display: "flex", justifyContent: "center", minHeight: "127px" }}>
@@ -84,14 +95,9 @@ export default function FixedNavBar({ dismont, render, setOpenBurger }: FixedNav
                        <MdKeyboardArrowDown />
                     </ListItem>
                 {words.map((word, index) => {
-              if(url.split("/").length > 4 && url.split("/")[4]  != ""){
-                if(word.page == '/modulos/individual'){
+                if(word.page == page()){
                   return <ListItem key={index} className={word.class} onClick={((e) => scrollToTarget(e))} _hover={{ color: "black", cursor: "pointer" }}>{word.name}</ListItem> 
-                } 
               }
-              if(url.split("/")[3]  === word.page && url.split("/")[4]  == "" ){
-                return <ListItem key={index} className={word.class} onClick={((e) => scrollToTarget(e))} _hover={{ color: "black", cursor: "pointer" }}>{word.name}</ListItem> 
-              } 
             })}
                 <Button fontSize={"13.1px"} borderRadius={"5px"} border={"2px solid #FBC431"} as="a" href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" h="32px" _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} p={"0 15px"} background={"none"} color={"#FBC431"} >Windows</Button>
                 <Button fontSize={"13.1px"} borderRadius={"5px"} border={"2px solid #FBC431"} as="a" href="https://download.teamviewer.com/download/TeamViewer.dmg" h="32px" _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} p={"0 15px"} background={"none"} color={"#FBC431"}>Mac OS</Button>
