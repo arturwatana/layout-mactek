@@ -8,6 +8,7 @@ import FixedNavBar from "../FixedNavBar";
 import YoungWoman from "../../assets/young-pretty-busy-woman-sitting-alone-conference-room-many-yellow-chairs-scaled.jpg"
 import { motion } from "framer-motion"
 import BurgerMenu from "../BurgerMenu";
+import ScrollToTopBtn from "../ScrollToTopBtn";
 
 
 
@@ -51,6 +52,7 @@ export default function Modules() {
         <>
             <Flex flexDir={"column"}>
                 {openBurger ? <BurgerMenu setOpenBurger={setOpenBurger} /> : null}
+                <ScrollToTopBtn dismont={scrollPosition == 40 ? true : false } render={ scrollPosition >= 40 ? true : false } />
                 <Flex w="100vw"  h="100%" scrollMarginTop={"127px"} id="firstSection" position={"relative"} alignItems={"center"} justifyContent={"center"} flexDir={"column"} >
                     <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "60vh", height: "100%", position: "absolute", zIndex: 90 }} />
                     <Image position={"absolute"} src={MainImg} w="100vw" minH="60vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />

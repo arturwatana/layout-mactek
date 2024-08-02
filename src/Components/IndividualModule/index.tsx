@@ -12,6 +12,7 @@ import Ship from "../../assets/undraw_container_ship_re_alm4.svg"
 import World from "../../assets/undraw_connected_world_wuay.svg"
 import { motion } from "framer-motion"
 import BurgerMenu from "../BurgerMenu";
+import ScrollToTopBtn from "../ScrollToTopBtn";
 
 
 
@@ -56,6 +57,8 @@ export default function IndividualModule() {
     <>
       <Flex flexDir={"column"}>
         {openBurger ? <BurgerMenu setOpenBurger={setOpenBurger} /> : null}
+      <ScrollToTopBtn dismont={scrollPosition == 40 ? true : false } render={ scrollPosition >= 40 ? true : false } />
+
         <Flex w="100vw" h="100%" position={"relative"} alignItems={"center"} justifyContent={"center"} flexDir={"column"} >
           <div style={{ backgroundColor: "rgba(0, 0, 0, 0.5)", width: "100%", minHeight: "60vh", height: "100%", position: "absolute", zIndex: 90 }} />
           <Image position={"absolute"} src={MainImg} w="100vw" minH="60vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
