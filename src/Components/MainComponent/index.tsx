@@ -20,6 +20,7 @@ import BurgerMenu from "../BurgerMenu"
 import Footer from "../Footer"
 import { MessageProps } from "../AddMessage"
 import { messagesDBMemory } from "../../Utils/MessagesDB"
+import ScrollToTopBtn from "../ScrollToTopBtn"
 
 export default function MainComponent() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -41,7 +42,7 @@ export default function MainComponent() {
     showText: {
       opacity: 1,
       display: "block",
-      height:"100%",
+      height: "100%",
       transition: {
         delay: 1.25
       }
@@ -87,6 +88,7 @@ export default function MainComponent() {
   return (
     <>
       {/* <ToastContainer /> */}
+      <ScrollToTopBtn dismont={messagesToday ? scrollPosition == 40 ? true : false : scrollPosition == 0 ? true : false} render={messagesToday ? scrollPosition >= 40 ? true : false : scrollPosition >= 10 ? true : false} />
       <ModalContact isOpen={openModal} setOpenModal={setOpenModal} />
       {openBurger ? <BurgerMenu setOpenBurger={setOpenBurger} /> : null}
       <Flex w="100vw" className={openBurger ? "no-scroll" : ""} flexDir={"column"} position={"relative"} overflow={openBurger ? "none" : "auto"} >
@@ -97,7 +99,7 @@ export default function MainComponent() {
             <Flex zIndex={900} w="100%" pb="50px " h="100%" minH="80vh" alignItems={"center"} flexDirection={"column"} >
               {messagesToday ? (
                 <motion.div id="msg" style={{ width: "100vw", background: "linear-gradient(90deg, #FFD700, #FFA500)", justifyContent: "center", zIndex: 3000, top: 0 }} initial={{ display: "none", y: -120 }} variants={variants} animate={"showMsg"}>
-                  <motion.p style={{ fontWeight: 400, fontSize: "18px", color: "white", textAlign:"center" }} initial={{ height: "0px" }} variants={variants} animate={"showText"}  >
+                  <motion.p style={{ fontWeight: 400, fontSize: "18px", color: "white", textAlign: "center" }} initial={{ height: "0px" }} variants={variants} animate={"showText"}  >
                     {messagesToday.message}
                   </motion.p>
                 </motion.div>
@@ -162,7 +164,7 @@ export default function MainComponent() {
           <Flex maxW="1260px" w="100%" justifyContent={"center"} alignItems={"center"} flexDirection={"column"}>
             <Flex zIndex={900} alignItems={"start"} w={{ sm: "95%", xl: "100%" }} p="100px 0" flexDir={"column"}  >
               <Flex w={{ sm: "100", xl: "80%" }} borderBottom={"2px solid #ececec"} h="80px">
-                <Heading color={"#fbc431"} fontWeight={800} borderBottom={"2px solid rgba(0,0,0,0.1)"} h="100%" fontSize={{ sm: "37px", lg: "42.7px" }}>Nossos módulos</Heading>
+                <Heading color={"#fbc431"} fontWeight={800} mt={"2px"} borderBottom={"2px solid rgba(0,0,0,0.1)"} h="100%" fontSize={{ sm: "37px", lg: "42.7px" }}>Nossos módulos</Heading>
               </Flex>
               <Flex justifyContent={"center"} alignItems={{ sm: "center", xl: "start" }} flexDir={{ sm: "column", xl: "row" }} >
                 <Flex flexDir={"column"} gap={"20px"} mt="50px" w={{ sm: "95%", xl: "70%" }}>
@@ -238,7 +240,7 @@ export default function MainComponent() {
               <Flex flexDir={{ sm: "column", xl: "row" }} gap={{ sm: "40px", lg: "0px" }} >
                 <Flex flexDir={"column"} w={{ sm: "100%", xl: "50%" }} >
                   <Flex w="90%" borderBottom={"2px solid #ececec"} h="80px">
-                    <Heading color={"#fbc431"} fontWeight={800} borderBottom={"2px solid rgba(0,0,0,0.1)"} h="100%" fontSize={"42px"}>Sobre nos</Heading>
+                    <Heading color={"#fbc431"} fontWeight={800}  mt={"2px"} borderBottom={"2px solid rgba(0,0,0,0.1)"} h="100%" fontSize={"42px"}>Sobre nos</Heading>
                   </Flex>
                   <Flex mt="50px">
                     <Flex flexDir={"column"} gap={"30px"}>
@@ -251,7 +253,7 @@ export default function MainComponent() {
                   </Flex>
                 </Flex>
                 <Flex justifyContent={{ sm: "center", xl: "start" }} w={{ sm: "100%", xl: "50%" }}>
-                  <Flex w={{sm: "70%", lg: "40%", xl: "570px" }} >
+                  <Flex w={{ sm: "70%", lg: "40%", xl: "570px" }} >
                     <Image w="100%" h="100%" objectFit={"contain"} src={ATLANTIS} />
                   </Flex>
                 </Flex>

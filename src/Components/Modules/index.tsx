@@ -67,7 +67,7 @@ export default function Modules() {
                         </Flex>
                     </Flex>
                 </Flex>
-                <Flex w="100vw" h="100%" id="secondSection" position={"relative"} alignItems={"center"} justifyContent={"center"} flexDir={"column"}>
+                <Flex w="100vw" h="100%" scrollMarginTop={"127px"} id="secondSection" position={"relative"} alignItems={"center"} justifyContent={"center"} flexDir={"column"}>
                     <div style={{ backgroundColor: "rgb(255, 255, 255, 0.9)", width: "100%", minHeight: "60vh", height: "100%", position: "absolute", zIndex: 90 }} />
                     <Image position={"absolute"} src={YoungWoman} w="100%" minH="60vh" h="100%" backgroundRepeat={"no-repeat"} objectFit={"cover"} objectPosition={"50% 42%"} />
                     <Flex zIndex={300} w="100%" maxW="1280px" pb="50px " h="100%" minH="70vh" alignItems={"center"} flexDirection={"column"} >

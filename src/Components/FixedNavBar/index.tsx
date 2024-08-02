@@ -84,12 +84,12 @@ export default function FixedNavBar({ dismont, render, setOpenBurger }: FixedNav
                        <MdKeyboardArrowDown />
                     </ListItem>
                 {words.map((word, index) => {
-              if(url.split("/").length > 4){
+              if(url.split("/").length > 4 && url.split("/")[4]  != ""){
                 if(word.page == '/modulos/individual'){
                   return <ListItem key={index} className={word.class} onClick={((e) => scrollToTarget(e))} _hover={{ color: "black", cursor: "pointer" }}>{word.name}</ListItem> 
                 } 
               }
-              if(url.split("/").length <= 4 && url.split("/")[3]  === word.page){
+              if(url.split("/")[3]  === word.page && url.split("/")[4]  == "" ){
                 return <ListItem key={index} className={word.class} onClick={((e) => scrollToTarget(e))} _hover={{ color: "black", cursor: "pointer" }}>{word.name}</ListItem> 
               } 
             })}
