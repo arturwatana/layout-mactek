@@ -16,7 +16,7 @@ type NavBarProps = {
 
 export default function NavBar({ setOpenBurger }: NavBarProps) {
   const [modulesHover, setModulesHover] = useState<boolean>(false)
-  const [languages, setLanguages] = useState<boolean>(true)
+  const [languages, setLanguages] = useState<boolean>(false)
 
   const words = [{ name: "Atlantis", class: "thirdSection", page: "initial" }, { name: "A Mactek", class: "fourthSection" , page: "initial" }, { name: "Contato", class: "fifthSection", page: "initial" }, { name: "Principais Modulos", class: "secondSection", page: "modulos" }, { name: "Contato", class: "fifthSection", page: "modulos" }, { name: "Vantagens", class: "secondSection", page: "/modulos/individual" }, { name: "Contato", class: "fifthSection", page: "/modulos/individual" } ]
   const url = window.location.pathname
