@@ -104,7 +104,7 @@ export default function BurgerMenu({ setOpenBurger }: NavBarProps) {
                     )}
                 </motion.div>   
                 </Flex>
-                <Flex w="80%" >
+                <Flex w="80%" cursor="pointer" >
                 <motion.div  onClick={() => setLanguages(true)}style={{zIndex: 4005,margin: "10px 0 120px 0 ",  background:"rgba(255,255,255,1)", padding: "5px",  width: "80px", position:"relative", display: "flex", borderRadius: "10px",justifyContent:"center", alignItems:"center"}} initial={{ opacity: 0, y: -20 }} variants={variants} custom={4} animate={"renderLi"}  >
                     <Image w="100px"src={BrazilFlag}/>
                 {languages ? (

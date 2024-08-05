@@ -23,17 +23,19 @@ import { messagesDBMemory } from "../../Utils/MessagesDB"
 import ScrollToTopBtn from "../ScrollToTopBtn"
 import Form from "../Form"
 import { ToastContainer } from "react-toastify"
+import { useIsMedium } from "../../Utils/MediaQuery"
 
 export default function MainComponent() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [openModal, setOpenModal] = useState<boolean>(false)
   const [messagesToday, setMessagesToday] = useState<MessageProps | null>()
   const [openBurger, setOpenBurger] = useState<boolean>(false)
+  const isMedium = useIsMedium()
   const variants = {
     showMsg: {
       opacity: 1,
       display: "flex",
-      minHeight: "30px",
+      minHeight: isMedium ? "60px" : "30px",
       height: "100%",
       y: 0,
       transition: {
