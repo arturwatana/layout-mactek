@@ -72,7 +72,7 @@ export default function Panel() {
             <Flex as={"a"} href="/" w={"200px"} h="41px" position={"absolute"} top="30" zIndex={900}>
               <Image w="100%" h="100%" objectFit={"contain"} src={MactekLogo} />
             </Flex>
-            <motion.div animate={"render"} variants={animations} style={{ width: "100%", minHeight: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}  >
+            <motion.div animate={"render"} variants={animations} style={{ width: "100%", minHeight: "100vh", display: "flex",justifyContent: "center", alignItems: "center" }}  >
               <Flex border={"1px solid white"} flexDir={"column"} background="rgb(192,192,192, 1)" w={"100%"} h="80%" minH={"60vh"} borderRadius={"10px"}>
                 <Flex w="100%" p="15px" flexDir={"column"} gap="10px">
                   <Flex justifyContent={"end"} w="100%">
@@ -80,20 +80,20 @@ export default function Panel() {
                       <Text>+</Text>
                     </Flex>
                   </Flex>
-                  <Flex>
+                  <Flex overflow={'auto'}>
                     <Table>
                       <Thead>
-                        <Tr>
-                          <Th>
+                        <Tr >
+                          <Th >
                             Titulo
                           </Th>
-                          <Th>
+                          <Th >
                             Mensagem
                           </Th>
-                          <Th>
+                          <Th >
                             Data Inicio
                           </Th>
-                          <Th>
+                          <Th >
                             Data Termino
                           </Th>
                         </Tr>
@@ -101,16 +101,16 @@ export default function Panel() {
                       <Tbody>
                         {messages.map(message => (
                           <Tr _hover={{ background: "rgb(182,192,192, 1)" }} cursor={"pointer"} onClick={() => { setDatePattern(message); setAddMessage(true); }}>
-                            <Td borderRight={"1px solid gray"}>
+                            <Td borderRight={"1px solid gray"} >
                               {message.title}
                             </Td>
-                            <Td borderRight={"1px solid gray"}>
+                            <Td borderRight={"1px solid gray"} >
                               {message.message}
                             </Td>
-                            <Td borderRight={"1px solid gray"}>
+                            <Td borderRight={"1px solid gray"} >
                               {message.startDate.split("T")[0].split("-").reverse().join("/")}
                             </Td>
-                            <Td>
+                            <Td >
                               {message.endDate.split("T")[0].split("-").reverse().join("/")}
                             </Td>
                           </Tr>
@@ -118,7 +118,6 @@ export default function Panel() {
                       </Tbody>
                     </Table>
                   </Flex>
-                  {/* {menu == "add" ? <AddMessage/> : <ManageMessages/>} */}
                 </Flex>
               </Flex>
             </motion.div>

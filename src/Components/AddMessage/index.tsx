@@ -5,6 +5,7 @@ import { messagesDBMemory } from "../../Utils/MessagesDB";
 import { toast } from "react-toastify";
 import lodash from "lodash"
 import dayjs from "dayjs";
+import { useIsMedium } from "../../Utils/MediaQuery";
 
 type AddMessageProps = {
     setAddMessage: React.Dispatch<React.SetStateAction<boolean>>,
@@ -23,6 +24,7 @@ export type MessageProps = {
 
 export default function AddMessage({ setAddMessage, messageToEdit, setUpdateScreen }: AddMessageProps) {
     const [visualization, setVisualization] = useState<boolean>(false)
+    const isMedium = useIsMedium()
     const [message, setMessage] = useState<MessageProps>({
         title: "",
         message: "",
@@ -103,7 +105,7 @@ export default function AddMessage({ setAddMessage, messageToEdit, setUpdateScre
             <Flex position="fixed" w="100%" h="100%" justifyContent="end" alignItems="center" zIndex={3000}>
                 <motion.div onClick={() => setAddMessage(false)} style={{ width: "100%", height: "100%", background: "rgba(0, 0, 0, 0.8)", position: "absolute", zIndex: 3001 }}>
                 </motion.div>
-                <motion.div style={{ background: "#fff", height: "100vh", width: "35vw", display: "flex", justifyContent: "center", alignItems: "center", zIndex: 3003 }} initial={{ x: 350, opacity: 0 }} animate="render" variants={animations}>
+                <motion.div style={{ background: "#fff", height: "100vh", width: isMedium ? "75vw" : "35vw", display: "flex", justifyContent: "center", alignItems: "center", zIndex: 3003 }} initial={{ x: 350, opacity: 0 }} animate="render" variants={animations}>
                     <Flex flexDir="column" alignItems="center" h="70%" w="80%" gap="10px" onClick={edit}>
                         <Heading  >{messageToEdit ? "Editar Mensagem" : "Adicionar Mensagem"} </Heading>
                         <motion.form style={{ width: "100%", display: "flex", flexDirection: "column", gap: "10px", marginTop: "10px" }}>
