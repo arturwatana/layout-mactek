@@ -121,7 +121,7 @@ export default function NavBar({ setOpenBurger }: NavBarProps) {
             </ListItem>
             {words.map((word, index) => {
                 if(word.page == page()){
-                  return <ListItem key={index} className={word.class} onClick={((e) => scrollToTarget(e))} _hover={{ color: "black", cursor: "pointer" }}>{word.name}</ListItem> 
+                  return <ListItem  _hover={{ color: "white", cursor: "pointer" }} key={index} className={word.class} onClick={((e) => scrollToTarget(e))} >{word.name}</ListItem> 
               }
             })}
             <Button fontSize={"13.1px"} borderRadius={"5px"} border={"2px solid #FBC431"} as="a" href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" h="32px" _hover={{ color: "rgba(255,255,255,0.8)", background: "#FBC431" }} p={"0 15px"} background={"none"} color={"#FBC431"} >Windows</Button>
