@@ -32,7 +32,8 @@ import { contactsRepository } from '../../Utils/ContactsDB';
   
   export default function ModalContact({ isOpen, setOpenModal }: ModalProps) {
     const [contact, setContact] = useState<ContactProps | null>(null)
-  
+    const emailRegex = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i
+    const [email, setEmail] = useState<string>("")
     const handleSubmit = async (e:any) => {
       e.preventDefault()
       setContact({
@@ -56,6 +57,7 @@ import { contactsRepository } from '../../Utils/ContactsDB';
   useEffect(() => {
     if(!contact) return 
   }, [])
+
   
     return (
       <>
@@ -74,14 +76,14 @@ import { contactsRepository } from '../../Utils/ContactsDB';
                 <Input  placeholder={"Digite seu nome"}  id="name" />
                 <FormLabel mt={3}>{"Empresa"}</FormLabel>
                 <Input placeholder={"Empresa"}  id="enterprise"   />
-                <FormLabel  mt={3}>Email</FormLabel>
-                <Input   placeholder='Email' id="email"  type='email' />
+                <FormLabel mt={3}>Email</FormLabel>
+                <Input onChange={((e:any) => setEmail(e.target.value))}   placeholder='Email' id="email"  type='email' />
                 <FormLabel mt={3} >{"Mensagem"}</FormLabel>
                 <Textarea  placeholder={"Digite uma mensagem"} id="message" />
               </FormControl>
             </ModalBody>
             <ModalFooter>
-              <Button background='#FFB800' mr={3} type='submit'>
+              <Button  isDisabled={!emailRegex.test(email)} background='#FFB800' mr={3} type='submit'>
               Submit
               </Button>
               <Button onClick={close}>Cancelar</Button>
