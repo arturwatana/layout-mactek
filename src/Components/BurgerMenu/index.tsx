@@ -77,11 +77,11 @@ export default function BurgerMenu({ setOpenBurger }: NavBarProps) {
             <Flex position={"fixed"} flexDir={"column"} w="100%" h="100%" overflow={"none"} justifyContent={"end"} alignItems={"center"} zIndex={3000}>
                 <motion.div style={{ width: "100%", height: "100%", background: "rgb(0, 0, 0, 0.8)", position: "absolute", zIndex: 3002, overflow: "hidden" }} onClick={() => languages ? setLanguages(false) :  setOpenBurger(false)}>
                 </motion.div>
-                <Flex onClick={() => languages ? setLanguages(false) :  setOpenBurger(false)} flexDir={"column"} zIndex={4000} h="55%" justifyContent={"space-between"} pb="100px">
-                <motion.div style={{  height: "40vh", color: "white", zIndex: 4003, justifyContent: "space-between", alignItems: "center", display: "flex", flexDirection: "column", gap: "15px" }}>
+                <Flex flexDir={"column"} zIndex={4000} h="55%" justifyContent={"space-between"} pb="100px">
                     <motion.div initial={{ opacity: 0, y: -20 }} variants={variants} custom={0} animate={"renderLi"} >
                         <motion.input placeholder="Search"   onChange={(e) => setSearch(e.target.value)} style={{ padding: "5px 15px", borderRadius: "20px", background: "rgb(128,128,128, 0.6)", zIndex: 5000}} />
                     </motion.div>
+                <motion.div  onClick={() => languages ? setLanguages(false) :  setOpenBurger(false)} style={{  height: "40vh", color: "white", zIndex: 4003, justifyContent: "space-between", alignItems: "center", display: "flex", flexDirection: "column", gap: "15px" }}>
                     {search.length <= 2 ? (<motion.div style={{ width: "100%", justifyContent: "center", alignItems: "center", borderRadius: "10px", display: "flex", flexDirection: "column", gap: "20px" }}>
                         <motion.a href="/"key={99} onClick={(e) => { setOpenBurger(false);scrollToTarget(e)}} initial={{ opacity: 0, y: -20 }} variants={variants} custom={0} animate={"renderLi"} style={{ cursor: "pointer", fontSize: 25 }}>Inicio</motion.a>
                         {words.map((word, index) => {
