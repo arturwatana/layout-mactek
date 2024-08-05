@@ -56,9 +56,6 @@ export default function BurgerMenu({ setOpenBurger }: NavBarProps) {
         setModules(modules)
     }, [])
 
-
-    useEffect(() => {console.log(languages)}, [languages])
-
     function page(){
         const arrayUrl = url.split("/")
         if(arrayUrl.length < 3 && arrayUrl[arrayUrl.length -1] == ''){
@@ -104,8 +101,8 @@ export default function BurgerMenu({ setOpenBurger }: NavBarProps) {
                     )}
                 </motion.div>   
                 </Flex>
-                <Flex w="80%" cursor="pointer" >
-                <motion.div  onClick={() => setLanguages(true)}style={{zIndex: 4005,margin: "30px 0 80px 0 ",  background:"rgba(255,255,255,1)", padding: "5px",  width: "80px", position:"relative", display: "flex", borderRadius: "10px",justifyContent:"center", alignItems:"center"}} initial={{ opacity: 0, y: -20 }} variants={variants} custom={4} animate={"renderLi"}  >
+                <Flex w="80%" justifyContent={"end"} cursor="pointer"  >
+                <motion.div  onClick={() => setLanguages(true)}style={{zIndex: 4005,margin: "30px 0 80px 0 ", background:"rgba(255,255,255,1)", padding: "5px",  width: "80px", position:"relative", display: "flex", borderRadius: "10px",justifyContent:"center", alignItems:"center"}} initial={{ opacity: 0, y: -20 }} variants={variants} custom={4} animate={"renderLi"}  >
                     <Image w="100px"src={BrazilFlag}/>
                 {languages ? (
                          <Flex p="5px" borderRadius={"10px"} position={"absolute"} background={"rgba(255,255,255,1)"} flexDir={"column"} alignItems={"center"} justifyContent={"space-between"}  w="80px" top={-130} minH="190px">
