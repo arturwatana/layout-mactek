@@ -68,8 +68,8 @@ export default function IndividualModule() {
               {module ? <>
                 <Flex textAlign={"left"} w={{ sm: "95%", lg: "80%" }} zIndex={500} p={{ sm: "60px 0 0 0", lg: "80px 0 0 0" }} >
                   <Flex flexDir={"column"} gap="40px">
-                    <Heading color={"#fbc431"} w="100%" textAlign={{ sm: "center", lg: "start" }} fontWeight={400} fontSize={{ sm: "42px", lg: "46px" }} >{module.name}</Heading>
-                    <Text color={"rgba(255,255,255,0.8)"} fontWeight={400} fontSize={{sm: '20px',lg:'22px'}}>{module.description}</Text>
+                    <Heading color={"#fbc431"} w="100%" textAlign={{ sm: "center", lg: "start" }} fontWeight={400} fontSize={{ sm: "40px", lg: "46px" }} >{module.name}</Heading>
+                    <Text color={"rgba(255,255,255,0.8)"} fontWeight={300} fontSize={{sm: '18px',lg:'22px'}}>{module.description}</Text>
                   </Flex>
                 </Flex>
               </> : <Flex w="40%" zIndex={500} p="120px 0 0 0" ><Text fontSize={22} color="white" textAlign={"center"}>Módulo nao encontrado, tente novamente mais tarde</Text></Flex>}
