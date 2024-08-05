@@ -25,3 +25,7 @@ body::-webkit-scrollbar-thumb {
   border: 3px solid #222;  
 }
 
+input.placeholderColor::placeholder{
+  color: white !important
+}
+

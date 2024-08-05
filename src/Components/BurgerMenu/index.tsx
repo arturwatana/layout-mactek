@@ -78,8 +78,8 @@ export default function BurgerMenu({ setOpenBurger }: NavBarProps) {
                 <motion.div style={{ width: "100%", height: "100%", background: "rgb(0, 0, 0, 0.8)", position: "absolute", zIndex: 3002, overflow: "hidden" }} onClick={() => languages ? setLanguages(false) :  setOpenBurger(false)}>
                 </motion.div>
                 <Flex flexDir={"column"} zIndex={4000} h="55%" gap="20px" justifyContent={"space-between"} pb="100px">
-                    <motion.div initial={{ opacity: 0, y: -20 }} variants={variants} custom={0} animate={"renderLi"} >
-                        <motion.input placeholder="Search"   onChange={(e) => setSearch(e.target.value)} style={{ padding: "5px 15px", borderRadius: "20px", background: "rgb(128,128,128, 0.6)", zIndex: 5000}} />
+                    <motion.div initial={{ opacity: 0, y: -20 }} color="white" variants={variants} custom={0} animate={"renderLi"} >
+                        <motion.input placeholder="Search" className="placeholderColor"  onChange={(e) => setSearch(e.target.value)} style={{ padding: "5px 15px", borderRadius: "20px", background: "rgb(128,128,128, 0.6)", zIndex: 5000}} />
                     </motion.div>
                 <motion.div  onClick={() => languages ? setLanguages(false) :  setOpenBurger(false)} style={{  height: "40vh", color: "white", zIndex: 4003, justifyContent: "space-between", alignItems: "center", display: "flex", flexDirection: "column", gap: "15px" }}>
                     {search.length <= 2 ? (<motion.div style={{ width: "100%", justifyContent: "center", alignItems: "center", borderRadius: "10px", display: "flex", flexDirection: "column", gap: "20px" }}>
@@ -105,7 +105,7 @@ export default function BurgerMenu({ setOpenBurger }: NavBarProps) {
                 </motion.div>   
                 </Flex>
                 <Flex w="80%" >
-                <motion.div  onClick={() => setLanguages(true)}style={{zIndex: 4005,margin: "50px 0 50px 0 ",  background:"rgba(255,255,255,1)", padding: "5px",  width: "80px", position:"relative", display: "flex", borderRadius: "10px",justifyContent:"center", alignItems:"center"}} initial={{ opacity: 0, y: -20 }} variants={variants} custom={4} animate={"renderLi"}  >
+                <motion.div  onClick={() => setLanguages(true)}style={{zIndex: 4005,margin: "10px 0 120px 0 ",  background:"rgba(255,255,255,1)", padding: "5px",  width: "80px", position:"relative", display: "flex", borderRadius: "10px",justifyContent:"center", alignItems:"center"}} initial={{ opacity: 0, y: -20 }} variants={variants} custom={4} animate={"renderLi"}  >
                     <Image w="100px"src={BrazilFlag}/>
                 {languages ? (
                          <Flex p="5px" borderRadius={"10px"} position={"absolute"} background={"rgba(255,255,255,1)"} flexDir={"column"} alignItems={"center"} justifyContent={"space-between"}  w="80px" top={-130} minH="190px">

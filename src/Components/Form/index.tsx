@@ -42,9 +42,9 @@ export default function Form(){
           <Flex zIndex={900} w={{ sm: "90%", lg: "80%" }} alignItems={"center"} flexDir={"column"} gap="46px" p="110px 0" >
             <Heading fontSize={"36px"} fontWeight={400} color={"rgba(255,255,255,0.8)"}>Mantenha contato com nossa equipe</Heading>
             <motion.form onSubmit={handleSubmit} style={{ display: "flex", gap: "15px", flexDirection: "column", width: "100%", alignItems: "center" }}>
-              <Input background={"rgba(255, 255, 255, 0.2)"} color={"rgba(255,255,255,0.8)"} id="name"  placeholder="Your Name (required)" />
-              <Input background={"rgba(255, 255, 255, 0.2)"} color={"rgba(255,255,255,0.8)"} id="email" placeholder="Your Name (required)" />
-              <Input background={"rgba(255, 255, 255, 0.2)"} color={"rgba(255,255,255,0.8)"} id="message" height={"120px"} />
+              <Input className="placeholderColor" background={"rgba(255, 255, 255, 0.2)"} color={"rgba(255,255,255,0.8)"} id="name"  placeholder="Your Name (Obrigatório)" />
+              <Input  className="placeholderColor" background={"rgba(255, 255, 255, 0.2)"} color={"rgba(255,255,255,0.8)"} id="email" placeholder="Your Email (Obrigatório)" />
+              <Input className="placeholderColor" background={"rgba(255, 255, 255, 0.2)"} color={"rgba(255,255,255,0.8)"} id="message" height={"120px"} />
               <Button type="submit" fontSize={"15px"} h="40px" w={{ sm: "55%", lg: "15%" }} fontWeight={500} _hover={{ color: "rgba(255,255,255,0.8)", background: "#C89C27" }} p={"0 18px"} background={"#FBC431"} color={"rgba(255,255,255,0.8)"}>Submit</Button>
             </motion.form>
           </Flex>
