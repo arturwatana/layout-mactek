@@ -1,7 +1,10 @@
-import { Flex } from "@chakra-ui/react"
+import { Flex, Image } from "@chakra-ui/react"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { ModuleProps, modulesInfo } from "../../Utils/ModulesDB"
+import BrazilFlag from "../../assets/brazil-flag-icon.svg"
+import USFlag from "../../assets/united-states-flag-icon.svg"
+import ESFlag from "../../assets/spain-country-flag-icon.svg"
 
 type NavBarProps = {
     setOpenBurger: React.Dispatch<React.SetStateAction<boolean>>,
@@ -20,6 +23,7 @@ export default function BurgerMenu({ setOpenBurger }: NavBarProps) {
     const words: WordProps[] = [{ name: "Atlantis", class: "thirdSection", page: "initial" }, { name: "A Mactek", class: "fourthSection" , page: "initial" }, { name: "Contato", class: "fifthSection", page: "initial" }, { name: "Principais Modulos", class: "secondSection", page: "modulos" }, { name: "Contato", class: "fifthSection", page: "modulos" }, { name: "Vantagens", class: "secondSection", page: "/modulos/individual" }, { name: "Contato", class: "fifthSection", page: "/modulos/individual" } ]
     const [search, setSearch] = useState<string>("")
     const [modules, setModules] = useState<ModuleProps[]>()
+    const [languages, setLanguages] = useState<boolean>(false)
     const url = window.location.pathname
 
     const variants = {
@@ -52,6 +56,9 @@ export default function BurgerMenu({ setOpenBurger }: NavBarProps) {
         setModules(modules)
     }, [])
 
+
+    useEffect(() => {console.log(languages)}, [languages])
+
     function page(){
         const arrayUrl = url.split("/")
         if(arrayUrl.length < 3 && arrayUrl[arrayUrl.length -1] == ''){
@@ -67,12 +74,13 @@ export default function BurgerMenu({ setOpenBurger }: NavBarProps) {
 
     return (
         <>
-            <Flex position={"fixed"} w="100%" h="100%" overflow={"none"} justifyContent={"center"} alignItems={"center"} zIndex={3000}>
-                <motion.div style={{ width: "100%", height: "100%", background: "rgb(0, 0, 0, 0.8)", position: "absolute", zIndex: 3002, overflow: "hidden" }} onClick={() => setOpenBurger(false)}>
+            <Flex position={"fixed"} flexDir={"column"} w="100%" h="100%" overflow={"none"} justifyContent={"end"} alignItems={"center"} zIndex={3000}>
+                <motion.div style={{ width: "100%", height: "100%", background: "rgb(0, 0, 0, 0.8)", position: "absolute", zIndex: 3002, overflow: "hidden" }} onClick={() => languages ? setLanguages(false) :  setOpenBurger(false)}>
                 </motion.div>
-                <motion.div style={{ position: "fixed", maxHeight: "40vh", color: "white", zIndex: 3003, justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column", gap: "15px" }}>
+                <Flex onClick={() => languages ? setLanguages(false) :  setOpenBurger(false)} flexDir={"column"} zIndex={4000} h="55%" justifyContent={"space-between"} pb="100px">
+                <motion.div style={{  height: "40vh", color: "white", zIndex: 4003, justifyContent: "space-between", alignItems: "center", display: "flex", flexDirection: "column", gap: "15px" }}>
                     <motion.div initial={{ opacity: 0, y: -20 }} variants={variants} custom={0} animate={"renderLi"} >
-                        <motion.input placeholder="Search" onChange={(e) => setSearch(e.target.value)} style={{ padding: "5px 15px", borderRadius: "20px", background: "rgb(128,128,128, 0.6)" }} />
+                        <motion.input placeholder="Search"   onChange={(e) => setSearch(e.target.value)} style={{ padding: "5px 15px", borderRadius: "20px", background: "rgb(128,128,128, 0.6)", zIndex: 5000}} />
                     </motion.div>
                     {search.length <= 2 ? (<motion.div style={{ width: "100%", justifyContent: "center", alignItems: "center", borderRadius: "10px", display: "flex", flexDirection: "column", gap: "20px" }}>
                         <motion.a href="/"key={99} onClick={(e) => { setOpenBurger(false);scrollToTarget(e)}} initial={{ opacity: 0, y: -20 }} variants={variants} custom={0} animate={"renderLi"} style={{ cursor: "pointer", fontSize: 25 }}>Inicio</motion.a>
@@ -90,11 +98,24 @@ export default function BurgerMenu({ setOpenBurger }: NavBarProps) {
                             {modules?.map((module, index) => (
                                 module.title.toLowerCase().includes(search.toLowerCase()) ? (<motion.a href={module.href} key={index} initial={{ opacity: 0, y: -20 }} variants={variants} custom={0} animate={"renderLi"} style={{ cursor: "pointer", fontSize: 25, textAlign: "center" }}>{module.title}</motion.a>) : null
                             ))}
-
+                        
 
                         </motion.ul>
                     )}
                 </motion.div>
+                </Flex>
+                <Flex w="80%" border="1px solid red">
+                <motion.div  onClick={() => setLanguages(true)}style={{zIndex: 4005,margin: "50px 0 50px 0 ",  background:"rgba(255,255,255,1)", padding: "5px",  width: "25%", position:"relative", display: "flex", borderRadius: "10px",justifyContent:"center", alignItems:"center"}} initial={{ opacity: 0, y: -20 }} variants={variants} custom={4} animate={"renderLi"}  >
+                    <Image w="100%" src={BrazilFlag}/>
+                {languages ? (
+                         <Flex p="5px" borderRadius={"10px"} position={"absolute"} background={"rgba(255,255,255,1)"} flexDir={"column"} alignItems={"center"} gap="10px" justifyContent={"space-between"} h="100%" w="100%" top={-170} minH="230px">
+                         <Image w="90%" src={BrazilFlag}/>
+                         <Image w="90%" src={USFlag}/>
+                         <Image w="90%" src={ESFlag}/>
+                     </Flex>
+                ) : null}
+                </motion.div>
+                </Flex>
             </Flex>
         </>
     )

@@ -43,7 +43,7 @@ export default function ScrollToTopBtn({ dismont, render }: FixedScrollBtnProps)
         });
     }
     return (
-        <motion.div onClick={scrollToTop} initial={{ opacity: 0, display: "none" }} animate={dismont ? "dismont" : render ? "render" : ""} variants={variants} style={{cursor:"pointer", width: "3em", height: "3em", position: "fixed", top: "85%", left: isMedium ? "85%" : "95%", zIndex: 5000, background: "#FBC431", borderRadius: "20px" }} >
+        <motion.div onClick={scrollToTop} initial={{ opacity: 0, display: "none" }} animate={dismont ? "dismont" : render ? "render" : ""} variants={variants} style={{cursor:"pointer", width: "3em", height: "3em", position: "fixed", top: "85%", left: isMedium ? "85%" : "95%", zIndex: 2900, background: "#FBC431", borderRadius: "20px" }} >
             <Flex transform={"rotate(45deg)"} h="100%" justifyContent={"center"} alignItems={"center"} w={"100%"}>
                 <RxArrowTopLeft fontSize={"30px"} />
 
