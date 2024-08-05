@@ -102,16 +102,16 @@ export default function BurgerMenu({ setOpenBurger }: NavBarProps) {
 
                         </motion.ul>
                     )}
-                </motion.div>
+                </motion.div>   
                 </Flex>
                 <Flex w="80%" border="1px solid red">
-                <motion.div  onClick={() => setLanguages(true)}style={{zIndex: 4005,margin: "50px 0 50px 0 ",  background:"rgba(255,255,255,1)", padding: "5px",  width: "25%", position:"relative", display: "flex", borderRadius: "10px",justifyContent:"center", alignItems:"center"}} initial={{ opacity: 0, y: -20 }} variants={variants} custom={4} animate={"renderLi"}  >
-                    <Image w="100%" src={BrazilFlag}/>
+                <motion.div  onClick={() => setLanguages(true)}style={{zIndex: 4005,margin: "50px 0 50px 0 ",  background:"rgba(255,255,255,1)", padding: "5px",  width: "100px", position:"relative", display: "flex", borderRadius: "10px",justifyContent:"center", alignItems:"center"}} initial={{ opacity: 0, y: -20 }} variants={variants} custom={4} animate={"renderLi"}  >
+                    <Image w="150px"src={BrazilFlag}/>
                 {languages ? (
-                         <Flex p="5px" borderRadius={"10px"} position={"absolute"} background={"rgba(255,255,255,1)"} flexDir={"column"} alignItems={"center"} gap="10px" justifyContent={"space-between"} h="100%" w="100%" top={-170} minH="230px">
-                         <Image w="90%" src={BrazilFlag}/>
-                         <Image w="90%" src={USFlag}/>
-                         <Image w="90%" src={ESFlag}/>
+                         <Flex p="5px" borderRadius={"10px"} position={"absolute"} background={"rgba(255,255,255,1)"} flexDir={"column"} alignItems={"center"} gap="10px" justifyContent={"space-between"}  h="100px" w="100px" top={-160} minH="230px">
+                         <Image w="150px" src={BrazilFlag} onClick={(() => setOpenBurger(false))}/>
+                         <Image w="150px" src={USFlag} onClick={(() => setOpenBurger(false))}/>
+                         <Image w="150px" src={ESFlag} onClick={(() => setOpenBurger(false))}/>
                      </Flex>
                 ) : null}
                 </motion.div>
