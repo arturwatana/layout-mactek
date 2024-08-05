@@ -74,10 +74,10 @@ export default function BurgerMenu({ setOpenBurger }: NavBarProps) {
 
     return (
         <>
-            <Flex position={"fixed"} flexDir={"column"} w="100%" h="100%" overflow={"none"} justifyContent={"end"} alignItems={"center"} zIndex={3000}>
+            <Flex position={"fixed"} flexDir={"column"} w="100%" h="100%" minH="100vh" overflow={"none"} justifyContent={"end"} alignItems={"center"} zIndex={3000}>
                 <motion.div style={{ width: "100%", height: "100%", background: "rgb(0, 0, 0, 0.8)", position: "absolute", zIndex: 3002, overflow: "hidden" }} onClick={() => languages ? setLanguages(false) :  setOpenBurger(false)}>
                 </motion.div>
-                <Flex flexDir={"column"} zIndex={4000} h="55%" gap="20px" justifyContent={"space-between"} pb="100px">
+                <Flex flexDir={"column"} zIndex={4000} minH="500px" h="55%" gap="20px" justifyContent={"space-between"} pb="100px" >
                     <motion.div initial={{ opacity: 0, y: -20 }} color="white" variants={variants} custom={0} animate={"renderLi"} >
                         <motion.input placeholder="Search" className="placeholderColor"  onChange={(e) => setSearch(e.target.value)} style={{ padding: "5px 15px", borderRadius: "20px", background: "rgb(128,128,128, 0.6)", zIndex: 5000}} />
                     </motion.div>
