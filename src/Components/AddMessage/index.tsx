@@ -1,7 +1,7 @@
 import { Button, Flex, Heading, Input, Textarea } from "@chakra-ui/react";
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react";
-import { messagesDBMemory } from "../../Utils/MessagesDB";
+import { messagesDB } from "../../Utils/MessagesDB";
 import { toast } from "react-toastify";
 import lodash from "lodash"
 import dayjs from "dayjs";
@@ -79,7 +79,7 @@ export default function AddMessage({ setAddMessage, messageToEdit, setUpdateScre
             }
             try {
                 validateMessageProps(message)
-                await messagesDBMemory.editMessage(message.id || "", message)
+                await messagesDB.editMessage(message.id || "", message)
                 toast.success("Mensagem editada com sucesso")
                 setAddMessage(false) 
                 setUpdateScreen(true)
@@ -89,7 +89,7 @@ export default function AddMessage({ setAddMessage, messageToEdit, setUpdateScre
         } else {
             try {
                 validateMessageProps(message)
-                await messagesDBMemory.add(message)
+                await messagesDB.add(message)
                 toast.success("Mensagem adicionada com sucesso")
                 setAddMessage(false) 
                 setUpdateScreen(true)
@@ -117,9 +117,6 @@ export default function AddMessage({ setAddMessage, messageToEdit, setUpdateScre
                                 onChange={(e) => setMessage((prev) => ({
                                     ...prev,
                                     title: e.target.value || "",
-                                    message: prev?.message ?? "",
-                                    startDate: prev?.startDate ?? "",
-                                    endDate: prev?.endDate ?? "",
                                 }))}
                             />
                             <motion.label htmlFor="startDate">Data de inicio:</motion.label>
@@ -130,10 +127,7 @@ export default function AddMessage({ setAddMessage, messageToEdit, setUpdateScre
                                 type="date"
                                 onChange={(e) => setMessage((prev) => ({
                                     ...prev,
-                                    title: prev?.title || "",
-                                    message: prev?.message ?? "",
                                     startDate: e.target.value ?? "",
-                                    endDate: prev?.endDate ?? "",
                                 }))}
                             />
                             <motion.label htmlFor="endDate">Data de termino:</motion.label>
@@ -144,9 +138,6 @@ export default function AddMessage({ setAddMessage, messageToEdit, setUpdateScre
                                 type="date"
                                 onChange={(e) => setMessage((prev) => ({
                                     ...prev,
-                                    title: prev?.title || "",
-                                    message: prev?.message ?? "",
-                                    startDate: prev?.startDate ?? "",
                                     endDate: e.target.value ?? "",
                                 }))}
                             />
@@ -157,27 +148,21 @@ export default function AddMessage({ setAddMessage, messageToEdit, setUpdateScre
                                 value={message?.message}
                                 onChange={(e) => setMessage((prev) => ({
                                     ...prev,
-                                    title: prev?.title || "",
                                     message: e.target.value ?? "",
-                                    startDate: prev?.startDate ?? "",
-                                    endDate: prev?.endDate ?? "",
                                 }))}
                             />
-                            <Flex gap="20px" >
+                            <Flex gap="10px" >
                             <motion.label htmlFor="isActive" style={{fontWeight: 500}}>Ativa:</motion.label>
                             <motion.input
+                                style={{accentColor: "rgb(251, 196, 49)", width: "17px"}}
                                 id="isActive"
                                 disabled={visualization}
                                 type="checkbox"
                                 onChange={(e) => setMessage((prev) => ({
                                     ...prev,
-                                    title: prev?.title || "",
-                                    message: prev?.message ?? "",
-                                    startDate: prev?.startDate ?? "",
-                                    endDate: prev?.endDate ?? "",
                                     isActive: e.target.checked
                                 }))}
-                                checked={message.isActive}
+                                checked={message.isActive || false}
                             />
 
                             </Flex>

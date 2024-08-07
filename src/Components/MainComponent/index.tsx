@@ -19,7 +19,7 @@ import FixedNavBar from "../FixedNavBar"
 import BurgerMenu from "../BurgerMenu"
 import Footer from "../Footer"
 import { MessageProps } from "../AddMessage"
-import { messagesDBMemory } from "../../Utils/MessagesDB"
+import { messagesDB } from "../../Utils/MessagesDB"
 import ScrollToTopBtn from "../ScrollToTopBtn"
 import Form from "../Form"
 import { ToastContainer } from "react-toastify"
@@ -79,7 +79,7 @@ export default function MainComponent() {
   }, []);
 
   async function getMessages() {
-    const message = await messagesDBMemory.getTodaysMessage()
+    const message = await messagesDB.getTodaysMessage()
     setMessagesToday(message)
     return
   }

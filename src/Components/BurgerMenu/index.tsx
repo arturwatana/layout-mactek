@@ -31,7 +31,7 @@ export default function BurgerMenu({ setOpenBurger }: NavBarProps) {
             x: 0,
             opacity: 1
         },
-        hide: {
+        hide: { 
             x: 1000,
         },
         hideLayer: {

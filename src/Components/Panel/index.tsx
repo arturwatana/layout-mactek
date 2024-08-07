@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import AddMessage, { MessageProps } from "../AddMessage";
 import MainImg from "../../assets/main-demo1.jpg"
 import MactekLogo from "../../assets/logo-mactek.png"
-import { messagesDBMemory } from "../../Utils/MessagesDB";
+import { messagesDB } from "../../Utils/MessagesDB";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
 
@@ -38,7 +38,7 @@ export default function Panel() {
   }
 
   async function getMessages() {
-    const messagesDb = await messagesDBMemory.getMessages()
+    const messagesDb = await messagesDB.getMessages()
     setMessages(messagesDb)
   }
 
@@ -99,8 +99,8 @@ export default function Panel() {
                         </Tr>
                       </Thead>
                       <Tbody>
-                        {messages.map(message => (
-                          <Tr _hover={{ background: "rgb(182,192,192, 1)" }} cursor={"pointer"} onClick={() => { setDatePattern(message); setAddMessage(true); }}>
+                        {messages.map((message, index) => (
+                          <Tr _hover={{ background: "rgb(182,192,192, 1)" }} key={index} cursor={"pointer"} onClick={() => { setDatePattern(message); setAddMessage(true); }}>
                             <Td borderRight={"1px solid gray"} >
                               {message.title}
                             </Td>

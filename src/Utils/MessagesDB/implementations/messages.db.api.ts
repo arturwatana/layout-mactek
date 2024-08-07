@@ -21,7 +21,7 @@ export class MessagesAPIDB implements IMessagesDB{
 
     async editMessage(messageId: string, message: MessageProps): Promise<void> {
          try{
-            await axios.post(`http://localhost:3030/messages/${messageId}`, message)
+            await axios.put(`http://localhost:3030/messages/${messageId}`, message)
          } catch(err: any) {
              throw new Error(err.message) 
          }
