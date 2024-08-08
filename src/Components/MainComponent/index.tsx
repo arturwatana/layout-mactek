@@ -36,7 +36,6 @@ export default function MainComponent() {
       opacity: 1,
       display: "flex",
       minHeight: isMedium ? "60px" : "30px",
-      height: "100%",
       y: 0,
       transition: {
         duration: 0.5,
@@ -46,7 +45,6 @@ export default function MainComponent() {
     showText: {
       opacity: 1,
       display: "block",
-      height: "100%",
       transition: {
         delay: 1.25
       }
